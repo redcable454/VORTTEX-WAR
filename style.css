@@ -2143,3 +2143,12 @@ html,body,#app{height:100vh!important}
   #home .lobby-playbar{bottom:6px}
   #home .welcome-actions{bottom:8px}
 }
+
+/* El botón principal queda anclado a la pantalla, no al bloque de texto */
+#home .welcome-actions{position:fixed;right:clamp(18px,3vw,42px);bottom:clamp(20px,5vh,48px)}
+@media (orientation:landscape) and (max-height:600px){
+  #home .welcome-actions{right:12px;bottom:12px}
+}
+@media (orientation:landscape) and (max-height:390px){
+  #home .welcome-actions{right:8px;bottom:8px}
+}
