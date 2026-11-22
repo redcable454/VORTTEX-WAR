@@ -30,27 +30,25 @@ function renderRoulette(root){const today=new Date().toISOString().slice(0,10),u
 function renderFriends(root){const note=document.createElement('div');note.className='notice';note.textContent='El modo multijugador y las invitaciones en línea todavía necesitan un servidor. Por ahora puedes configurar tu nombre de jugador y compartir el enlace del juego.';root.append(note);const name=document.createElement('input');name.value=save.playerName;name.maxLength=18;name.placeholder='Tu nombre de jugador';name.className='name-input';root.append(name);row(root,'Nombre de jugador','Este nombre se muestra en tu perfil.','GUARDAR',false,()=>{save.playerName=(name.value.trim()||'Player').slice(0,18);persist();openPanel('friends')});row(root,'Compartir VORTTEX WAR','Envía el enlace del juego a tus amigos.','COMPARTIR',false,()=>{const url=location.href;if(navigator.share)navigator.share({title:'VORTTEX WAR',url}).catch(()=>{});else if(navigator.clipboard)navigator.clipboard.writeText(url).then(()=>alert('Enlace copiado')).catch(()=>alert(url));else alert(url)})}
 function renderProfile(root){
  root.className='profile-dashboard';
- const level=1+Math.floor(save.xp/500),progress=save.xp%500,rank=level>=20?'ÉLITE':level>=10?'DIAMANTE':level>=5?'ORO':'RECLUTA';
- const head=document.createElement('div');head.className='profile-game-head';
- head.innerHTML='<div class="profile-overline">VORTTEX WAR <span>／</span> IDENTIDAD DE COMBATE</div><div class="profile-heading">PERFIL <em>DE JUGADOR</em></div>';
- const badge=document.createElement('span');badge.className='profile-season';badge.textContent='TEMPORADA 01';head.append(badge);root.append(head);
- const hero=document.createElement('section');hero.className='profile-hero-2d';
- const art=document.createElement('div');art.className='profile-hero-art';art.innerHTML='<div class="profile-character-aura"></div>'+fighterMarkup(save.selected,'profile-fighter');
- const info=document.createElement('div');info.className='profile-hero-info';
- const tag=document.createElement('span');tag.className='profile-tag';tag.textContent='JUGADOR'; 
- const name=document.createElement('h3');name.textContent=save.playerName||'Jugador';
- const id=document.createElement('div');id.className='profile-player-id';id.textContent='ID DE JUGADOR · VT-'+String((save.playerName||'PLAYER').split('').reduce((a,c)=>a+c.charCodeAt(0),0)).padStart(5,'0');
- const rankline=document.createElement('div');rankline.className='profile-rank-line';rankline.innerHTML='<span class="profile-rank-emblem">★</span><span><b>'+rank+'</b><small>RANGO ACTUAL · NIVEL '+level+'</small></span>';
- const char=document.createElement('p');char.className='profile-main-character';char.textContent='GUERRERO PRINCIPAL  /  '+save.selected;
- info.append(tag,name,id,rankline,char);hero.append(art,info);root.append(hero);
- const xp=document.createElement('section');xp.className='profile-xp-block';
- xp.innerHTML='<div class="profile-xp-top"><b>PROGRESO DE NIVEL</b><span>NIVEL '+level+'</span></div><div class="profile-xp-track"><i style="width:'+Math.round(progress/500*100)+'%"></i></div><div class="profile-xp-bottom"><span>'+progress+' XP</span><span>500 XP</span></div>';
- root.append(xp);
- const stats=document.createElement('section');stats.className='profile-stats-grid';
- [[''+save.wins,'VICTORIAS','🏆'],[''+save.xp,'EXPERIENCIA','⚡'],[''+save.coins,'MONEDAS','🪙'],[''+save.gems,'DIAMANTES','💎']].forEach(([value,label,icon])=>{const card=document.createElement('div');card.className='profile-stat';const ico=document.createElement('span');ico.textContent=icon;const val=document.createElement('b');val.textContent=value;const small=document.createElement('small');small.textContent=label;card.append(ico,val,small);stats.append(card)});
- root.append(stats);
- const footer=document.createElement('div');footer.className='profile-footer-line';footer.innerHTML='<span>VORTTEX WAR</span><span>DATOS GUARDADOS EN ESTE DISPOSITIVO</span>';root.append(footer);
- const reset=document.createElement('button');reset.className='profile-reset';reset.textContent='REINICIAR PROGRESO';reset.onclick=()=>{if(confirm('¿Seguro que quieres borrar tu progreso?')){localStorage.removeItem('vorttex_save');location.reload()}};root.append(reset);
+ const level=1+Math.floor(save.xp/500),progress=save.xp%500;
+ const rank=level>=20?'HEROICO':level>=10?'DIAMANTE':level>=5?'ORO':'BRONCE';
+ const name=save.playerName||'JUGADOR';
+ root.innerHTML='';
+ const stage=document.createElement('div');stage.className='ff-profile-stage';
+ const top=document.createElement('div');top.className='ff-profile-top';
+ top.innerHTML='<div class="ff-profile-kicker">VORTTEX WAR <i>•</i> PERFIL DE COMBATE</div><div class="ff-profile-season">TEMPORADA 01</div>';
+ const title=document.createElement('div');title.className='ff-profile-title';title.textContent='PERFIL';
+ const hero=document.createElement('div');hero.className='ff-profile-hero';
+ const art=document.createElement('div');art.className='ff-profile-art';art.innerHTML=fighterMarkup(save.selected,'ff-profile-fighter');
+ const details=document.createElement('div');details.className='ff-profile-details';
+ details.innerHTML='<div class="ff-profile-label">NOMBRE DEL JUGADOR</div><div class="ff-profile-name"></div><div class="ff-profile-id"></div><div class="ff-profile-rank"><span class="ff-rank-medal">★</span><span><b>'+rank+'</b><small>RANGO ACTUAL</small></span></div><div class="ff-profile-level"><b>NIVEL '+level+'</b><span>'+progress+' / 500 XP</span></div><div class="ff-profile-xp"><i style="width:'+Math.round(progress/500*100)+'%"></i></div>';
+ details.querySelector('.ff-profile-name').textContent=name;
+ details.querySelector('.ff-profile-id').textContent='ID: VT-'+String(name.split('').reduce((a,c)=>a+c.charCodeAt(0),0)).padStart(5,'0');
+ hero.append(art,details);
+ const stats=document.createElement('div');stats.className='ff-profile-stats';
+ [[''+save.wins,'VICTORIAS','🏆'],[''+save.xp,'XP TOTAL','⚡'],[''+save.coins,'ORO','🪙'],[''+save.gems,'DIAMANTES','💎']].forEach(([v,l,ic])=>{const el=document.createElement('div');el.className='ff-profile-stat';el.innerHTML='<span>'+ic+'</span><b>'+v+'</b><small>'+l+'</small>';stats.append(el)});
+ const foot=document.createElement('div');foot.className='ff-profile-footer';foot.textContent='GUERRERO EQUIPADO  ·  '+save.selected;
+ stage.append(top,title,hero,stats,foot);root.append(stage);
 }
 function enterLobby(guest=false){const name=$('loginName').value.trim();const pin=$('loginPin').value.trim();if(!guest&&(!name||!pin)){$('loginMessage').textContent='Escribe tu nombre y clave para continuar.';return}save.playerName=(guest?(name||'Invitado'):name).slice(0,18);persist();$('loginScreen').classList.add('hidden');$('startScreen').classList.add('hidden');show(home);if(document.documentElement.requestFullscreen)document.documentElement.requestFullscreen().then(()=>{if(screen.orientation&&screen.orientation.lock)screen.orientation.lock('landscape').catch(()=>{})}).catch(()=>{})} $('loginEnter').onclick=()=>enterLobby(false);$('guestEnter').onclick=()=>enterLobby(true);const socialNotice=provider=>{$('loginMessage').textContent='El acceso con '+provider+' se mostrará aquí cuando conectemos la autenticación. Por ahora puedes entrar como invitado.'};$('googleLogin').onclick=()=>socialNotice('Google');$('facebookLogin').onclick=()=>socialNotice('Facebook');$('loginPin').addEventListener('keydown',e=>{if(e.key==='Enter')enterLobby(false)});$('loginName').addEventListener('keydown',e=>{if(e.key==='Enter')$('loginPin').focus()});$('startEnter').onclick=()=>{$('startScreen').classList.add('hidden');show(home)};$('play').onclick=()=>{show(game);requestGameFullscreen();startGame()};$('trainingMode').onclick=()=>$('play').click();$('railHome').onclick=()=>{active=false;paused=false;keys={};touchAxis=0;fireHeld=false;cancelAnimationFrame(raf);show(home)};$('back').onclick=()=>{active=false;paused=false;keys={};touchAxis=0;fireHeld=false;dashFrames=0;cancelAnimationFrame(raf);show(home);renderResources()};$('pause').onclick=()=>{paused=!paused;$('pause').textContent=paused?'▶':'Ⅱ';if(paused){keys={};touchAxis=0;fireHeld=false;dashFrames=0}};$('homeBtn').onclick=()=>{active=false;paused=false;keys={};touchAxis=0;fireHeld=false;cancelAnimationFrame(raf);show(home)};$('openCharacters').onclick=()=>openPanel('characters');$('profileBtn').onclick=()=>openPanel('profile');$('panelBack').onclick=()=>show(home);document.querySelectorAll('[data-panel]').forEach(b=>b.onclick=()=>openPanel(b.dataset.panel));$('sound').onclick=()=>{save.sound=!save.sound;$('sound').textContent=save.sound?'♫':'🔇';persist()};
 function requestGameFullscreen(){const target=$('game');if(!document.fullscreenElement&&target.requestFullscreen)target.requestFullscreen().then(()=>{if(screen.orientation&&screen.orientation.lock)screen.orientation.lock('landscape').catch(()=>{})}).catch(()=>{});else if(screen.orientation&&screen.orientation.lock)screen.orientation.lock('landscape').catch(()=>{})}
