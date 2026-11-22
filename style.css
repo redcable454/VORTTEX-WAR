@@ -1597,3 +1597,65 @@ html,body,#app{height:100vh!important}
  #game .dash-action{width:34px!important;height:34px!important}
  #game .fire-action{width:53px!important;height:53px!important}
 }
+
+
+/* REESCALA GLOBAL: lobby y partida con proporciones compactas de videojuego */
+@media(max-width:900px){
+ .top{height:42px!important;padding:0 9px 0 50px!important}
+ .top .brand b{font-size:13px!important;letter-spacing:.5px!important}
+ .top .brand small{font-size:5px!important;letter-spacing:1px!important}
+ .top .mark{width:28px!important;height:28px!important;font-size:15px!important}
+ .resources{gap:4px!important}
+ .resources>span,.resources>button{padding:3px 5px!important;font-size:9px!important}
+ .resources .avatar{width:27px!important;height:27px!important}
+ .lobby-rail{top:49px!important;bottom:7px!important;left:5px!important;width:34px!important;padding:4px 2px!important;gap:4px!important}
+ .rail-label{display:none!important}
+ .rail-item{width:28px!important;height:28px!important;min-height:28px!important}
+ .rail-item span{font-size:14px!important}
+ .arena-topline{top:49px!important;left:46px!important;right:7px!important;font-size:8px!important}
+ .arena-season{font-size:8px!important}.arena-status{font-size:7px!important}
+ .lobby-character-stage .fighter-svg{height:68vh!important;max-height:430px!important;max-width:34vw!important}
+ .stage-ring{width:min(42vh,330px)!important}
+ .character-nameplate{bottom:8px!important;font-size:8px!important}.stage-level{font-size:10px!important}
+ .welcome-actions{right:12px!important;bottom:12px!important}
+ .welcome-actions .primary{min-width:112px!important;min-height:34px!important;padding:5px 10px!important;font-size:10px!important;letter-spacing:1px!important}
+}
+@media(max-width:900px) and (orientation:landscape){
+ .top{height:34px!important;padding-left:45px!important}
+ .lobby-rail{top:40px!important;width:30px!important}
+ .rail-item{width:25px!important;height:25px!important;min-height:25px!important}
+ .lobby-character-stage .fighter-svg{height:66vh!important;max-height:310px!important;max-width:30vw!important}
+ .stage-ring{width:min(38vh,245px)!important}
+ .arena-topline{top:40px!important;left:41px!important}
+ .welcome-actions{right:9px!important;bottom:8px!important}
+ .welcome-actions .primary{min-width:98px!important;min-height:30px!important;font-size:9px!important}
+}
+@media(max-height:430px) and (orientation:landscape){
+ .lobby-character-stage .fighter-svg{height:64vh!important;max-height:255px!important;max-width:28vw!important}
+ .character-nameplate{bottom:2px!important}
+}
+/* Controles discretos: no tapan el campo de batalla */
+#game .game-hud{height:32px!important;padding:2px 8px!important;gap:4px!important}
+#game .hud-left,#game .hud-right{gap:4px!important}
+#game .hud-left>span,#game #objective{padding:2px 5px!important;font-size:9px!important}
+#game .game-brand{font-size:10px!important}
+#game .hud-right button{width:25px!important;height:25px!important;font-size:12px!important}
+#game .touch-controls{height:21vh!important;max-height:92px!important;padding:0 10px 5px!important}
+#game .joystick{width:68px!important;height:68px!important}
+#game .stick-knob{width:36%!important;height:36%!important}
+#game .action-zone{gap:7px!important}
+#game .game-action{width:37px!important;height:37px!important;font-size:15px!important}
+#game .game-action small{font-size:5px!important}
+#game .jump-action{margin-bottom:8px!important}
+#game .dash-action{width:31px!important;height:31px!important;margin-bottom:2px!important}
+#game .fire-action{width:47px!important;height:47px!important;margin-bottom:4px!important;font-size:19px!important}
+@media(max-height:430px) and (orientation:landscape){
+ #game .game-hud{height:28px!important;padding:2px 6px!important}
+ #game .hud-left>span,#game #objective{font-size:8px!important;padding:2px 4px!important}
+ #game .hud-right button{width:23px!important;height:23px!important}
+ #game .touch-controls{height:20vh!important;max-height:72px!important;padding:0 8px 3px!important}
+ #game .joystick{width:58px!important;height:58px!important}
+ #game .game-action{width:32px!important;height:32px!important;font-size:13px!important}
+ #game .dash-action{width:27px!important;height:27px!important}
+ #game .fire-action{width:41px!important;height:41px!important;font-size:17px!important}
+}
