@@ -2519,3 +2519,15 @@ body #app > #home.lobby-shell > .lobby-main{
   #home .welcome-copy{top:34px!important}
   #home .welcome-copy p,#home .player-stats{display:none!important}
 }
+
+
+/* Corrección final de capas y posiciones tras prueba en Chromium */
+#loginScreen:not(.hidden) ~ header.top{display:none!important}
+body.game-active header.top,body.panel-active header.top{display:none!important}
+body #app > #home.lobby-shell > .lobby-rail{
+  transform:none!important;translate:none!important;margin:0!important;
+  align-self:stretch!important;top:auto!important;bottom:auto!important;
+}
+#home .lobby-rail .rail-item{transform:none!important}
+#home .welcome-copy{height:auto!important;min-height:0!important}
+#home .lobby-playbar{display:grid!important}
