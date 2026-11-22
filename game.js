@@ -50,6 +50,20 @@ function fighterMarkup(id='VORTEX',cls='fighter-svg'){
  <ellipse cx="120" cy="104" rx="12" ry="10" fill="${p.skin}"/>
  <path d="M119 109Q103 101 94 112Q88 125 107 125Q117 124 120 117Q123 124 136 125Q153 125 146 112Q138 101 121 109Z" fill="#55352c"/>
  <path d="M107 133Q120 139 133 133" fill="none" stroke="#9b5148" stroke-width="3"/>
+ <!-- RIFLE EVOLUTIVO ORIGINAL: metal, núcleo de energía y aletas -->
+ <g transform="translate(160 176) rotate(-8 30 10)" stroke="#15243a" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+  <path d="M5 5L19 -1L48 1L65 7L64 18L43 20L19 17L6 14Z" fill="#26384e"/>
+  <path d="M19 1L43 2L43 17L18 16Z" fill="${p.weapon}"/>
+  <path d="M43 5L72 7L78 11L72 16L43 16Z" fill="#b8d9e8"/>
+  <path d="M72 8L91 9L94 12L91 15L72 15Z" fill="${p.glow}" stroke-width="3"/>
+  <path d="M9 4L0 -7L15 -3L22 2Z" fill="${p.accent}" stroke-width="3"/>
+  <path d="M12 16L3 27L22 20L26 17Z" fill="${p.accent}" stroke-width="3"/>
+  <path d="M27 17L30 30L40 19Z" fill="${p.weapon}" stroke-width="3"/>
+  <path d="M25 4L37 7L37 13L25 15Z" fill="${p.glow}" stroke="none"/>
+  <path d="M24 19L20 34L31 31L34 20Z" fill="#18263b"/>
+  <path d="M33 6L40 9L40 13L33 15Z" fill="#fff" stroke="none"/>
+  <path d="M-2 8L-9 11L-4 18L7 17L8 8Z" fill="#fff4df"/>
+ </g>
  </g></svg>`;
 }
 
@@ -131,6 +145,19 @@ ctx.strokeStyle='#422b2b';ctx.lineWidth=2.5;ctx.beginPath();ctx.moveTo(-9,-32);c
 // nariz y bigote característico
 ctx.beginPath();ctx.ellipse(0,-18,4.5,3.5,0,0,Math.PI*2);ctx.fillStyle=skin;ctx.fill();ctx.strokeStyle=ink;ctx.lineWidth=1.5;ctx.stroke();
 poly([[-1,-16],[-7,-19],[-11,-16],[-10,-12],[-4,-12],[0,-15],[4,-12],[10,-12],[11,-16],[7,-19],[1,-16]],'#55352c',1.5);
+// Rifle evolutivo original, visible en el lobby de combate y durante la partida.
+const weaponColor=enemy?'#ff526d':({VORTEX:'#21e6ed',NOVA:'#b66cff',BLAZE:'#ff493d',SHADOW:'#7a62ff'}[save.selected]||'#21e6ed');
+const weaponGlow=enemy?'#ffc05b':({VORTEX:'#8fffff',NOVA:'#f3a8ff',BLAZE:'#ffcb55',SHADOW:'#c8a7ff'}[save.selected]||'#8fffff');
+ctx.save();ctx.translate(15,8);ctx.rotate(-.08);
+ctx.shadowColor=weaponGlow;ctx.shadowBlur=10;
+rr(0,0,30,10,3,'#26384e',2);rr(8,1,16,7,2,weaponColor,1);
+poly([[27,2],[43,3],[47,5],[43,8],[27,8]],'#b8d9e8',2);
+rr(43,3,10,4,2,weaponGlow,1);
+poly([[3,1],[-4,-7],[8,-3],[12,1]],trim,2);
+poly([[5,8],[-2,18],[12,11]],trim,2);
+poly([[14,8],[18,20],[24,9]],weaponColor,2);
+ctx.fillStyle='#fff';ctx.fillRect(12,3,9,2);
+ctx.shadowBlur=0;ctx.restore();
 ctx.restore()}enemies.forEach(e=>{if(!e.alive)return;fighter(e.x,e.y,e.face||-1,'#d94d68','#ffb34e',true)});const palette={VORTEX:['#28cbd5','#ffe06a'],NOVA:['#8d72f5','#63e5ff'],BLAZE:['#ef6748','#ffc24b'],SHADOW:['#414b70','#d66cff']}[save.selected]||['#28cbd5','#ffe06a'];fighter(player.x,player.y,player.face,palette[0],palette[1]);ctx.fillStyle='#ffd15a';shots.forEach(s=>{ctx.shadowColor='#ffd15a';ctx.shadowBlur=12;ctx.fillRect(s.x,s.y,15,5)});ctx.shadowBlur=0;enemyShots.forEach(s=>{ctx.fillStyle='#ff526d';ctx.shadowColor='#ff244f';ctx.shadowBlur=15;ctx.beginPath();ctx.arc(s.x,s.y,5,0,Math.PI*2);ctx.fill();ctx.fillStyle='#ffd2dc';ctx.beginPath();ctx.arc(s.x,s.y,2,0,Math.PI*2);ctx.fill()});ctx.shadowBlur=0;ctx.restore();ctx.fillStyle='#10172cbb';ctx.fillRect(18,18,190,55);ctx.fillStyle='#fff';ctx.font='bold 16px Inter';ctx.fillText(save.selected+'  ·  HP '+player.hp,30,43);ctx.font='12px Inter';ctx.fillStyle='#ffe08a';ctx.fillText(enemies.some(e=>e.alive)?'OBJETIVO: ELIMINA A LOS RIVALES':'OBJETIVO: LLEGA A LA BANDERA',30,62);ctx.fillStyle='#fff';ctx.font='bold 14px Inter';ctx.fillText('PROGRESO',800,35);ctx.fillStyle='#ffffff30';ctx.fillRect(800,45,130,8);ctx.fillStyle='#4be2df';ctx.fillRect(800,45,130*Math.min(1,player.x/1800),8);if(paused){ctx.fillStyle='#090d1dcc';ctx.fillRect(0,0,960,540);ctx.fillStyle='#fff';ctx.font='bold 50px Inter';ctx.textAlign='center';ctx.fillText('PAUSA',480,270);ctx.font='18px Inter';ctx.fillText('Presiona ESC para continuar',480,310);ctx.textAlign='left'}}
 renderResources();$('sound').textContent=save.sound?'♫':'🔇';
 })();
