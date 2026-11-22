@@ -44,9 +44,11 @@ jobs:
               });
             }
       - name: Upload site
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: .
+      - name: Wait for Pages artifact to become available
+        run: sleep 15
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
