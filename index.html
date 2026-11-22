@@ -22,7 +22,50 @@
   <button class="rail-item" data-panel="profile"><span>◈</span><small>PERFIL</small></button>
 </aside>
 <div class="lobby-main">
-  <section class="lobby-welcome">
+  <section class="lobby-welcome"><svg class="lobby-scene" viewBox="0 0 1600 620" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<defs>
+ <linearGradient id="arenaSky" x2="0" y2="1"><stop stop-color="#182b49"/><stop offset=".48" stop-color="#526079"/><stop offset=".78" stop-color="#df9568"/><stop offset="1" stop-color="#f6c27c"/></linearGradient>
+ <radialGradient id="arenaSun"><stop stop-color="#fff1bd"/><stop offset=".42" stop-color="#ffc078" stop-opacity=".82"/><stop offset="1" stop-color="#ff9c65" stop-opacity="0"/></radialGradient>
+ <linearGradient id="arenaGround" x2="0" y2="1"><stop stop-color="#68716d"/><stop offset=".24" stop-color="#344452"/><stop offset="1" stop-color="#101c2b"/></linearGradient>
+ <linearGradient id="arenaRuin" x2="0" y2="1"><stop stop-color="#78818a"/><stop offset="1" stop-color="#263545"/></linearGradient>
+ <filter id="arenaBlur"><feGaussianBlur stdDeviation="18"/></filter>
+</defs>
+<rect width="1600" height="620" fill="url(#arenaSky)"/>
+<circle cx="1110" cy="190" r="205" fill="url(#arenaSun)"/>
+<path d="M0 335L150 220 245 286 390 170 525 300 675 190 815 292 990 160 1120 265 1275 178 1445 290 1600 190V510H0Z" fill="#34445a" opacity=".85"/>
+<path d="M0 375L170 285 275 335 440 245 570 340 735 260 895 350 1080 245 1230 337 1400 250 1600 350V530H0Z" fill="#25384c"/>
+<path d="M0 430L180 360 325 405 490 330 645 420 815 350 965 420 1135 330 1310 410 1460 340 1600 390V550H0Z" fill="#1b2c3f"/>
+<g opacity=".88" fill="#1a2838">
+ <path d="M95 405V270H145V236H174V288H203V405Z"/><path d="M145 236L158 205 175 236Z"/>
+ <path d="M265 420V310H292V278H330V310H360V420Z"/><path d="M292 278L311 242 330 278Z"/>
+ <path d="M1245 415V270H1285V230H1322V270H1355V415Z"/><path d="M1285 230L1304 192 1322 230Z"/>
+ <path d="M1410 418V300H1448V266H1482V300H1520V418Z"/>
+</g>
+<g fill="url(#arenaRuin)" stroke="#17283a" stroke-width="8">
+ <path d="M0 405L0 310 45 310 45 276 92 276 92 326 130 326 130 405Z"/>
+ <path d="M1340 410V295H1380V250H1428V294H1475V410Z"/>
+ <path d="M1510 408V330H1550V290H1590V408Z"/>
+</g>
+<g fill="#1a2a3a" opacity=".95">
+ <path d="M32 311H60V342H32ZM75 311H103V342H75ZM1370 322H1395V355H1370ZM1420 322H1447V355H1420Z"/>
+</g>
+<path d="M0 435Q250 395 480 430T920 420T1300 412T1600 435V620H0Z" fill="url(#arenaGround)"/>
+<path d="M0 470Q220 438 420 470T850 452T1280 458T1600 440" fill="none" stroke="#d3a47b" stroke-opacity=".32" stroke-width="4"/>
+<g fill="#172a34">
+ <path d="M0 440l35-60 20 60 22-42 25 50 35-72 30 70 22-34 20 44Z"/>
+ <path d="M1160 450l30-65 23 65 24-45 26 50 35-78 32 74 25-43 30 46Z"/>
+ <path d="M1450 452l32-68 25 68 30-46 28 50 35-65v65Z"/>
+</g>
+<g fill="#d4b28a" opacity=".48">
+ <path d="M230 492l140-12-20 9-110 12ZM940 500l170-18-30 10-125 14ZM1260 485l115-10-18 9-85 10Z"/>
+</g>
+<g stroke="#101e2c" stroke-width="8" fill="none" opacity=".9">
+ <path d="M210 410l-10-95 22-35 20 30-5 100M230 330l-45-35M230 348l48-50M1340 408l-5-105 20-28 18 34-2 99M1350 340l-45-28M1352 357l44-50"/>
+</g>
+<g fill="#ffcb82" opacity=".5"><circle cx="300" cy="465" r="3"/><circle cx="330" cy="455" r="2"/><circle cx="1180" cy="468" r="3"/><circle cx="1210" cy="456" r="2"/><circle cx="880" cy="478" r="2"/></g>
+<path d="M0 535Q400 495 800 530T1600 520V620H0Z" fill="#0d1928" opacity=".72"/>
+</svg>
+<div class="arena-topline"><span class="arena-season"><b>V</b> TEMPORADA 01 <i>·</i> CAMPO DE BATALLA</span><span class="arena-status"><i></i> SERVIDOR LOCAL</span></div>
     <div class="welcome-copy"><div class="eyebrow"><span class="live-pulse"></span> TEMPORADA 01 · CAMPO DE BATALLA</div>
       <h1>DOMINA<br><em>LA ARENA</em></h1>
       <p>Prepara tu escuadrón. La victoria empieza aquí.</p>
