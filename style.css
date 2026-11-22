@@ -2544,3 +2544,22 @@ body #app > #game:not(.hidden),
 body #app > #panel:not(.hidden){
   pointer-events:auto!important;
 }
+
+
+/* Tienda de armas evolutivas 2D */
+.weapon-shop-heading{display:flex;flex-direction:column;gap:4px;margin:8px 0 14px;padding:12px 14px;border-left:4px solid #62eaff;background:linear-gradient(90deg,#112b48,#101b32);color:#f5fbff;font-weight:1000;letter-spacing:1.5px}
+.weapon-shop-heading small{font-size:10px;color:#8fb5ce;letter-spacing:1px}
+.weapon-shop-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-bottom:24px}
+.weapon-unit{position:relative;min-width:0;padding:12px;border:1px solid #4d6b8b;background:linear-gradient(150deg,#172a45,#0a1427 78%);box-shadow:0 8px 20px #0006;overflow:hidden}
+.weapon-unit:before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,#24dfff,#8b65ff,#ffcb5c)}
+.weapon-unit.weapon-equipped{border-color:#c9ff65;box-shadow:0 0 0 1px #c9ff6544,0 8px 22px #0007}
+.weapon-art{display:block;width:100%;height:116px;margin:0 auto 6px;filter:drop-shadow(0 5px 8px #0009)}
+.weapon-type{color:#70dfff;font-size:9px;font-weight:900;letter-spacing:1.4px}
+.weapon-unit h3{font-size:clamp(12px,2vw,16px);margin:5px 0;color:#fff}
+.weapon-unit p{font-size:11px;line-height:1.4;color:#afc1d3;min-height:31px}
+.weapon-levels{display:flex;align-items:center;gap:7px;margin:10px 0;color:#dcefff;font-size:9px;font-weight:900}
+.level-track{height:5px;flex:1;background:#293b54;border-radius:5px;overflow:hidden}
+.level-track i{display:block;width:14.28%;height:100%;background:linear-gradient(90deg,#49eaff,#ffe36c)}
+.weapon-price{margin:8px 0;color:#ffe078;font-weight:1000;font-size:13px}
+.weapon-action{width:100%}
+@media(max-width:560px){.weapon-shop-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.weapon-unit{padding:8px}.weapon-art{height:82px}.weapon-unit p{font-size:9px;min-height:38px}.weapon-unit h3{font-size:11px}}
