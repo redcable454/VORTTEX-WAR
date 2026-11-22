@@ -1046,3 +1046,7 @@ body:has(#home:not(.hidden)):before{opacity:.08}
  #loginScreen .guest-button{margin-top:5px;padding:6px}
  #loginScreen .login-panel>small{font-size:6px;margin-top:4px}
 }
+
+
+/* El modo horizontal ocupa toda la pantalla; no mostrar control manual */
+#loginScreen .fullscreen-btn{display:none!important}
