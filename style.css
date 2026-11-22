@@ -1120,3 +1120,49 @@ body:has(#home:not(.hidden)):before{opacity:.08}
  .playbar-title>b{font-size:10px!important}
  .mode-card em{font-size:6px!important}
 }
+
+
+/* RECONSTRUCCIÓN VISUAL DEL LOBBY: escenario vectorial original, no fondos genéricos */
+.lobby-welcome{isolation:isolate!important;background:#17283b!important;overflow:hidden!important;border:1px solid #e9c18a66!important;box-shadow:0 18px 42px #020914aa,inset 0 1px #ffffff2a!important}
+.lobby-scene{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;z-index:0!important;display:block!important}
+.lobby-welcome:before{z-index:1!important;content:""!important;position:absolute!important;inset:0!important;background:linear-gradient(90deg,#091727c9 0%,#0c1c2c66 34%,transparent 68%),linear-gradient(0deg,#0b1828a8,transparent 42%)!important;pointer-events:none!important}
+.lobby-welcome:after{z-index:1!important;content:""!important;position:absolute!important;inset:auto 0 0!important;height:28%!important;background:linear-gradient(0deg,#101d2b9c,transparent)!important;pointer-events:none!important}
+.arena-topline{position:absolute!important;z-index:4!important;left:18px!important;right:18px!important;top:14px!important;display:flex!important;align-items:center!important;justify-content:space-between!important;pointer-events:none!important}
+.arena-season{display:flex!important;align-items:center!important;gap:9px!important;font:800 10px 'Barlow Condensed',sans-serif!important;letter-spacing:2px!important;color:#f4ead7!important;text-shadow:0 2px 8px #071321}
+.arena-season>b{display:grid!important;place-items:center!important;width:25px!important;height:25px!important;background:linear-gradient(145deg,#ffda82,#d98b4d)!important;color:#1b2737!important;clip-path:polygon(20% 0,100% 0,80% 100%,0 80%)!important;font-size:18px!important}
+.arena-season i{color:#ffc66d!important;font-style:normal!important}
+.arena-status{display:flex!important;align-items:center!important;gap:7px!important;padding:6px 10px!important;border:1px solid #f4e2c344!important;background:#111e2c88!important;border-radius:3px!important;font:800 8px 'Barlow Condensed',sans-serif!important;letter-spacing:1.5px!important;color:#d9e0dd!important}
+.arena-status i{width:6px!important;height:6px!important;border-radius:50%!important;background:#75f2b1!important;box-shadow:0 0 10px #75f2b1!important}
+.welcome-copy{z-index:3!important}
+.lobby-character-stage{z-index:2!important;background:radial-gradient(ellipse at 52% 78%,#f8bc6b3b,transparent 35%),linear-gradient(90deg,transparent,#142b3b16)!important}
+.lobby-character-stage:before{background:radial-gradient(ellipse at 50% 65%,#f3b56b38,transparent 63%)!important}
+.lobby-character-stage:after{background:linear-gradient(90deg,transparent,#f4c16b,#f38e59,#f4c16b,transparent)!important;box-shadow:0 0 24px #f3a55b99!important}
+.stage-ring{border-color:#f8d8a44a!important;box-shadow:0 0 0 14px #fff1,0 0 0 30px #fff1,0 0 75px #ffc16a33!important}
+.lobby-character-stage .fighter-svg{height:112%!important;width:auto!important;max-width:62%!important;max-height:none!important;overflow:visible!important;transform:scale(1.02)!important;transform-origin:center bottom!important;filter:drop-shadow(0 20px 18px #050d18dd)!important;z-index:3!important}
+.character-nameplate{z-index:4!important;background:#0b1929d9!important;border:1px solid #e9bd765c!important;box-shadow:0 7px 18px #050b14aa!important}
+.stage-level{z-index:4!important;background:#101e2dcc!important;border:1px solid #f3ca8055!important}
+.welcome-copy .eyebrow{color:#ffd38b!important}
+.welcome-copy h1{color:#fff5e9!important;text-shadow:0 4px 0 #172333,0 10px 22px #000b!important}
+.welcome-copy h1 em{color:#ffc66e!important;-webkit-text-stroke:0!important}
+.welcome-copy p{color:#e4e1d8!important}
+.welcome-actions .primary{background:linear-gradient(110deg,#ffe08b,#f3a64e 70%,#e77d4f)!important;color:#1d2935!important;box-shadow:0 5px 0 #9c573e,0 12px 24px #f5a45b44!important}
+.welcome-actions .ghost{background:#122338c9!important;border:1px solid #f2d5a36b!important}
+.player-stats{color:#e5d6bd!important}
+.player-stats b{color:#fff!important}
+.lobby-playbar,.lobby-bottom{background:linear-gradient(115deg,#101e2ddd,#192a3bdf)!important;border:1px solid #e8c28c38!important;box-shadow:0 8px 22px #03091488,inset 0 1px #ffffff16!important}
+.mode-card,.shortcut{background:linear-gradient(145deg,#23394b,#13263a)!important;border:1px solid #e9c18a38!important;border-radius:5px!important;box-shadow:inset 0 1px #ffffff18,0 5px 12px #02091455!important}
+.mode-card:hover,.shortcut:hover{border-color:#ffd083!important;transform:translateY(-2px)!important}
+.mode-card em{color:#ffd18a!important}
+.shortcut>span{filter:drop-shadow(0 2px 4px #0009)!important}
+.bottom-heading>div>b{color:#f4eadb!important}
+@media(max-width:700px) and (orientation:landscape){
+ .arena-topline{left:8px!important;right:8px!important;top:5px!important}
+ .arena-season{font-size:7px!important;gap:5px!important}.arena-season>b{width:18px!important;height:18px!important;font-size:13px!important}
+ .arena-status{font-size:6px!important;padding:3px 6px!important}
+ .lobby-character-stage .fighter-svg{height:116%!important;max-width:57%!important}
+}
+@media(orientation:landscape) and (max-height:600px){
+ .arena-topline{top:5px!important;left:10px!important;right:10px!important}
+ .arena-season{font-size:7px!important}.arena-season>b{width:19px!important;height:19px!important}
+ .lobby-character-stage .fighter-svg{height:118%!important;max-width:55%!important}
+}
