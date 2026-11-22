@@ -565,3 +565,101 @@ body:before{opacity:.11;background-size:24px 24px}
 @media(orientation:landscape) and (max-height:600px){
  .login-screen .start-fighter{height:78vh;width:34vw}
 }
+
+
+/* LOGIN REDISEÑADO · battle royale 2D ilustrado */
+#loginScreen.login-screen{
+  display:grid;
+  grid-template-columns:minmax(0,1.28fr) minmax(310px,.72fr);
+  grid-template-rows:1fr;
+  gap:clamp(12px,2vw,34px);
+  align-items:center;
+  padding:clamp(76px,10vh,104px) clamp(22px,5vw,76px) clamp(24px,5vh,48px);
+  background:
+    radial-gradient(ellipse at 30% 34%,#e9783c66 0,transparent 25%),
+    radial-gradient(ellipse at 68% 72%,#235d8066 0,transparent 38%),
+    linear-gradient(180deg,#101b31 0%,#253653 46%,#9b5947 73%,#172238 100%);
+}
+#loginScreen.login-screen:before{
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:
+    linear-gradient(180deg,#10182c33 0%,transparent 42%,#0a1428a8 100%),
+    radial-gradient(ellipse at 30% 42%,#ffb45b55,transparent 30%),
+    repeating-linear-gradient(115deg,transparent 0 105px,#f7d6a00b 106px 108px);
+}
+#loginScreen.login-screen:after{
+  content:"";position:absolute;z-index:0;left:0;right:0;bottom:0;height:34%;
+  pointer-events:none;
+  background:
+    linear-gradient(180deg,transparent 0%,#0b1728b8 16%,#081321 100%),
+    repeating-linear-gradient(90deg,transparent 0 5%,#0a1729 5.1% 7.4%,transparent 7.5% 9.8%);
+  clip-path:polygon(0 28%,5% 28%,5% 12%,9% 12%,9% 37%,14% 37%,14% 4%,18% 4%,18% 29%,23% 29%,23% 17%,27% 17%,27% 43%,32% 43%,32% 0,36% 0,36% 34%,42% 34%,42% 15%,47% 15%,47% 40%,53% 40%,53% 8%,58% 8%,58% 30%,64% 30%,64% 2%,68% 2%,68% 36%,74% 36%,74% 14%,79% 14%,79% 42%,85% 42%,85% 9%,90% 9%,90% 31%,95% 31%,95% 18%,100% 18%,100% 100%,0 100%);
+  opacity:.88;
+}
+#loginScreen .login-brand{left:clamp(22px,5vw,76px);top:clamp(15px,3vh,28px)}
+#loginScreen .login-art{grid-column:1;grid-row:1;z-index:1;height:min(82vh,760px);align-self:end;justify-items:center;overflow:visible}
+#loginScreen .login-art:before{
+  content:"";position:absolute;inset:8% 2% 0;border-radius:48% 52% 0 0;
+  background:
+    radial-gradient(ellipse at 50% 65%,#ffb65b55 0,transparent 44%),
+    linear-gradient(180deg,transparent 60%,#071321d9 100%);
+  filter:blur(2px);pointer-events:none;
+}
+#loginScreen .login-art:after{
+  content:"";position:absolute;left:-10%;right:-12%;bottom:5%;height:20%;
+  background:linear-gradient(180deg,#101d2c00,#0a1427e8 65%,#080f1d);
+  border-top:2px solid #e7a45c66;clip-path:polygon(0 40%,12% 25%,25% 46%,39% 18%,54% 39%,68% 12%,83% 34%,100% 16%,100% 100%,0 100%);
+}
+#loginScreen .login-art .start-aura{
+  width:min(46vw,590px);background:radial-gradient(circle,#f3a04c66 0,#d86d4540 35%,#48c9d51c 62%,transparent 72%);
+  filter:blur(12px);
+}
+#loginScreen .login-art .start-fighter{
+  width:min(48vw,590px);height:min(88vh,740px);z-index:2;
+  filter:drop-shadow(0 28px 24px #030914cc);
+}
+#loginScreen .login-art .cinematic-fighter{
+  filter:drop-shadow(0 0 20px #ffc16a20) drop-shadow(0 15px 12px #000b);
+}
+#loginScreen .login-panel{
+  grid-column:2;grid-row:1;justify-self:end;align-self:center;
+  width:min(100%,390px);margin:0;padding:clamp(20px,3vw,30px);
+  border:1px solid #d7e6f04a;border-radius:7px;
+  background:linear-gradient(145deg,#101d31ed,#11182beF);
+  box-shadow:0 28px 80px #020713bb,inset 0 1px #ffffff24;
+  backdrop-filter:blur(9px);
+}
+#loginScreen .login-panel:before{width:4px;background:linear-gradient(#ffe09a,#f47c45,#65d9d5)}
+#loginScreen .login-panel .eyebrow{color:#f4c16e;font-size:10px;letter-spacing:2px}
+#loginScreen .login-panel h1{font-size:clamp(48px,5.2vw,68px);letter-spacing:1px;margin:12px 0}
+#loginScreen .login-panel h1 em{color:#ffc45d}
+#loginScreen .login-panel p{color:#c7d1df;font-size:12px}
+#loginScreen .login-panel label{color:#f0bd70}
+#loginScreen .login-panel input{border-radius:4px;background:#081321;border-color:#ffffff3d}
+#loginScreen .login-panel .start-button{
+  border-radius:4px;background:linear-gradient(100deg,#ffd36d,#f18b49);
+  color:#24182a;box-shadow:0 4px 0 #9c4c37,0 10px 24px #e77c4b44;
+  font:900 13px 'Barlow Condensed';letter-spacing:1px;
+}
+#loginScreen .guest-button{border-radius:4px;background:#ffffff0b;border-color:#ffffff40}
+#loginScreen .fullscreen-btn{border-radius:4px;background:#071321bb}
+@media(max-width:760px) and (orientation:landscape){
+ #loginScreen.login-screen{grid-template-columns:minmax(0,1.12fr) minmax(255px,.88fr);padding:56px 16px 14px;gap:8px}
+ #loginScreen .login-art{height:78vh}
+ #loginScreen .login-art .start-fighter{width:49vw;height:76vh}
+ #loginScreen .login-panel{width:min(100%,330px);padding:13px 16px}
+ #loginScreen .login-panel h1{font-size:39px;margin:7px 0}
+ #loginScreen .login-panel p{font-size:10px;margin:7px 0}
+ #loginScreen .login-panel label{font-size:8px;margin:7px 0 3px}
+ #loginScreen .login-panel input{height:34px;font-size:12px}
+ #loginScreen .login-panel .start-button{margin-top:10px;padding:10px}
+ #loginScreen .guest-button{padding:8px;margin-top:6px}
+ #loginScreen .login-panel>small{font-size:7px;margin-top:7px}
+}
+@media(max-width:560px) and (orientation:landscape){
+ #loginScreen.login-screen{grid-template-columns:minmax(0,1fr) minmax(230px,.9fr);padding-left:8px;padding-right:8px}
+ #loginScreen .login-brand{top:7px;left:12px;font-size:18px}
+ #loginScreen .login-art .start-fighter{width:48vw;height:70vh}
+ #loginScreen .login-panel{padding:9px 12px}
+ #loginScreen .login-panel h1{font-size:31px}
+}
