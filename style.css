@@ -1738,3 +1738,86 @@ html,body,#app{height:100vh!important}
  .profile-footer-line{margin-top:5px}
  .profile-reset{margin-top:4px;padding:3px 7px}
 }
+
+
+/* PERFIL COMPACTO TIPO HUD DE JUEGO — aislado del lobby */
+#panel.profile-mode{
+ position:fixed!important;inset:0!important;z-index:999!important;
+ display:block!important;width:100vw!important;height:100vh!important;
+ max-width:none!important;min-height:0!important;margin:0!important;
+ padding:8px 18px!important;overflow:hidden!important;overscroll-behavior:none!important;
+ background:radial-gradient(ellipse at 73% 48%,#8b573b66 0,transparent 37%),
+ linear-gradient(115deg,#091522 0%,#152b40 48%,#091321 100%)!important
+}
+@supports(height:100dvh){#panel.profile-mode{height:100dvh!important}}
+#panel.profile-mode:after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.22;background:linear-gradient(0deg,#050b13b8,transparent 55%),repeating-linear-gradient(130deg,transparent 0 55px,#ffffff0b 56px 57px)}
+#panel.profile-mode>.backlink{position:relative!important;z-index:10!important;margin:0!important;padding:5px 9px!important;font-size:9px!important;line-height:1!important;border-radius:2px!important;background:#081522dd!important}
+#panel.profile-mode .panelcard{position:relative!important;z-index:2!important;width:min(100%,1050px)!important;height:calc(100% - 30px)!important;max-width:1050px!important;margin:3px auto 0!important;padding:0!important;overflow:hidden!important;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important}
+#panel.profile-mode .panelcard>.eyebrow,#panel.profile-mode .panelcard>h2{display:none!important}
+#panel.profile-mode #panelContent{height:100%!important;min-height:0!important}
+.ff-profile-stage{position:relative;width:100%;height:100%;min-height:0;color:#fff;overflow:hidden}
+.ff-profile-top{position:absolute;left:0;right:0;top:0;height:24px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #e8bd7855}
+.ff-profile-kicker{font:900 9px 'Barlow Condensed';letter-spacing:2px;color:#c1d0dc}
+.ff-profile-kicker i{color:#f3bf70;font-style:normal;padding:0 5px}
+.ff-profile-season{font:900 8px 'Barlow Condensed';letter-spacing:1px;color:#f5c778}
+.ff-profile-title{position:absolute;left:0;top:32px;font:900 30px/.9 'Barlow Condensed';letter-spacing:2px;color:#f6c779;text-shadow:0 3px #0008}
+.ff-profile-hero{position:absolute;left:0;right:0;top:54px;bottom:66px;display:grid;grid-template-columns:minmax(0,1fr) minmax(190px,34%);align-items:center}
+.ff-profile-art{position:absolute;right:4%;top:0;bottom:0;width:47%;display:flex;align-items:flex-end;justify-content:center;background:radial-gradient(ellipse at 55% 72%,#e5a85a40,transparent 57%)}
+.ff-profile-fighter{height:96%!important;max-height:390px!important;width:auto!important;max-width:100%!important;object-fit:contain;filter:drop-shadow(0 10px 10px #000b)}
+.ff-profile-details{position:relative;z-index:2;align-self:center;width:54%;padding:10px 0}
+.ff-profile-label{font:900 8px 'Barlow Condensed';letter-spacing:2px;color:#b9c7d2}
+.ff-profile-name{margin:3px 0 0;font:900 clamp(24px,4vw,38px)/1 'Barlow Condensed';letter-spacing:1px;color:#fff;text-transform:uppercase;text-shadow:0 3px #0009}
+.ff-profile-id{margin-top:4px;font:800 8px 'Barlow Condensed';letter-spacing:1px;color:#aebdca}
+.ff-profile-rank{display:flex;align-items:center;gap:8px;margin-top:12px}
+.ff-rank-medal{width:33px;height:33px;display:grid;place-items:center;clip-path:polygon(50% 0,95% 25%,82% 82%,50% 100%,18% 82%,5% 25%);background:linear-gradient(145deg,#e6c47b,#76542a);color:#1a2633;font-size:19px;text-shadow:0 1px #fff}
+.ff-profile-rank b{display:block;font:900 15px 'Barlow Condensed';letter-spacing:1px;color:#f4c778}
+.ff-profile-rank small{display:block;margin-top:1px;font:800 7px 'Barlow Condensed';letter-spacing:1.5px;color:#b6c4d0}
+.ff-profile-level{display:flex;justify-content:space-between;width:min(250px,100%);margin-top:12px;font:900 8px 'Barlow Condensed';letter-spacing:1px;color:#e8edf1}
+.ff-profile-level span{color:#f1c77c}
+.ff-profile-xp{width:min(250px,100%);height:5px;margin-top:5px;background:#ffffff2a;overflow:hidden}
+.ff-profile-xp i{display:block;height:100%;background:linear-gradient(90deg,#58d9d0,#f0c477)}
+.ff-profile-stats{position:absolute;left:0;right:0;bottom:7px;height:48px;display:grid;grid-template-columns:repeat(4,1fr);gap:5px}
+.ff-profile-stat{display:grid;grid-template-columns:22px 1fr;grid-template-rows:1fr 1fr;align-items:center;padding:4px 8px;background:linear-gradient(90deg,#091725d9,#152b3dcc);border-left:2px solid #d7ae68;border-bottom:1px solid #ffffff20}
+.ff-profile-stat>span{grid-row:1/3;font-size:15px}
+.ff-profile-stat b{align-self:end;font:900 16px/.9 'Barlow Condensed';color:#f5cc83}
+.ff-profile-stat small{align-self:start;margin-top:2px;font:900 7px 'Barlow Condensed';letter-spacing:1px;color:#aebdca}
+.ff-profile-footer{position:absolute;right:2px;bottom:0;font:800 7px 'Barlow Condensed';letter-spacing:1px;color:#9eafbd}
+@media(max-width:700px){
+ #panel.profile-mode{padding:6px 10px!important}
+ #panel.profile-mode .panelcard{height:calc(100% - 27px)!important}
+ .ff-profile-top{height:19px}.ff-profile-kicker{font-size:7px;letter-spacing:1.2px}
+ .ff-profile-season{font-size:7px}
+ .ff-profile-title{top:26px;font-size:24px}
+ .ff-profile-hero{top:43px;bottom:60px}
+ .ff-profile-art{right:0;width:51%}
+ .ff-profile-fighter{height:88%!important;max-height:265px!important}
+ .ff-profile-details{width:58%;padding:4px 0}
+ .ff-profile-name{font-size:clamp(21px,5vw,30px)}
+ .ff-profile-rank{margin-top:8px}.ff-rank-medal{width:27px;height:27px;font-size:15px}
+ .ff-profile-rank b{font-size:12px}
+ .ff-profile-level{margin-top:8px}
+ .ff-profile-stats{height:42px;gap:3px}
+ .ff-profile-stat{grid-template-columns:17px 1fr;padding:3px 5px}
+ .ff-profile-stat>span{font-size:12px}
+ .ff-profile-stat b{font-size:13px}
+ .ff-profile-stat small{font-size:6px}
+ .ff-profile-footer{font-size:6px}
+}
+@media(max-height:430px) and (orientation:landscape){
+ #panel.profile-mode{padding:4px 14px!important}
+ #panel.profile-mode .panelcard{height:calc(100% - 24px)!important;margin-top:2px!important}
+ .ff-profile-top{height:16px}
+ .ff-profile-kicker,.ff-profile-season{font-size:6px}
+ .ff-profile-title{top:20px;font-size:20px}
+ .ff-profile-hero{top:32px;bottom:51px}
+ .ff-profile-art{width:43%;right:6%}
+ .ff-profile-fighter{height:92%!important;max-height:210px!important}
+ .ff-profile-details{width:58%}
+ .ff-profile-name{font-size:24px}
+ .ff-profile-rank{margin-top:5px}.ff-rank-medal{width:23px;height:23px}
+ .ff-profile-level{margin-top:5px}
+ .ff-profile-stats{height:34px;bottom:5px}
+ .ff-profile-stat{padding:2px 4px;grid-template-columns:15px 1fr}
+ .ff-profile-stat b{font-size:11px}.ff-profile-stat small{font-size:5px}
+ .ff-profile-footer{font-size:5px}
+}
