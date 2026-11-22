@@ -1,6 +1,6 @@
 (()=>{'use strict';
 const $=id=>document.getElementById(id),home=$('home'),game=$('game'),panel=$('panel'),canvas=$('world'),ctx=canvas.getContext('2d');
-const defaults={coins:1200,gems:35,xp:0,wins:0,selected:'VORTEX',selectedWeapon:'ak-dragon',unlocked:['VORTEX'],owned:[],claimed:[],lastSpin:'',sound:true,playerName:'Player'};
+const defaults={coins:1200,gems:35,xp:0,wins:0,selected:'VORTEX',selectedWeapon:null,unlocked:['VORTEX'],owned:[],claimed:[],lastSpin:'',sound:true,playerName:'Player'};
 let save;try{save={...defaults,...JSON.parse(localStorage.getItem('vorttex_save')||'{}')}}catch{save={...defaults}}
 let active=false,paused=false,keys={},shots=[],enemyShots=[],enemies=[],worldX=0,frame=0,raf=0,gameDone=false,touchAxis=0,fireHeld=false,fireCooldown=0,dashFrames=0,playerHitCooldown=0;
 const characters=[{id:'VORTEX',emoji:'⚔️',desc:'Guerrero equilibrado. Ideal para comenzar.',price:0},{id:'NOVA',emoji:'🌟',desc:'Exploradora veloz con energía estelar.',price:650},{id:'BLAZE',emoji:'🔥',desc:'Luchador de fuego y gran resistencia.',price:900},{id:'SHADOW',emoji:'🌑',desc:'Especialista sigiloso de la arena.',price:1200}];
