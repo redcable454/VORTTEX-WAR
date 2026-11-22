@@ -10,8 +10,47 @@ let stats={coins:0,kills:0,played:0};
 const player={x:100,y:360,vx:0,vy:0,w:38,h:58,onGround:false,face:1,hp:100};
 
 function fighterMarkup(id='VORTEX',cls='fighter-svg'){
- const p={VORTEX:{main:'#e83e35',accent:'#ffd447',dark:'#2459a5',skin:'#f2bd91',cap:'#e53935'},NOVA:{main:'#a34ee8',accent:'#62eaff',dark:'#3155b9',skin:'#f1b99d',cap:'#8c43dc'},BLAZE:{main:'#f17b27',accent:'#ffe15b',dark:'#b52d24',skin:'#e9a27c',cap:'#ed6425'},SHADOW:{main:'#33415e',accent:'#d96cff',dark:'#202b49',skin:'#c98e7c',cap:'#27344e'}}[id]||{main:'#e83e35',accent:'#ffd447',dark:'#2459a5',skin:'#f2bd91',cap:'#e53935'};
- return '<svg class="'+cls+'" viewBox="0 0 240 300" role="img" aria-label="'+id+' aventurero cartoon original"><ellipse cx="120" cy="282" rx="62" ry="10" fill="#071225" opacity=".35"/><g stroke="#17233a" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"><path d="M86 202L78 250 68 267Q66 278 80 278H112L119 254 126 278H160Q174 278 168 266L156 244 151 202Z" fill="'+p.dark+'"/><path d="M67 265H111L113 280H73Q62 278 67 265ZM127 265H169L175 280H131Z" fill="#493126"/><path d="M73 125Q120 105 167 125L174 204Q120 224 66 204Z" fill="'+p.dark+'"/><path d="M83 139H157L151 197H89Z" fill="'+p.main+'"/><path d="M91 143L111 151 109 198H91ZM149 143L129 151 131 198H149Z" fill="'+p.main+'"/><path d="M105 151H135L139 189H101Z" fill="'+p.accent+'"/><path d="M67 133L48 160 38 193 53 204 79 174ZM173 133L192 160 202 193 187 204 161 174Z" fill="'+p.main+'"/><path d="M37 190Q27 188 27 201Q28 215 45 214L59 205 52 191ZM203 190Q213 188 213 201Q212 215 195 214L181 205 188 191Z" fill="#fff4df"/><path d="M94 111H146V133H94Z" fill="'+p.skin+'"/><path d="M77 58Q80 28 120 28Q160 28 163 58L157 119Q120 143 83 119Z" fill="'+p.skin+'"/><path d="M66 70Q60 28 105 20Q149 10 173 46L168 75Q144 58 119 62Q92 59 66 80Z" fill="'+p.cap+'"/><path d="M66 68Q119 55 175 70L172 85Q119 76 66 86Z" fill="'+p.cap+'"/><path d="M106 83Q112 78 117 84M130 84Q136 78 142 83" fill="none" stroke="#17233a" stroke-width="5"/><circle cx="112" cy="88" r="3" fill="#17233a" stroke="none"/><circle cx="136" cy="88" r="3" fill="#17233a" stroke="none"/><path d="M111 105Q120 111 130 105" fill="none" stroke="#9b5148" stroke-width="4"/><path d="M96 111Q120 125 144 111Q141 133 120 133Q99 133 96 111Z" fill="#5b3028"/><path d="M110 118Q120 122 130 118" fill="none" stroke="#fff0d6" stroke-width="3"/><circle cx="120" cy="43" r="9" fill="'+p.accent+'"/></g></svg>';
+ const p={VORTEX:{shirt:'#e83e35',cap:'#d92e32',overall:'#2363bd',accent:'#ffd447',skin:'#f2bd91'},NOVA:{shirt:'#963fda',cap:'#7834bd',overall:'#3158b5',accent:'#63eaff',skin:'#f1b99d'},BLAZE:{shirt:'#ed7428',cap:'#cf4821',overall:'#a93430',accent:'#ffe15b',skin:'#e9a27c'},SHADOW:{shirt:'#35415e',cap:'#202b49',overall:'#354b76',accent:'#d96cff',skin:'#c98e7c'}}[id]||{shirt:'#e83e35',cap:'#d92e32',overall:'#2363bd',accent:'#ffd447',skin:'#f2bd91'};
+ return `<svg class="${cls}" viewBox="0 0 240 300" role="img" aria-label="${id} héroe de plataformas cartoon original">
+ <ellipse cx="120" cy="282" rx="65" ry="11" fill="#071225" opacity=".4"/>
+ <g stroke="#18233b" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+ <!-- botas grandes -->
+ <path d="M76 244L111 244L115 266Q113 278 99 280H62Q53 276 62 265Z" fill="#70432f"/>
+ <path d="M130 244H164L178 264Q185 277 170 280H134Q123 276 126 264Z" fill="#70432f"/>
+ <path d="M62 269Q85 273 111 267L112 280H66Q54 279 62 269ZM130 267Q151 273 176 269L181 280H137Q124 279 130 267Z" fill="#3d2a28" stroke-width="5"/>
+ <!-- piernas y overol -->
+ <path d="M83 190H157L163 252H128L120 226L111 252H76Z" fill="${p.overall}"/>
+ <path d="M88 199H152L148 222H92Z" fill="${p.shirt}"/>
+ <path d="M109 212H131L128 252H112Z" fill="${p.overall}"/>
+ <!-- torso -->
+ <path d="M76 121Q120 105 164 121L174 199Q120 218 66 199Z" fill="${p.shirt}"/>
+ <path d="M82 144Q120 157 158 144L153 204H87Z" fill="${p.overall}"/>
+ <path d="M91 145L107 151L105 198H89ZM149 145L133 151L135 198H151Z" fill="${p.overall}"/>
+ <path d="M105 150H135L140 188H100Z" fill="${p.overall}"/>
+ <circle cx="104" cy="158" r="6" fill="${p.accent}" stroke-width="4"/><circle cx="136" cy="158" r="6" fill="${p.accent}" stroke-width="4"/>
+ <!-- brazos cortos -->
+ <path d="M75 132L54 151L43 188L58 198L83 168Z" fill="${p.shirt}"/>
+ <path d="M165 132L186 151L197 188L182 198L157 168Z" fill="${p.shirt}"/>
+ <path d="M43 183Q28 181 26 198Q27 216 47 216L62 202L57 187Z" fill="#fff4df"/>
+ <path d="M197 183Q212 181 214 198Q213 216 193 216L178 202L183 187Z" fill="#fff4df"/>
+ <!-- cuello y cabeza grande -->
+ <path d="M102 112H138V137Q120 149 102 137Z" fill="${p.skin}"/>
+ <path d="M72 66Q75 29 120 28Q165 29 168 66L160 121Q120 145 80 121Z" fill="${p.skin}"/>
+ <!-- orejas -->
+ <circle cx="74" cy="91" r="13" fill="${p.skin}"/><circle cx="166" cy="91" r="13" fill="${p.skin}"/>
+ <!-- gorra y visera -->
+ <path d="M67 70Q62 29 101 19Q145 7 173 42L175 76Q148 57 119 60Q91 59 67 80Z" fill="${p.cap}"/>
+ <path d="M66 69Q119 54 180 72Q189 77 181 86Q123 77 65 89Z" fill="${p.cap}"/>
+ <path d="M93 34Q120 20 147 35L143 54Q119 48 96 57Z" fill="${p.accent}" stroke-width="4"/>
+ <!-- ojos -->
+ <ellipse cx="105" cy="89" rx="8" ry="12" fill="#fff"/><ellipse cx="137" cy="89" rx="8" ry="12" fill="#fff"/>
+ <circle cx="108" cy="91" r="4" fill="#17233a" stroke="none"/><circle cx="134" cy="91" r="4" fill="#17233a" stroke="none"/>
+ <path d="M95 76Q105 70 114 77M126 77Q137 70 146 76" fill="none" stroke="#422b2b" stroke-width="5"/>
+ <!-- nariz y bigote -->
+ <ellipse cx="120" cy="104" rx="12" ry="10" fill="${p.skin}"/>
+ <path d="M119 109Q103 101 94 112Q88 125 107 125Q117 124 120 117Q123 124 136 125Q153 125 146 112Q138 101 121 109Z" fill="#55352c"/>
+ <path d="M107 133Q120 139 133 133" fill="none" stroke="#9b5148" stroke-width="3"/>
+ </g></svg>`;
 }
 
 function persist(){try{localStorage.setItem('vorttex_save',JSON.stringify(save))}catch(err){console.warn('No se pudo guardar el progreso local:',err)}renderResources()}
