@@ -1166,3 +1166,122 @@ body:has(#home:not(.hidden)):before{opacity:.08}
  .arena-season{font-size:7px!important}.arena-season>b{width:19px!important;height:19px!important}
  .lobby-character-stage .fighter-svg{height:118%!important;max-width:55%!important}
 }
+
+
+/* LOBBY DE JUEGO: personaje protagonista a cuerpo entero y HUD superpuesto */
+.top{
+ height:56px!important;padding:0 22px!important;
+ background:linear-gradient(180deg,#071321ed,#0b1928b8)!important;
+ border:0!important;border-bottom:1px solid #d9b77b33!important;
+ box-shadow:0 5px 22px #02081277!important;backdrop-filter:blur(7px)!important
+}
+.top .brand{gap:8px!important}.top .mark{width:36px!important;height:36px!important;font-size:25px!important}
+.top .brand b{font-size:21px!important}.top .brand small{font-size:7px!important;letter-spacing:2px!important}
+.resources span{background:#14283bc9!important;border:1px solid #d9b77b44!important;border-radius:3px!important;padding:6px 10px!important}
+.resources button{border-radius:3px!important}
+.lobby-shell{
+ width:100%!important;max-width:none!important;height:calc(100dvh - 56px)!important;
+ min-height:0!important;margin:0!important;padding:0!important;overflow:hidden!important;
+ background:#0b1725!important
+}
+.lobby-rail{
+ width:62px!important;flex:0 0 62px!important;padding:12px 5px!important;gap:7px!important;
+ background:linear-gradient(90deg,#071321ed,#0a1929c9)!important;
+ border-right:1px solid #e4c28b33!important
+}
+.rail-label{font-size:6px!important;letter-spacing:1.5px!important}
+.rail-item{width:49px!important;min-height:48px!important;border-radius:4px!important;gap:1px!important}
+.rail-item span{font-size:20px!important}.rail-item small{font-size:6px!important}
+.lobby-main{
+ position:relative!important;flex:1!important;min-width:0!important;height:100%!important;
+ min-height:0!important;padding:0!important;overflow:hidden!important;display:block!important
+}
+.lobby-welcome{
+ position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
+ min-height:0!important;max-height:none!important;display:block!important;
+ border:0!important;border-radius:0!important;box-shadow:none!important;overflow:hidden!important
+}
+.lobby-scene{object-fit:cover!important}
+.lobby-welcome:before{
+ background:linear-gradient(90deg,#081522b8 0%,#0a192655 24%,transparent 55%),
+ linear-gradient(180deg,#07132166,transparent 22%,transparent 66%,#071321a8)!important
+}
+.lobby-welcome:after{
+ height:24%!important;background:linear-gradient(0deg,#0a1726cc,transparent)!important
+}
+.arena-topline{left:22px!important;right:22px!important;top:12px!important}
+.arena-season{font-size:9px!important}.arena-status{font-size:7px!important}
+.lobby-character-stage{
+ position:absolute!important;inset:0!important;z-index:2!important;
+ display:flex!important;align-items:flex-end!important;justify-content:center!important;
+ overflow:visible!important;background:none!important;pointer-events:none!important
+}
+.stage-ring{
+ width:min(48vh,500px)!important;max-width:55vw!important;
+ left:50%!important;top:48%!important;transform:translate(-50%,-50%)!important;
+ border-color:#f6d49a3b!important;box-shadow:0 0 0 18px #fff1,0 0 90px #ffbd6840!important
+}
+.stage-glow{left:50%!important;transform:translateX(-50%)!important;bottom:2%!important;width:30%!important;height:9%!important}
+.lobby-character-stage .fighter-svg{
+ display:block!important;position:relative!important;z-index:3!important;
+ height: min(108%, 820px)!important;width:auto!important;
+ max-height:none!important;max-width:none!important;min-width:0!important;
+ transform:none!important;transform-origin:center bottom!important;
+ overflow:visible!important;object-fit:contain!important;
+ filter:drop-shadow(0 22px 18px #030a12dd) drop-shadow(0 0 22px #ffbd6840)!important;
+}
+.character-nameplate{
+ bottom:8px!important;left:50%!important;z-index:4!important;
+ min-width:125px!important;padding:4px 12px!important;
+ transform:translateX(-50%)!important;background:#0a1728dd!important;
+ border:1px solid #e9c18a66!important;border-radius:3px!important
+}
+.character-nameplate span{font-size:6px!important}.character-nameplate b{font-size:15px!important}
+.stage-level{top:56px!important;right:24px!important;z-index:4!important}
+.welcome-copy{
+ position:absolute!important;z-index:4!important;left:3%!important;top:21%!important;
+ bottom:auto!important;width:clamp(180px,23vw,300px)!important;max-width:300px!important;
+ padding:0 0 0 14px!important;background:linear-gradient(90deg,#081522b8,transparent)!important;
+ border-left:2px solid #f5c77e!important
+}
+.welcome-copy .eyebrow{font-size:8px!important;letter-spacing:1.6px!important;color:#f6d49a!important}
+.welcome-copy h1{font-size:clamp(28px,3.3vw,48px)!important;line-height:.88!important;margin:8px 0!important}
+.welcome-copy h1 em{color:#ffc66e!important}
+.welcome-copy p,.player-stats,.welcome-actions .ghost{display:none!important}
+.welcome-actions{position:fixed!important;z-index:8!important;right:32px!important;bottom:30px!important}
+.welcome-actions .primary{
+ min-width:205px!important;min-height:55px!important;padding:13px 22px!important;
+ font-size:17px!important;letter-spacing:1px!important;border-radius:3px!important;
+ background:linear-gradient(180deg,#ffe6a2,#eaa34e)!important;color:#1c2734!important;
+ border:1px solid #fff0c5!important;box-shadow:0 4px 0 #92572f,0 10px 30px #02081299!important
+}
+.lobby-playbar,.lobby-bottom{display:none!important}
+.lobby-main>footer{display:none!important}
+@media(max-width:800px) and (orientation:landscape){
+ .top{height:43px!important;padding:0 10px!important}
+ .top .mark{width:29px!important;height:29px!important;font-size:20px!important}
+ .top .brand b{font-size:16px!important}.top .brand small{font-size:5px!important}
+ .resources{gap:4px!important}.resources span{padding:4px 6px!important;font-size:9px!important}
+ .lobby-shell{height:calc(100dvh - 43px)!important}
+ .lobby-rail{width:43px!important;flex-basis:43px!important;padding:5px 2px!important;gap:3px!important}
+ .rail-label{font-size:5px!important;margin:0 0 3px!important}
+ .rail-item{width:37px!important;min-height:36px!important;padding:2px!important}
+ .rail-item span{font-size:16px!important}.rail-item small{font-size:5px!important}
+ .arena-topline{left:10px!important;right:10px!important;top:6px!important}
+ .arena-season{font-size:6px!important;gap:5px!important}.arena-season>b{width:17px!important;height:17px!important;font-size:12px!important}
+ .arena-status{font-size:5px!important;padding:3px 5px!important}
+ .lobby-character-stage .fighter-svg{height:108%!important;max-height:none!important}
+ .stage-ring{width:min(52vh,260px)!important;max-width:55vw!important}
+ .stage-level{top:31px!important;right:9px!important;font-size:10px!important;padding:3px 5px!important}
+ .character-nameplate{bottom:3px!important;min-width:95px!important;padding:2px 7px!important}
+ .character-nameplate span{font-size:5px!important}.character-nameplate b{font-size:11px!important}
+ .welcome-copy{left:2%!important;top:18%!important;width:24%!important;padding-left:8px!important}
+ .welcome-copy .eyebrow{font-size:5px!important}.welcome-copy h1{font-size:clamp(22px,5vh,34px)!important;margin:5px 0!important}
+ .welcome-actions{right:15px!important;bottom:13px!important}
+ .welcome-actions .primary{min-width:145px!important;min-height:39px!important;padding:8px 12px!important;font-size:12px!important}
+}
+@media(max-height:360px) and (orientation:landscape){
+ .top{height:38px!important}.lobby-shell{height:calc(100dvh - 38px)!important}
+ .lobby-character-stage .fighter-svg{height:104%!important}
+ .welcome-copy{top:16%!important}.welcome-actions{bottom:9px!important}
+}
