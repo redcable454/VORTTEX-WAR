@@ -147,3 +147,69 @@ canvas{width:100%;height:auto;max-height:calc(100dvh - 140px);object-fit:contain
 .lobby-modebar{grid-template-columns:.8fr 1fr 1fr;padding:7px;margin:8px 0}.mode-intro b{font-size:14px}.mode-card{min-height:46px;padding:5px}.mode-card>span{font-size:17px}.mode-card b{font-size:10px}.mode-card small{font-size:7px}.mode-card em{font-size:6px}
 .section-head{margin:6px 0}.section-head h2{font-size:17px}.tiles{grid-template-columns:repeat(3,1fr);gap:7px}.tile{min-height:55px;padding:7px 10px;display:flex;align-items:center;gap:8px}.tile span{font-size:18px}.tile b{font-size:12px}.tile small{display:none}footer{margin:7px;font-size:8px}
 }
+
+
+/* VORTTEX WAR 0.4 — FULL GAME LOBBY */
+:root{--neon:#5cf2df;--gold:#ffc95e;--ink:#0b1228;--panel:#172442}
+html,body{background:#0a1023}
+.top{position:relative;z-index:5;background:linear-gradient(90deg,#0b142b,#142344 60%,#101a35);border-bottom:1px solid #68e9e333;box-shadow:0 8px 25px #0005}
+.brand{min-width:220px}.brand b{letter-spacing:1.6px}.resources span{background:#ffffff0d;border:1px solid #ffffff20;border-radius:8px}
+.lobby-shell{display:flex;gap:0;padding:0!important;height:calc(100dvh - clamp(58px,8vh,76px))!important;overflow:hidden!important;background:radial-gradient(ellipse at 75% 20%,#273d6a55,transparent 45%),linear-gradient(130deg,#0c142a,#101a35 58%,#151633)}
+.lobby-rail{width:82px;flex:0 0 82px;display:flex;flex-direction:column;align-items:center;gap:9px;padding:16px 8px;background:#0a1227dd;border-right:1px solid #ffffff18}
+.rail-label{font:900 8px 'Baloo 2';letter-spacing:2px;color:#7187aa;margin:2px 0 8px}
+.rail-item{width:62px;min-height:59px;border:1px solid transparent;border-radius:10px;background:transparent;color:#9fb0cc;display:grid;place-items:center;gap:2px;padding:6px 2px}
+.rail-item span{font-size:23px;line-height:1}.rail-item small{font:900 7px 'Baloo 2';letter-spacing:.7px}
+.rail-item.active,.rail-item:hover{background:linear-gradient(145deg,#1b4960,#1d3158);border-color:#5cf2df88;color:#67f5e3;box-shadow:0 0 22px #4ce9dd20}
+.rail-spacer{flex:1}
+.lobby-main{min-width:0;flex:1;height:100%;overflow:auto;padding:clamp(12px,2.2vh,22px) clamp(14px,2.5vw,34px) 10px;display:flex;flex-direction:column;gap:clamp(9px,1.5vh,16px)}
+.lobby-welcome{position:relative;flex:0 0 44%;min-height:230px;max-height:390px;display:grid;grid-template-columns:1.05fr .95fr;overflow:hidden;border:1px solid #71eee455;border-radius:17px;background:radial-gradient(ellipse at 77% 50%,#dd79534d,transparent 38%),linear-gradient(105deg,#142442 0%,#1a2b50 50%,#27345e 100%);box-shadow:0 15px 40px #03081799,inset 0 1px #ffffff20}
+.lobby-welcome:before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(0deg,#080f22aa,transparent 55%),repeating-linear-gradient(125deg,transparent 0 60px,#ffffff08 61px 62px)}
+.welcome-copy{position:relative;z-index:2;padding:clamp(18px,3vh,32px) clamp(18px,3vw,40px);display:flex;flex-direction:column;justify-content:center}
+.live-pulse{display:inline-block;width:7px;height:7px;margin-right:7px;border-radius:50%;background:#5cf2df;box-shadow:0 0 12px #5cf2df}
+.welcome-copy h1{font:900 clamp(46px,7vw,88px)/.82 'Barlow Condensed';letter-spacing:1.5px;margin:13px 0;text-shadow:0 5px #091127,0 15px 30px #0008}
+.welcome-copy h1 em{font-style:normal;color:var(--gold);-webkit-text-stroke:1px #fff5}
+.welcome-copy p{font-size:clamp(10px,1.2vw,14px);color:#c3d2e8;margin:9px 0 14px}
+.welcome-actions{display:flex;gap:10px;flex-wrap:wrap}.welcome-actions .primary,.welcome-actions .ghost{padding:12px 18px;font-size:10px}
+.player-stats{display:flex;gap:clamp(10px,2vw,24px);margin-top:clamp(10px,2vh,20px);font:800 8px 'Baloo 2';letter-spacing:1px;color:#8fa6c7}
+.player-stats span{display:grid;gap:2px}.player-stats b{font:900 13px 'Barlow Condensed';color:#f4f7ff}
+.lobby-character-stage{position:relative;display:grid;place-items:center;min-width:0;overflow:hidden}
+.stage-ring{position:absolute;width:min(27vw,310px);aspect-ratio:1;border:1px solid #a4fff055;border-radius:50%;box-shadow:0 0 0 12px #ffffff08,0 0 0 28px #ffffff05,0 0 70px #58e8df33}
+.stage-ring:before,.stage-ring:after{content:"";position:absolute;inset:12%;border:1px dashed #ffffff35;border-radius:50%}
+.stage-ring:after{inset:25%;border-style:solid;border-color:#ffcf6855}
+.stage-glow{position:absolute;bottom:12%;width:45%;height:10%;border-radius:50%;background:#59f2df66;filter:blur(22px)}
+.lobby-character-stage .fighter{z-index:1;transform:scale(.83) rotate(-7deg);transform-origin:center 65%;margin-top:20px}
+.character-nameplate{position:absolute;z-index:3;bottom:12px;left:50%;transform:translateX(-50%);min-width:155px;text-align:center;padding:6px 15px;border:1px solid #ffffff35;border-radius:8px;background:#0a1429dd;box-shadow:0 7px 20px #0006}
+.character-nameplate span{display:block;font:800 7px 'Baloo 2';letter-spacing:1.5px;color:#8fa6c7}.character-nameplate b{font:900 20px 'Barlow Condensed';letter-spacing:2px;color:#61f2e3}
+.stage-level{position:absolute;right:15px;top:15px;z-index:3;display:grid;justify-items:center;padding:8px 12px;background:#101a35dd;border:1px solid #ffca5877;border-radius:9px;color:var(--gold);font:900 18px 'Barlow Condensed'}
+.stage-level small{font:800 7px 'Baloo 2';color:#c4d0e6;letter-spacing:1px}
+.lobby-playbar{display:grid;grid-template-columns:minmax(155px,.7fr) 1fr 1fr;gap:10px;align-items:center}
+.playbar-title{display:grid;gap:4px;padding-left:4px}.playbar-title>b{font:900 clamp(15px,2vw,22px) 'Barlow Condensed';letter-spacing:1px}
+.mode-card{min-width:0;display:flex;align-items:center;gap:10px;padding:10px 13px;min-height:61px;border:1px solid #ffffff24;border-radius:11px;background:linear-gradient(110deg,#1b3153,#202348);color:#fff;text-align:left}
+.mode-icon{font-size:25px;color:var(--gold)}.mode-text{display:grid;gap:3px;min-width:0}.mode-text b{font:900 14px 'Barlow Condensed';letter-spacing:.7px}.mode-text small{font-size:9px;color:#aebed8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mode-card em{margin-left:auto;white-space:nowrap;font:900 8px 'Baloo 2';font-style:normal;color:#63f2df}.mode-card em i{font-style:normal;font-size:17px;margin-left:5px}
+.mode-training{border-color:#59f0dc66;background:linear-gradient(110deg,#174b58,#1b3153);cursor:pointer}.mode-training:hover{border-color:#70fff0;box-shadow:0 0 22px #5cf2df22}
+.mode-coming{opacity:.62}.mode-coming em{color:#ffcc6b}
+.lobby-bottom{display:flex;flex-direction:column;gap:10px;min-height:0}
+.bottom-heading{display:flex;justify-content:space-between;align-items:end;gap:10px}.bottom-heading>div{display:grid;gap:3px}.bottom-heading>div>b{font:900 clamp(14px,1.8vw,20px) 'Barlow Condensed';letter-spacing:.8px}
+.lobby-shortcuts{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:9px}
+.shortcut{position:relative;min-width:0;min-height:86px;display:grid;align-content:center;justify-items:start;gap:3px;padding:10px 12px;border:1px solid #ffffff20;border-radius:10px;background:linear-gradient(145deg,#22375c,#191f40);text-align:left;overflow:hidden}
+.shortcut:before{content:"";position:absolute;inset:auto 0 0;height:3px;background:linear-gradient(90deg,#5cf2df,#6b8cff);opacity:.5}
+.shortcut:hover{transform:translateY(-2px);border-color:#5cf2df88;background:linear-gradient(145deg,#2b4a70,#24234a)}
+.shortcut>span{font-size:19px;margin-bottom:2px}.shortcut>b{font:900 13px 'Barlow Condensed';letter-spacing:.8px}.shortcut>small{font-size:8px;color:#aebed8}.shortcut>i{position:absolute;right:10px;top:10px;color:#64f2e2;font-size:17px;font-style:normal}
+.lobby-main>footer{margin:0;text-align:right;font-size:7px;letter-spacing:1.2px;color:#61799d}
+#home .hidden{display:none!important}
+.login-screen{grid-template-columns:minmax(320px,43%) 1fr;background:radial-gradient(ellipse at 73% 45%,#32668a 0,#25336e 28%,transparent 60%),linear-gradient(125deg,#080f22,#151b3d 55%,#2a1943)}
+.login-panel{border-color:#67efdf77;background:linear-gradient(145deg,#172a4bee,#171638f2);backdrop-filter:blur(12px)}
+.login-panel .eyebrow{color:#66f2e1;letter-spacing:2px}
+.login-panel input{height:46px}
+.login-panel .start-button{background:linear-gradient(100deg,#ffe16b,#ff9d58 70%,#ff6d89);box-shadow:0 5px 0 #9c5260,0 13px 30px #ff9d5844}
+@media(max-width:700px) and (orientation:landscape){
+ .lobby-rail{width:58px;flex-basis:58px;padding:9px 4px;gap:5px}.rail-label{font-size:6px;margin:0 0 4px}.rail-item{width:48px;min-height:48px}.rail-item span{font-size:19px}.rail-item small{font-size:6px}
+ .lobby-main{padding:8px 11px 5px;gap:7px}.lobby-welcome{flex-basis:44%;min-height:155px;max-height:220px;grid-template-columns:1.1fr .9fr}
+ .welcome-copy{padding:10px 15px}.welcome-copy h1{font-size:clamp(37px,7.5vh,59px);margin:8px 0}.welcome-copy p{font-size:9px;margin:5px 0 7px}.welcome-copy .eyebrow{font-size:7px}.welcome-actions .primary,.welcome-actions .ghost{padding:8px 10px;font-size:8px}.player-stats{margin-top:7px;gap:12px;font-size:6px}.player-stats b{font-size:10px}
+ .stage-ring{width:min(25vw,185px)}.lobby-character-stage .fighter{transform:scale(.55) rotate(-7deg);margin-top:10px}.character-nameplate{bottom:5px;padding:3px 9px;min-width:110px}.character-nameplate span{font-size:5px}.character-nameplate b{font-size:14px}.stage-level{top:6px;right:7px;padding:4px 7px;font-size:13px}
+ .lobby-playbar{grid-template-columns:130px 1fr 1fr;gap:6px}.playbar-title>b{font-size:13px}.playbar-title .eyebrow{font-size:6px}.mode-card{min-height:44px;padding:5px 7px;gap:6px}.mode-icon{font-size:18px}.mode-text b{font-size:10px}.mode-text small{font-size:6px}.mode-card em{font-size:6px}
+ .lobby-bottom{gap:5px}.bottom-heading>div>b{font-size:13px}.bottom-heading .eyebrow,.online-dot{font-size:6px}.lobby-shortcuts{gap:5px}.shortcut{min-height:53px;padding:5px 7px}.shortcut>span{font-size:14px}.shortcut>b{font-size:9px}.shortcut>small{font-size:6px}.shortcut>i{right:5px;top:3px;font-size:12px}.lobby-main>footer{font-size:6px}
+}
+@media(max-width:700px) and (orientation:portrait){.orientation-guard{display:flex}}
+@media(max-height:430px) and (orientation:landscape){.lobby-welcome{min-height:140px}.lobby-shortcuts .shortcut{min-height:48px}.lobby-main{gap:5px}}
