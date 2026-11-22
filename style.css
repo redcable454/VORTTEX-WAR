@@ -1528,3 +1528,52 @@ body{position:fixed!important;inset:0!important}
  #game .dash-action{width:43px!important;height:43px!important}
 }
 @media(prefers-reduced-motion:reduce){#game .game-action{transition:none!important}}
+
+
+/* AJUSTE DE ESCALA: HUD COMPACTO, COMO JUEGO MÓVIL */
+#game canvas{object-fit:contain!important;background:#101c31!important}
+#game .game-hud{
+ height:44px!important;padding:5px 12px!important;gap:7px!important;
+ align-items:center!important;font-size:11px!important
+}
+#game .hud-left,#game .hud-right{gap:5px!important}
+#game .hud-left>span,#game #objective{
+ padding:4px 7px!important;border-radius:4px!important;font-size:10px!important
+}
+#game .game-brand{font-size:13px!important;letter-spacing:.7px!important}
+#game .hud-right button{
+ width:32px!important;height:32px!important;border-radius:5px!important;font-size:15px!important
+}
+#game .touch-controls{
+ height:27vh!important;min-height:0!important;max-height:175px!important;
+ padding:0 18px 10px!important
+}
+#game .joystick{width:clamp(82px,15vh,112px)!important;height:clamp(82px,15vh,112px)!important;border-width:1px!important}
+#game .stick-knob{width:39%!important;height:39%!important;border-width:1px!important}
+#game .game-action{
+ width:clamp(44px,8vh,60px)!important;height:clamp(44px,8vh,60px)!important;
+ border-width:1px!important;font-size:20px!important;box-shadow:0 4px 10px #0007!important
+}
+#game .game-action small{font-size:7px!important}
+#game .jump-action{margin-bottom:16px!important}
+#game .dash-action{
+ width:clamp(38px,6vh,48px)!important;height:clamp(38px,6vh,48px)!important;
+ margin-bottom:3px!important;font-size:16px!important
+}
+#game .fire-action{
+ width:clamp(56px,10vh,72px)!important;height:clamp(56px,10vh,72px)!important;
+ margin-bottom:7px!important;font-size:25px!important
+}
+@media(max-height:430px) and (orientation:landscape){
+ #game .game-hud{height:36px!important;padding:3px 8px!important}
+ #game .hud-left>span,#game #objective{padding:3px 6px!important;font-size:9px!important}
+ #game .game-brand{font-size:11px!important}
+ #game .hud-right button{width:28px!important;height:28px!important;font-size:13px!important}
+ #game .touch-controls{height:28vh!important;max-height:112px!important;padding:0 13px 6px!important}
+ #game .joystick{width:78px!important;height:78px!important}
+ #game .game-action{width:42px!important;height:42px!important;font-size:17px!important}
+ #game .game-action small{font-size:6px!important}
+ #game .jump-action{margin-bottom:9px!important}
+ #game .dash-action{width:34px!important;height:34px!important}
+ #game .fire-action{width:53px!important;height:53px!important;margin-bottom:4px!important}
+}
