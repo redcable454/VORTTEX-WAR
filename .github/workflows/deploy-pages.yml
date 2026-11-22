@@ -23,6 +23,31 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Validate game scripts and markup
+        run: |
+          node --check game.js
+          python - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+          class Check(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.ids = []
+              def handle_starttag(self, tag, attrs):
+                  value = dict(attrs).get("id")
+                  if value:
+                      self.ids.append(value)
+          parser = Check()
+          parser.feed(Path("index.html").read_text(encoding="utf-8"))
+          duplicates = sorted({value for value in parser.ids if parser.ids.count(value) > 1})
+          if duplicates:
+              raise SystemExit("Duplicated HTML IDs: " + ", ".join(duplicates))
+          required = {"world", "moveStick", "stickKnob", "pause", "back", "play"}
+          missing = sorted(required - set(parser.ids))
+          if missing:
+              raise SystemExit("Missing required game elements: " + ", ".join(missing))
+          print(f"HTML OK: {len(parser.ids)} unique IDs; required game controls found.")
+          PY
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Remove stale Pages artifacts from previous attempts
