@@ -287,3 +287,127 @@ html,body{background:#0a1023}
   .welcome-copy h1{font-size:34px}
   .player-stats{display:none}
 }
+
+
+/* LOGIN RESPONSIVE — adaptar toda la pantalla como una sola composición */
+@media (orientation:landscape) and (max-height:600px) {
+  #loginScreen.login-screen {
+    position:fixed;
+    inset:0;
+    width:100vw;
+    height:100dvh;
+    min-height:0;
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    grid-template-rows:1fr;
+    place-items:center;
+    gap:0;
+    padding:42px 14px 28px;
+    overflow:hidden;
+    isolation:isolate;
+    background:
+      radial-gradient(ellipse at 78% 48%,#32668a 0,#25336e 28%,transparent 62%),
+      linear-gradient(125deg,#080f22,#151b3d 55%,#2a1943);
+  }
+  #loginScreen .login-bg-grid {
+    position:absolute;
+    inset:38% -10% -35%;
+    z-index:-1;
+  }
+  #loginScreen .login-brand {
+    position:absolute;
+    top:8px;
+    left:12px;
+    z-index:5;
+    font-size:clamp(14px,3vh,19px);
+    gap:7px;
+  }
+  #loginScreen .login-brand .start-mark {
+    width:clamp(25px,6vh,34px);
+    height:clamp(25px,6vh,34px);
+    font-size:clamp(18px,4.5vh,25px);
+  }
+  #loginScreen .login-brand small {
+    font-size:clamp(5px,1.4vh,7px);
+    letter-spacing:1px;
+  }
+  #loginScreen .login-panel {
+    grid-column:1;
+    grid-row:1;
+    position:relative;
+    z-index:3;
+    width:min( min(88vw,390px), calc(100dvh - 66px) * 1.12 );
+    max-height:calc(100dvh - 64px);
+    overflow:auto;
+    margin:0;
+    padding:clamp(9px,2.5vh,17px) clamp(13px,3vw,23px);
+    border-radius:12px;
+    background:linear-gradient(145deg,#172a4bf2,#171638f5);
+    box-shadow:0 14px 42px #020818bb,inset 0 1px #ffffff22;
+  }
+  #loginScreen .login-panel .eyebrow {
+    font-size:clamp(6px,1.5vh,9px);
+    letter-spacing:1.2px;
+  }
+  #loginScreen .login-panel h1 {
+    font-size:clamp(32px,7.4vh,49px);
+    line-height:.82;
+    margin:clamp(4px,1.3vh,8px) 0;
+  }
+  #loginScreen .login-panel p {
+    font-size:clamp(8px,1.8vh,11px);
+    line-height:1.25;
+    margin:clamp(4px,1.2vh,7px) 0;
+  }
+  #loginScreen .login-panel label {
+    font-size:clamp(6px,1.45vh,8px);
+    margin:clamp(4px,1.2vh,7px) 0 2px;
+  }
+  #loginScreen .login-panel input {
+    width:100%;
+    height:clamp(27px,6.2vh,36px);
+    min-height:0;
+    padding:0 10px;
+    font-size:clamp(10px,2vh,12px);
+  }
+  #loginScreen .login-panel .start-button {
+    min-height:0;
+    padding:clamp(7px,1.8vh,11px);
+    margin-top:clamp(6px,1.5vh,9px);
+    font-size:clamp(8px,1.8vh,10px);
+  }
+  #loginScreen .guest-button {
+    min-height:0;
+    padding:clamp(6px,1.5vh,9px);
+    margin-top:5px;
+    font-size:clamp(7px,1.5vh,9px);
+  }
+  #loginScreen .login-panel>small {
+    font-size:clamp(6px,1.35vh,8px);
+    line-height:1.25;
+    margin-top:5px;
+  }
+  #loginScreen .login-art {
+    position:absolute;
+    z-index:1;
+    inset:0 0 0 auto;
+    width:43vw;
+    height:100%;
+    min-height:0;
+    opacity:.26;
+    pointer-events:none;
+  }
+  #loginScreen .login-art .start-aura {
+    width:min(34vw,48vh);
+  }
+  #loginScreen .login-art .start-fighter {
+    transform:scale(.52) rotate(-8deg);
+  }
+  #loginScreen .fullscreen-btn {
+    right:9px;
+    bottom:6px;
+    z-index:6;
+    padding:5px 8px;
+    font-size:clamp(6px,1.3vh,8px);
+  }
+}
