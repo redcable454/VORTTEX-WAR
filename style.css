@@ -1285,3 +1285,110 @@ body:has(#home:not(.hidden)):before{opacity:.08}
  .lobby-character-stage .fighter-svg{height:104%!important}
  .welcome-copy{top:16%!important}.welcome-actions{bottom:9px!important}
 }
+
+
+/* VORTTEX WAR — lobby de videojuego a pantalla completa */
+html,body{
+ width:100%!important;height:100%!important;min-height:100%!important;
+ margin:0!important;padding:0!important;overflow:hidden!important;
+ background:#08111d!important
+}
+body{position:fixed!important;inset:0!important}
+.top{
+ position:absolute!important;z-index:30!important;left:0!important;right:0!important;top:0!important;
+ height:64px!important;box-sizing:border-box!important;padding:0 22px 0 82px!important;
+ display:flex!important;align-items:center!important;justify-content:space-between!important;
+ border:0!important;border-bottom:1px solid #ffffff22!important;border-radius:0!important;
+ background:linear-gradient(180deg,#07111de8,#07111d55,transparent)!important;
+ box-shadow:none!important
+}
+.top .brand{background:transparent!important;border:0!important;box-shadow:none!important}
+.top .brand b{font-size:20px!important;letter-spacing:2px!important;text-shadow:0 2px 8px #000}
+.top .brand small{font-size:7px!important;letter-spacing:2px!important}
+.resources{background:transparent!important;border:0!important;box-shadow:none!important}
+.resources>span,.resources>button{background:#071522aa!important;border:1px solid #ffffff2b!important;border-radius:3px!important}
+.lobby-shell{
+ position:absolute!important;inset:0!important;width:100vw!important;height:100dvh!important;
+ min-height:0!important;margin:0!important;padding:0!important;overflow:hidden!important;
+ display:block!important;background:#101b29!important;border:0!important;border-radius:0!important;
+ box-shadow:none!important
+}
+.lobby-rail{
+ position:absolute!important;z-index:25!important;left:12px!important;top:50%!important;
+ transform:translateY(-50%)!important;width:54px!important;height:auto!important;
+ display:flex!important;flex-direction:column!important;align-items:center!important;
+ padding:8px 4px!important;gap:8px!important;background:#0715229c!important;
+ border:1px solid #ffffff25!important;border-radius:8px!important;backdrop-filter:blur(8px)!important
+}
+.rail-label{display:none!important}
+.rail-item{
+ width:42px!important;min-height:42px!important;height:42px!important;
+ padding:3px!important;display:flex!important;align-items:center!important;justify-content:center!important;
+ background:#14253a99!important;border:1px solid #ffffff20!important;border-radius:6px!important
+}
+.rail-item span{font-size:20px!important}.rail-item small{display:none!important}
+.rail-spacer{height:8px!important;flex:0 0 8px!important}
+.lobby-main{
+ position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
+ min-height:0!important;margin:0!important;padding:0!important;overflow:hidden!important;
+ display:block!important;background:#101b29!important
+}
+.lobby-welcome{
+ position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
+ min-height:0!important;max-height:none!important;margin:0!important;padding:0!important;
+ display:block!important;overflow:hidden!important;border:0!important;border-radius:0!important;
+ box-shadow:none!important;background:#172536!important
+}
+.lobby-scene{
+ position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
+ object-fit:cover!important;object-position:center!important
+}
+.lobby-character-stage{
+ position:absolute!important;inset:0!important;z-index:4!important;
+ display:flex!important;align-items:flex-end!important;justify-content:center!important;
+ overflow:hidden!important;background:transparent!important;pointer-events:none!important
+}
+.lobby-character-stage .fighter-svg{
+ position:relative!important;display:block!important;z-index:3!important;
+ height:min(88vh,760px)!important;width:auto!important;max-height:none!important;max-width:42vw!important;
+ object-fit:contain!important;transform:none!important;transform-origin:center bottom!important;
+ filter:drop-shadow(0 18px 20px #000d)!important
+}
+.stage-ring{top:53%!important;left:50%!important;transform:translate(-50%,-50%)!important;width:min(55vh,520px)!important}
+.stage-glow{left:50%!important;transform:translateX(-50%)!important}
+.arena-topline{position:absolute!important;z-index:8!important;top:78px!important;left:88px!important;right:24px!important}
+.welcome-copy{
+ position:absolute!important;z-index:12!important;left:88px!important;top:auto!important;
+ bottom:42px!important;width:auto!important;max-width:none!important;padding:0!important;
+ background:none!important;border:0!important
+}
+.welcome-copy .eyebrow,.welcome-copy h1,.welcome-copy p,.welcome-copy .ghost,
+.welcome-copy .player-stats{display:none!important}
+.welcome-actions{position:fixed!important;z-index:35!important;right:34px!important;bottom:34px!important}
+.welcome-actions .primary{
+ min-width:210px!important;min-height:58px!important;font-size:19px!important;
+ border-radius:4px!important;letter-spacing:2px!important
+}
+.character-nameplate{
+ position:absolute!important;z-index:10!important;left:50%!important;bottom:12px!important;
+ transform:translateX(-50%)!important
+}
+.stage-level{z-index:10!important}
+.lobby-playbar,.lobby-bottom,.lobby-main>footer{display:none!important}
+@media(max-width:800px) and (orientation:landscape){
+ .top{height:48px!important;padding:0 10px 0 58px!important}
+ .top .brand b{font-size:15px!important}.top .brand small{font-size:5px!important}
+ .resources{gap:3px!important}.resources>span,.resources>button{padding:3px 5px!important;font-size:8px!important}
+ .lobby-rail{left:5px!important;width:39px!important;padding:5px 2px!important;gap:5px!important}
+ .rail-item{width:32px!important;height:32px!important;min-height:32px!important}
+ .rail-item span{font-size:16px!important}
+ .arena-topline{top:55px!important;left:54px!important;right:8px!important}
+ .lobby-character-stage .fighter-svg{height:88vh!important;max-width:48vw!important}
+ .welcome-actions{right:12px!important;bottom:12px!important}
+ .welcome-actions .primary{min-width:140px!important;min-height:40px!important;font-size:12px!important}
+ .character-nameplate{bottom:3px!important}
+}
+@media(max-height:420px) and (orientation:landscape){
+ .top{height:40px!important}.arena-topline{top:44px!important}
+ .lobby-character-stage .fighter-svg{height:86vh!important}
+}
