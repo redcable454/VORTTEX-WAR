@@ -1050,3 +1050,73 @@ body:has(#home:not(.hidden)):before{opacity:.08}
 
 /* El modo horizontal ocupa toda la pantalla; no mostrar control manual */
 #loginScreen .fullscreen-btn{display:none!important}
+
+
+/* LOBBY CINEMATICO — referencia de composición tipo Sigma, arte original */
+.lobby-shell{background:#081321!important}
+.lobby-main{position:relative;gap:10px;padding:10px 16px 8px!important;overflow:hidden!important}
+.lobby-welcome{flex:1 1 auto!important;height:auto!important;min-height:0!important;max-height:none!important;display:block!important;position:relative;border:0!important;border-radius:0!important;overflow:hidden;background:
+ radial-gradient(ellipse at 54% 64%,#e9a75b55 0,transparent 22%),
+ radial-gradient(ellipse at 52% 42%,#386e8b66 0,transparent 42%),
+ linear-gradient(180deg,#172d49 0%,#29445b 43%,#6b655e 72%,#172535 100%)!important;
+ box-shadow:none!important}
+.lobby-welcome:before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:
+ linear-gradient(180deg,#07132122 0%,transparent 35%,#08132166 100%),
+ radial-gradient(ellipse at 50% 80%,#ffc36b35,transparent 34%),
+ repeating-linear-gradient(90deg,transparent 0 95px,#ffffff08 96px 97px)}
+.lobby-welcome:after{content:"";position:absolute;z-index:0;left:0;right:0;bottom:0;height:39%;pointer-events:none;background:
+ linear-gradient(180deg,transparent,#101d2b 88%),
+ linear-gradient(135deg,transparent 12%,#172b3a 12% 18%,transparent 18% 30%,#203548 30% 39%,transparent 39%),
+ linear-gradient(45deg,transparent 10%,#15283a 10% 23%,transparent 23% 34%,#24394a 34% 47%,transparent 47%)}
+.welcome-copy{position:absolute!important;z-index:3!important;left:2.5%;bottom:5%!important;top:auto!important;width:min(42%,440px)!important;padding:14px 18px!important;background:linear-gradient(90deg,#071321d9,#07132188,transparent)!important;border-left:3px solid #ffc45b}
+.welcome-copy .eyebrow{font-size:9px!important;letter-spacing:1.7px}
+.welcome-copy h1{font-size:clamp(30px,4.8vw,57px)!important;line-height:.86!important;margin:7px 0!important}
+.welcome-copy p{font-size:clamp(9px,1.1vw,12px)!important;margin:5px 0 9px!important}
+.welcome-actions .primary,.welcome-actions .ghost{padding:9px 14px!important;font-size:9px!important}
+.player-stats{gap:14px!important;margin-top:9px!important}
+.player-stats span{font-size:7px!important}.player-stats b{font-size:11px!important}
+.lobby-character-stage{position:absolute!important;inset:0 0 0 20%!important;z-index:1!important;background:
+ radial-gradient(ellipse at 53% 85%,#ffc46b38,transparent 27%),
+ radial-gradient(ellipse at 53% 45%,#4bd7d533,transparent 42%)!important;overflow:visible!important}
+.stage-ring{width:min(35vw,390px)!important;border-color:#d4f8f02b!important;box-shadow:0 0 0 18px #ffffff08,0 0 90px #58cdd344!important}
+.lobby-character-stage .fighter-svg{height:94%!important;width:auto!important;max-width:48%!important;max-height:100%!important;transform:scale(1.16)!important;transform-origin:center bottom!important;filter:drop-shadow(0 20px 22px #020914dd)!important}
+.character-nameplate{bottom:12px!important;left:55%!important;min-width:170px!important}
+.stage-level{right:5%!important;top:5%!important}
+.lobby-playbar{grid-template-columns:minmax(145px,.55fr) 1fr 1fr!important;gap:8px!important;background:#0a1728eF!important;border:1px solid #ffffff25!important;border-radius:9px!important;padding:8px 10px!important}
+.lobby-bottom{background:#0a1728eF!important;border:1px solid #ffffff25!important;border-radius:9px!important;padding:8px 10px!important}
+.lobby-shortcuts{grid-template-columns:repeat(6,minmax(0,1fr))!important}
+.shortcut{min-height:58px!important;background:linear-gradient(145deg,#1b3047,#101e32)!important;padding:6px 9px!important}
+.shortcut>span{font-size:16px!important}.shortcut>b{font-size:11px!important}.shortcut>small{font-size:7px!important}
+.lobby-main>footer{display:none!important}
+@media(orientation:landscape) and (max-height:600px){
+ .lobby-main{padding:5px 8px 4px!important;gap:5px!important}
+ .lobby-welcome{flex:1 1 auto!important;min-height:0!important}
+ .welcome-copy{left:1.5%!important;bottom:4%!important;padding:8px 10px!important;width:37%!important}
+ .welcome-copy h1{font-size:clamp(25px,5vh,42px)!important;margin:5px 0!important}
+ .welcome-copy p{font-size:8px!important;margin:3px 0 5px!important}
+ .welcome-actions .primary,.welcome-actions .ghost{padding:6px 9px!important;font-size:7px!important}
+ .player-stats{margin-top:5px!important;gap:9px!important}
+ .lobby-character-stage{inset:0 0 0 17%!important}
+ .lobby-character-stage .fighter-svg{height:98%!important;max-width:42%!important;transform:scale(1.05)!important}
+ .stage-ring{width:min(38vw,260px)!important}
+ .character-nameplate{bottom:5px!important;left:55%!important;min-width:120px!important;padding:3px 8px!important}
+ .character-nameplate b{font-size:14px!important}
+ .stage-level{top:4px!important;right:3%!important;padding:4px 7px!important;font-size:13px!important}
+ .lobby-playbar,.lobby-bottom{padding:5px 7px!important;gap:5px!important}
+ .mode-card{min-height:36px!important;padding:4px 7px!important}
+ .mode-icon{font-size:16px!important}.mode-text b{font-size:9px!important}.mode-text small{font-size:6px!important}
+ .shortcut{min-height:40px!important;padding:3px 6px!important}.shortcut>span{font-size:12px!important}.shortcut>b{font-size:8px!important}.shortcut>small{font-size:5px!important}
+ .bottom-heading>div>b{font-size:11px!important}
+}
+@media(max-width:700px) and (orientation:landscape){
+ .lobby-rail{width:46px!important;flex-basis:46px!important}
+ .rail-item{width:39px!important;min-height:36px!important}
+ .lobby-main{padding:4px 6px!important}
+ .lobby-welcome{border-radius:7px!important}
+ .welcome-copy{width:38%!important;left:1%!important;bottom:3%!important}
+ .lobby-character-stage{inset:0 0 0 14%!important}
+ .lobby-character-stage .fighter-svg{max-width:39%!important}
+ .lobby-playbar{grid-template-columns:105px 1fr 1fr!important}
+ .playbar-title>b{font-size:10px!important}
+ .mode-card em{font-size:6px!important}
+}
