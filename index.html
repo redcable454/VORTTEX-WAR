@@ -29,7 +29,33 @@
       <div class="welcome-actions"><button class="primary" id="play">JUGAR AHORA <span>▶</span></button><button class="ghost" id="openCharacters">CAMBIAR GUERRERO</button></div>
       <div class="player-stats"><span>RANGO <b>RECLUTA</b></span><span>NIVEL <b id="level">1</b></span><span>XP <b id="xp">0 / 100</b></span><span>VICTORIAS <b id="wins">0</b></span></div>
     </div>
-    <div class="lobby-character-stage"><div class="stage-ring"></div><div class="stage-glow"></div><div class="fighter"><div class="fighter-head"></div><div class="fighter-body"></div><div class="fighter-arm"></div><div class="fighter-blade">╱</div></div><div class="character-nameplate"><span>GUERRERO EQUIPADO</span><b id="lobbyCharacter">VORTEX</b></div><div class="stage-level">★ <b>01</b><small>RECLUTA</small></div></div>
+    <div class="lobby-character-stage"><div class="stage-ring"></div><div class="stage-glow"></div><svg class="fighter-svg" id="lobbyFighter" viewBox="0 0 260 360" role="img" aria-label="Guerrero táctico 2D">
+<defs><linearGradient id="suitShade" x2="1" y2="1"><stop stop-color="var(--unit-main,#31e0d2)"/><stop offset="1" stop-color="#17243b"/></linearGradient><linearGradient id="metalShade" x2="0" y2="1"><stop stop-color="#71849d"/><stop offset="1" stop-color="#27364d"/></linearGradient></defs>
+<ellipse cx="130" cy="342" rx="78" ry="12" fill="#050b18" opacity=".55"/>
+<path d="M80 170L57 205 47 270 65 276 91 215 108 190Z" fill="#26364e" stroke="#101a2d" stroke-width="7"/>
+<path d="M177 172L201 203 210 263 193 270 168 218 153 190Z" fill="#26364e" stroke="#101a2d" stroke-width="7"/>
+<path d="M91 220L82 296 91 329 121 329 127 267 137 267 143 329 174 329 181 294 166 218Z" fill="#26344c" stroke="#101a2d" stroke-width="8" stroke-linejoin="round"/>
+<path d="M87 294L84 330 77 343 123 343 124 329 119 294ZM145 294L148 330 142 343 188 343 181 329 177 294Z" fill="#111d31"/>
+<path d="M77 338L125 338 130 352 69 352Q63 347 77 338ZM143 338L190 338 200 352 137 352Q133 346 143 338Z" fill="#0b1424" stroke="#64748b" stroke-width="4"/>
+<path d="M84 158Q130 139 176 158L183 224Q131 247 77 224Z" fill="url(#suitShade)" stroke="#101a2d" stroke-width="8"/>
+<path d="M95 166L130 176 164 166 172 216 130 231 88 216Z" fill="#293b55" stroke="#0d182b" stroke-width="5"/>
+<path d="M106 177L130 184 154 177 151 211 130 220 109 211Z" fill="#40536d" stroke="#101a2d" stroke-width="4"/>
+<path d="M112 190H148M110 202H150" stroke="var(--unit-accent,#ffe06a)" stroke-width="6" stroke-linecap="round"/>
+<path d="M78 166L52 188 42 235 59 244 91 202 101 179Z" fill="url(#suitShade)" stroke="#101a2d" stroke-width="7"/>
+<path d="M178 165L202 185 215 230 198 241 167 201 158 178Z" fill="url(#suitShade)" stroke="#101a2d" stroke-width="7"/>
+<path d="M40 230L61 236 56 255 36 249Z M196 229L218 222 224 244 202 251Z" fill="#a7b5c8" stroke="#101a2d" stroke-width="5"/>
+<path d="M111 146L111 166 149 166 149 145" fill="#bd896c" stroke="#101a2d" stroke-width="5"/>
+<path d="M94 78Q95 43 130 43Q166 43 167 81L158 139Q130 162 102 139Z" fill="#c98f70" stroke="#101a2d" stroke-width="8"/>
+<path d="M91 86Q88 35 130 29Q173 33 171 87L158 73 145 65 111 70Z" fill="#17263c" stroke="#0a1426" stroke-width="8"/>
+<path d="M95 82Q130 98 165 82L161 103Q130 118 99 103Z" fill="var(--unit-accent,#ffe06a)" stroke="#101a2d" stroke-width="6"/>
+<path d="M106 108L116 111M145 111L155 108" stroke="#172238" stroke-width="5" stroke-linecap="round"/>
+<path d="M113 128Q130 137 147 128" fill="none" stroke="#754b42" stroke-width="4" stroke-linecap="round"/>
+<path d="M83 61L69 49 80 29 101 42M177 61L191 49 180 29 159 42" fill="#243650" stroke="#101a2d" stroke-width="7"/>
+<path d="M180 176L202 165 224 185 214 201 194 195Z" fill="#344963" stroke="#101a2d" stroke-width="6"/>
+<path d="M203 184L237 177 240 187 208 198Z" fill="#111b2d" stroke="#71849d" stroke-width="4"/>
+<path d="M219 179L248 174 250 181 222 189Z" fill="var(--unit-accent,#ffe06a)"/>
+<path d="M81 182L68 194 76 204 91 193M179 184L191 196 183 207 169 195" fill="#d5a17f" stroke="#101a2d" stroke-width="5"/>
+</svg><div class="character-nameplate"><span>GUERRERO EQUIPADO</span><b id="lobbyCharacter">VORTEX</b></div><div class="stage-level">★ <b>01</b><small>RECLUTA</small></div></div>
   </section>
   <section class="lobby-playbar">
     <div class="playbar-title"><span class="eyebrow">SELECCIONA TU MODO</span><b>MODOS DE COMBATE</b></div>
