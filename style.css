@@ -418,3 +418,118 @@ html,body{background:#0a1023}
 .portrait-soldier{height:145px;width:auto;max-width:100%;filter:drop-shadow(0 5px 6px #0008)}
 @media (orientation:landscape) and (max-height:600px){.lobby-character-stage .fighter-svg{width:min(23vh,155px);height:94%;max-height:230px}}
 @media (max-width:700px) and (orientation:landscape){.lobby-character-stage .fighter-svg{width:min(23vh,145px)}}
+
+
+/* VISUAL UNIFICADO: shooter 2D táctico, escala estable en PC y móvil */
+:root{--bg:#080f1d;--panel:#111e32;--cyan:#54f0df;--orange:#ffbd4a;--line:#ffffff22}
+body{background:radial-gradient(ellipse at 75% 5%,#24496a 0,transparent 42%),linear-gradient(135deg,#080f1d,#101b2d 58%,#17172f);font-family:'Barlow Condensed','Baloo 2',system-ui,sans-serif}
+body:before{opacity:.11;background-size:24px 24px}
+.top{height:clamp(48px,8vh,68px);padding-inline:clamp(10px,2.5vw,34px);background:#091321f2;border-bottom:1px solid #55f1df38}
+.brand b{font-size:clamp(18px,2.2vw,25px)}.mark{width:clamp(30px,5vh,42px);height:clamp(30px,5vh,42px)}
+.resources span{padding:5px 10px;font-size:clamp(10px,1.4vh,13px)}
+.lobby-shell{max-width:none;width:100%;height:calc(100dvh - clamp(48px,8vh,68px));min-height:0;margin:0;padding:0 clamp(8px,1.4vw,18px) 0 0;display:flex;gap:0;overflow:hidden;background:radial-gradient(ellipse at 70% 15%,#1d4260 0,transparent 43%),linear-gradient(120deg,#091321,#101d30 65%,#151a31)}
+.lobby-rail{flex:0 0 clamp(56px,6vw,76px);width:clamp(56px,6vw,76px);height:100%;padding:12px 6px;background:#07101de8;border-right:1px solid #ffffff1c;display:flex;align-items:center}
+.rail-label{font-size:9px;letter-spacing:1.8px;color:#91a8bc}.rail-item{width:100%;min-height:clamp(43px,7vh,57px);border-radius:8px;background:#14253a;border:1px solid #ffffff12;color:#a9bfd0}.rail-item.active,.rail-item:hover{background:linear-gradient(135deg,#1c5963,#1c3452);border-color:#54f0df88;color:#fff}.rail-item span{font-size:clamp(17px,2.4vh,23px)}.rail-item small{font-size:clamp(7px,1.1vh,9px);letter-spacing:.6px}
+.lobby-main{flex:1;min-width:0;height:100%;min-height:0;overflow:auto;display:flex;flex-direction:column;gap:clamp(7px,1.2vh,12px);padding:clamp(8px,1.6vh,16px) clamp(8px,1.5vw,18px)}
+.lobby-welcome{flex:0 0 clamp(190px,40vh,310px);height:auto;min-height:0;max-height:none;grid-template-columns:minmax(0,1fr) minmax(180px,.82fr);border-radius:12px;border:1px solid #55f1df4a;background:radial-gradient(ellipse at 76% 54%,#277d8460,transparent 40%),linear-gradient(110deg,#101f34,#182b43 62%,#1c334b);box-shadow:0 10px 30px #02081380,inset 0 1px #ffffff18}
+.lobby-welcome:before{background:repeating-linear-gradient(125deg,transparent 0 44px,#ffffff08 45px 46px)}
+.welcome-copy{padding:clamp(12px,2.5vh,25px) clamp(12px,2vw,25px);align-self:center}
+.welcome-copy .eyebrow{font-size:clamp(8px,1.25vh,11px);letter-spacing:1.5px;color:#65e9df}
+.welcome-copy h1{font:900 clamp(38px,7vh,76px)/.82 'Barlow Condensed';letter-spacing:.5px;margin:clamp(8px,1.5vh,15px) 0;text-shadow:0 4px #07101d}.welcome-copy h1 em{color:#ffc45b}
+.welcome-copy p{font-size:clamp(10px,1.6vh,14px);color:#c5d5e2;margin:8px 0 12px}
+.welcome-actions{gap:8px;flex-wrap:wrap}.welcome-actions .primary,.welcome-actions .ghost{padding:clamp(7px,1.3vh,12px) clamp(10px,1.4vw,18px);font-size:clamp(8px,1.2vh,11px);border-radius:7px}
+.welcome-actions .primary{background:linear-gradient(110deg,#ffce65,#ff9354);color:#192235;box-shadow:0 3px 0 #9c563c}
+.welcome-actions .ghost{background:#ffffff12;border:1px solid #ffffff40;box-shadow:none}
+.player-stats{gap:clamp(8px,1.5vw,20px);margin-top:clamp(8px,1.5vh,16px);font-size:clamp(7px,1.1vh,10px);color:#9eb3c6}
+.player-stats b{color:#f5f8fb}
+.lobby-character-stage{background:radial-gradient(ellipse at 50% 65%,#4ccbc733,transparent 62%);min-height:0}
+.stage-ring{border-color:#54f0df38;box-shadow:0 0 0 12px #54f0df0b,0 0 45px #39cfcf24}
+.lobby-character-stage .fighter-svg{width:auto;height:94%;max-width:90%;max-height:100%;filter:drop-shadow(0 10px 16px #020914cc)}
+.character-nameplate{background:#091523e8;border:1px solid #54f0df66;border-radius:6px;padding:5px 14px}
+.character-nameplate span{color:#78dcd7}.character-nameplate b{font-family:'Barlow Condensed';letter-spacing:1px}
+.stage-level{background:#091523dd;border:1px solid #ffffff2c}
+.lobby-playbar,.lobby-bottom{background:#0c1929;border:1px solid #ffffff1d;border-radius:9px;padding:clamp(8px,1.4vh,13px);gap:8px}
+.playbar-title{min-width:clamp(125px,17vw,210px)}.playbar-title .eyebrow,.bottom-heading .eyebrow{font-size:8px;letter-spacing:1.3px;color:#62ddd7}.playbar-title>b,.bottom-heading>div>b{font:800 clamp(12px,1.7vh,17px) 'Barlow Condensed';letter-spacing:.8px}
+.mode-card{min-height:clamp(48px,8vh,66px);padding:7px 10px;border-radius:7px;background:linear-gradient(110deg,#172d42,#14243a);border:1px solid #ffffff20;box-shadow:none}
+.mode-training{border-color:#54f0df66}.mode-card .mode-icon{font-size:clamp(18px,2.6vh,25px)}.mode-text b{font:800 clamp(10px,1.5vh,14px) 'Barlow Condensed';letter-spacing:.5px}.mode-text small{font-size:clamp(7px,1.1vh,10px);color:#9fb4c5}.mode-card em{font-size:8px;color:#6ce5db}
+.bottom-heading{gap:8px}.bottom-heading>div>b{font-size:clamp(12px,1.6vh,16px)}
+.lobby-shortcuts{grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}
+.shortcut{min-height:clamp(50px,8vh,68px);padding:6px 8px;gap:1px;border-radius:7px;background:linear-gradient(145deg,#172b41,#101e31);border:1px solid #ffffff1c;box-shadow:none}
+.shortcut>span{font-size:clamp(15px,2.3vh,22px)}.shortcut>b{font:800 clamp(8px,1.25vh,11px) 'Barlow Condensed';letter-spacing:.4px}.shortcut>small{font-size:clamp(6px,.95vh,8px);color:#9db3c5}.shortcut>i{font-size:13px;color:#62e2d8}
+.lobby-main>footer{font-size:8px;margin:0;color:#71879b}
+.panelcard,.unit,.reward{background:#101e31;border-color:#ffffff20}.panelcard h2{font-family:'Barlow Condensed'}.unit{border-radius:9px}.unit .action{background:linear-gradient(110deg,#ffcb60,#ff9255);color:#172235}
+#loginScreen.login-screen{grid-template-columns:minmax(280px,43%) minmax(0,1fr);gap:clamp(8px,2vw,28px);padding:clamp(12px,3vw,42px);background:radial-gradient(ellipse at 74% 48%,#1e6876 0,#1c3658 32%,transparent 63%),linear-gradient(125deg,#07111f,#101d32 58%,#17172f)}
+.login-brand{font-family:'Barlow Condensed';letter-spacing:1px}.login-brand .start-mark{background:linear-gradient(145deg,#62eadd,#ffbd59);color:#102035}
+.login-panel{width:min(100%,430px);padding:clamp(14px,2.8vh,26px);margin:22px auto 0;border-radius:10px;border:1px solid #5be5d966;background:linear-gradient(145deg,#10253aef,#101b2fee);box-shadow:0 18px 55px #020813bb,inset 0 1px #ffffff18}
+.login-panel .eyebrow{font-size:clamp(8px,1.3vh,11px);color:#64e8dc;letter-spacing:1.5px}
+.login-panel h1{font:900 clamp(40px,6vw,70px)/.82 'Barlow Condensed';letter-spacing:1px;margin:12px 0;color:#fff;text-shadow:0 4px #07111e}.login-panel h1 em{color:#ffc35a}
+.login-panel p{font-size:clamp(10px,1.6vh,13px);color:#b7cbd9;margin:10px 0}
+.login-panel label{font-size:clamp(7px,1.15vh,9px);color:#70e8df;margin:10px 0 4px}
+.login-panel input{height:clamp(32px,5.5vh,43px);border-radius:6px;background:#081523;border:1px solid #ffffff30;font-size:clamp(10px,1.5vh,13px)}
+.login-panel .start-button{padding:clamp(8px,1.5vh,13px);margin-top:13px;background:linear-gradient(110deg,#ffce65,#ff9456);color:#152236;box-shadow:0 3px 0 #9a573f;border-radius:7px;font:900 clamp(9px,1.4vh,12px) 'Barlow Condensed';letter-spacing:.7px}
+.guest-button{background:#ffffff0d;border:1px solid #ffffff30;border-radius:6px;padding:9px;margin-top:7px;font:800 9px 'Barlow Condensed';letter-spacing:.6px}
+.login-panel>small{font-size:clamp(6px,.95vh,8px);color:#8da5b7}
+.login-art{height:min(78vh,640px);min-height:0}.login-art .start-aura{width:min(38vw,440px);background:radial-gradient(circle,#49d5ce55,#2d6a9c22 58%,transparent 72%)}
+.login-art .start-fighter{transform:scale(.94) rotate(-8deg);filter:drop-shadow(0 18px 16px #020813)}
+.start-fighter .sf-head{background:linear-gradient(130deg,#dca27b,#8c5c58);border:6px solid #17283c;box-shadow:inset -6px -3px #774a4c}
+.start-fighter .sf-body{background:linear-gradient(120deg,#4bd6c7,#245477 70%);border:5px solid #14263a;box-shadow:inset 0 0 0 7px #ffffff12}
+.start-fighter .sf-arm{background:linear-gradient(#4bd6c7,#244a68);border:5px solid #14263a}
+.start-fighter .sf-leg{background:linear-gradient(#314d67,#111e31);border:5px solid #14263a}
+.start-fighter .sf-back{background:#182b42;border:5px solid #0b1727}
+.start-fighter .sf-weapon{background:linear-gradient(90deg,#18263a,#8399aa);border:2px solid #0a1726;box-shadow:0 0 12px #54f0df44}
+.fullscreen-btn{background:#0c1c2c;border:1px solid #54f0df55;color:#bce9e5;border-radius:5px;font:800 8px 'Barlow Condensed';letter-spacing:.6px}
+@media (orientation:landscape) and (max-height:600px){
+ #loginScreen.login-screen{grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:1fr;gap:10px;padding:35px 12px 22px}
+ #loginScreen .login-brand{top:5px;left:12px}
+ #loginScreen .login-panel{width:min(100%,350px);padding:clamp(7px,1.6vh,12px);margin:12px auto 0}
+ #loginScreen .login-panel h1{font-size:clamp(30px,6vh,43px);margin:6px 0}
+ #loginScreen .login-panel p{font-size:clamp(7px,1.4vh,9px);margin:5px 0}
+ #loginScreen .login-panel label{margin:5px 0 2px}
+ #loginScreen .login-panel input{height:clamp(24px,5vh,31px)}
+ #loginScreen .login-panel .start-button{margin-top:7px;padding:6px}
+ #loginScreen .login-panel>small{margin-top:4px}
+ #loginScreen .login-art{height:80dvh}
+ #loginScreen .login-art .start-fighter{transform:scale(.58) rotate(-8deg)}
+ .lobby-shell{height:calc(100dvh - clamp(48px,8vh,68px));}
+ .lobby-welcome{flex-basis:clamp(140px,38vh,220px);grid-template-columns:minmax(0,1fr) minmax(110px,.8fr)}
+ .lobby-character-stage .fighter-svg{height:94%;width:auto;max-width:90%}
+ .lobby-playbar{display:grid;grid-template-columns:minmax(95px,.65fr) 1fr 1fr}
+ .lobby-bottom{display:block}
+ .lobby-shortcuts{grid-template-columns:repeat(6,minmax(0,1fr))}
+}
+@media (max-width:700px) and (orientation:landscape){
+ .top{height:46px;padding-inline:8px}.brand b{font-size:17px}.brand small{font-size:6px}.mark{width:27px;height:27px;font-size:19px}
+ .resources span{padding:3px 6px;font-size:9px}.resources button{width:27px;height:27px}
+ .lobby-shell{height:calc(100dvh - 46px);padding-right:5px}
+ .lobby-rail{flex-basis:42px;width:42px;padding:5px 3px;gap:3px}
+ .rail-label{font-size:5px}.rail-item{min-height:34px;padding:2px;border-radius:5px}.rail-item span{font-size:14px}.rail-item small{font-size:5px}
+ .lobby-main{padding:5px 6px;gap:5px;overflow-y:auto}
+ .lobby-welcome{flex-basis:clamp(120px,39vh,185px);grid-template-columns:minmax(0,1fr) minmax(105px,.78fr);border-radius:7px}
+ .welcome-copy{padding:6px 8px}.welcome-copy .eyebrow{font-size:6px}.welcome-copy h1{font-size:clamp(28px,7vh,42px);margin:5px 0}.welcome-copy p{font-size:7px;margin:4px 0 6px}
+ .welcome-actions .primary,.welcome-actions .ghost{font-size:6px;padding:5px 7px}.player-stats{display:none}
+ .lobby-character-stage .fighter-svg{height:90%;width:auto;max-width:94%}
+ .character-nameplate{bottom:3px;padding:2px 7px}.character-nameplate span{font-size:5px}.character-nameplate b{font-size:11px}
+ .stage-level{font-size:9px;padding:3px 5px}.stage-level small{font-size:5px}
+ .lobby-playbar{grid-template-columns:minmax(85px,.65fr) 1fr 1fr;padding:5px;gap:4px}
+ .playbar-title .eyebrow{font-size:5px}.playbar-title>b{font-size:9px}
+ .mode-card{min-height:40px;padding:4px;gap:3px}.mode-card .mode-icon{font-size:14px}.mode-text b{font-size:8px}.mode-text small{font-size:6px}.mode-card em{font-size:5px}
+ .lobby-bottom{padding:5px;gap:4px}.bottom-heading .eyebrow{font-size:5px}.bottom-heading>div>b{font-size:9px}.online-dot{font-size:5px;padding:2px 4px}
+ .lobby-shortcuts{grid-template-columns:repeat(6,minmax(0,1fr));gap:3px}.shortcut{min-height:36px;padding:3px;gap:0}.shortcut>span{font-size:11px}.shortcut>b{font-size:6px}.shortcut>small{font-size:5px}.shortcut>i{display:none}
+ .lobby-main>footer{font-size:5px}
+ #loginScreen.login-screen{grid-template-columns:minmax(0,1fr) minmax(0,1fr);padding:30px 8px 18px;gap:5px}
+ #loginScreen .login-panel{width:min(100%,300px);padding:7px 10px;margin:10px auto 0}
+ #loginScreen .login-panel h1{font-size:clamp(28px,6vh,39px)}
+ #loginScreen .login-art .start-fighter{transform:scale(.5) rotate(-8deg)}
+ #loginScreen .login-brand{font-size:12px}
+ #loginScreen .login-brand .start-mark{width:23px;height:23px;font-size:16px}
+ .fullscreen-btn{right:6px;bottom:4px;padding:3px 5px;font-size:6px}
+}
+@media (orientation:landscape) and (max-height:390px){
+ .lobby-main{gap:3px;padding:3px 5px}.lobby-welcome{flex-basis:115px}
+ .lobby-playbar{padding:3px}.lobby-bottom{padding:3px}
+ .lobby-shortcuts .shortcut{min-height:29px}
+ #loginScreen.login-screen{padding-top:26px;padding-bottom:16px}
+ #loginScreen .login-panel{margin-top:7px;padding:5px 8px}
+ #loginScreen .login-panel h1{font-size:28px;margin:4px 0}
+ #loginScreen .login-panel p{display:none}
+}
