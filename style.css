@@ -945,3 +945,50 @@ body:has(#home:not(.hidden)):before{opacity:.08}
  #loginScreen .login-panel{bottom:18px;width:calc(100vw - 24px);padding:12px}
  #loginScreen .login-brand{top:14px;right:14px}
 }
+
+
+/* LOGIN FINISH PASS — controles discretos al pie, sin tarjeta lateral */
+#loginScreen .login-panel{
+ left:50%;right:auto;top:auto;bottom:clamp(12px,3.2vh,30px);
+ width:min(94vw,540px);padding:10px 18px 9px;
+ border:0;border-top:1px solid #f7d59b88;border-radius:0;
+ background:linear-gradient(180deg,#07132100 0%,#071321b8 22%,#071321ed 100%);
+ box-shadow:none;backdrop-filter:none;
+}
+#loginScreen .login-panel .eyebrow{font-size:9px;letter-spacing:2.4px;text-shadow:0 2px 5px #000}
+#loginScreen .login-panel h1{font-size:clamp(19px,2.6vw,27px);margin:2px 0 3px;text-shadow:0 3px 8px #000}
+#loginScreen .login-panel p{font-size:10px;margin:3px 0 7px;color:#e4eaf2}
+#loginScreen .login-panel input{
+ width: min(220px, calc(50% - 8px));height:34px;margin:0 3px 5px;
+ border:1px solid #f4d39a88;border-radius:3px;background:#071321d9;
+ box-shadow:0 2px 8px #0006;text-align:center
+}
+#loginScreen .login-panel .start-button{
+ width:min(100%,310px);margin:4px auto 0;padding:10px 18px;
+ border:1px solid #ffe6ad;border-radius:3px;
+ background:linear-gradient(180deg,#ffe39a,#e9a34f 55%,#c86d3e);
+ color:#211a1a;text-shadow:0 1px #fff6;
+ box-shadow:0 3px 0 #773d2b,0 5px 16px #0008;
+ font-size:14px;letter-spacing:1.2px
+}
+#loginScreen .guest-button{
+ width:min(100%,240px);margin:8px auto 0;padding:7px 12px;
+ border:1px solid #e8eef5a6;border-radius:3px;
+ background:#101c2dcc;color:#f5f6f8;
+ font-size:10px;letter-spacing:1px
+}
+#loginScreen .login-panel>small{font-size:7px;color:#bac7d5;margin-top:6px}
+#loginScreen .login-brand{left:clamp(14px,3vw,42px);right:auto;text-align:left}
+#loginScreen .login-art .start-fighter{top:46%;height:min(88vh,820px)}
+@media(max-width:760px) and (orientation:landscape){
+ #loginScreen .login-panel{bottom:5px;width:min(95vw,430px);padding:5px 10px 4px}
+ #loginScreen .login-panel .eyebrow{font-size:7px}
+ #loginScreen .login-panel h1{font-size:17px;margin:1px 0}
+ #loginScreen .login-panel p{font-size:7px;margin:1px 0 3px}
+ #loginScreen .login-panel input{height:24px;font-size:9px;margin-bottom:2px}
+ #loginScreen .login-panel .start-button{padding:6px;margin-top:1px;font-size:10px}
+ #loginScreen .guest-button{margin-top:4px;padding:4px;font-size:8px}
+ #loginScreen .login-panel>small{font-size:5px;margin-top:2px}
+ #loginScreen .login-brand{left:9px;right:auto;top:8px}
+ #loginScreen .login-brand .start-mark{width:29px;height:29px}
+}
