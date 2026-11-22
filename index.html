@@ -9,17 +9,46 @@
 <div id="app"><div id="orientationGuard" class="orientation-guard"><div class="rotate-phone">▰</div><b>GIRA TU DISPOSITIVO</b><p>VORTTEX WAR se juega únicamente en pantalla horizontal.</p></div><section id="loginScreen" class="login-screen"><div class="login-bg-grid"></div><div class="login-brand"><span class="start-mark">V</span><span>VORTTEX <i>WAR</i><small>ACCESO DE JUGADOR</small></span></div><div class="login-panel"><div class="eyebrow">BIENVENIDO A LA ARENA</div><h1>INICIA<br><em>SESIÓN</em></h1><p>Ingresa tu nombre de jugador para continuar.</p><label for="loginName">NOMBRE DE JUGADOR</label><input id="loginName" maxlength="18" autocomplete="nickname" placeholder="Tu nombre"><label for="loginPin">CLAVE DE ACCESO</label><input id="loginPin" type="password" maxlength="24" autocomplete="current-password" placeholder="Crea o ingresa una clave"><button id="loginEnter" class="start-button">ENTRAR AL JUEGO <b>▶</b></button><button id="guestEnter" class="guest-button">CONTINUAR COMO INVITADO</button><small id="loginMessage">Perfil local de este dispositivo · acceso en línea próximamente</small></div><div class="login-art"><div class="start-aura"></div><div class="start-fighter"><span class="sf-back"></span><span class="sf-head"></span><span class="sf-body"></span><span class="sf-arm"></span><span class="sf-leg left"></span><span class="sf-leg right"></span><span class="sf-weapon"></span></div></div><button id="fullscreenBtn" class="fullscreen-btn">⛶ PANTALLA COMPLETA</button></section><div id="startScreen" class="start-screen hidden"><div class="start-grid"></div><div class="start-brand"><span class="start-mark">V</span><span>VORTTEX <i>WAR</i><small>COMBATE · SOBREVIVE · CONQUISTA</small></span></div><div class="start-copy"><span class="start-kicker">TEMPORADA 01 · ARENA 2D</span><h1>VORTTEX<br><em>WAR</em></h1><p>La batalla comienza contigo.</p><button id="startEnter" class="start-button">ENTRAR A LA ARENA <b>▶</b></button><small class="start-foot">ALPHA 0.3 · EXPERIENCIA LOCAL</small></div><div class="start-hero"><div class="start-aura"></div><div class="start-fighter"><span class="sf-back"></span><span class="sf-head"></span><span class="sf-body"></span><span class="sf-arm"></span><span class="sf-leg left"></span><span class="sf-leg right"></span><span class="sf-weapon"></span></div><div class="start-scan"></div></div><div class="start-bottom">PC <b>WASD / FLECHAS</b><span>•</span> MÓVIL <b>CONTROLES TÁCTILES</b></div></div>
 <header class="top"><button class="brand" id="homeBtn"><span class="mark">V</span><span><b>VORTTEX <i>WAR</i></b><small>ARENA DE COMBATE</small></span></button>
 <div class="resources"><span>🪙 <b id="coins">1200</b></span><span>💎 <b id="gems">35</b></span><button id="sound" aria-label="Activar o silenciar sonido">♫</button><button id="profileBtn" class="avatar">V</button></div></header>
-<main id="home" class="screen">
-<section class="hero"><div class="hero-copy"><div class="eyebrow">LOBBY PRINCIPAL · TEMPORADA 01</div><h1>ENTRA A LA<br><em>ARENA</em></h1><p>Prepara tu guerrero, reúne tu equipo y demuestra quién domina VORTTEX WAR.</p><div class="hero-actions"><button class="primary" id="play">JUGAR AHORA <span>▶</span></button><button class="ghost" id="openCharacters">ELEGIR GUERRERO</button></div><div class="stats"><span>⚡ NIVEL <b id="level">1</b></span><span>✦ XP <b id="xp">0 / 100</b></span><span>🏆 VICTORIAS <b id="wins">0</b></span></div></div><div class="hero-art"><div class="orb"></div><div class="fighter"><div class="fighter-head"></div><div class="fighter-body"></div><div class="fighter-arm"></div><div class="fighter-blade">╱</div></div><div class="art-label" id="lobbyCharacter">VORTEX <small>GUERRERO EQUIPADO</small></div><div class="character-rank">★ <b>RECLUTA</b><small>CLASIFICACIÓN</small></div></div></section><section class="lobby-modebar"><div class="mode-intro"><span class="eyebrow">SELECCIONA TU EXPERIENCIA</span><b>MODOS DE JUEGO</b></div><div class="mode-card mode-training"><span>⚔</span><div><b>ENTRENAMIENTO</b><small>Practica tus movimientos y puntería</small></div><em>DISPONIBLE</em></div><div class="mode-card mode-coming"><span>🏆</span><div><b>BATALLA ROYALE</b><small>Sobrevive y conquista la zona</small></div><em>EN DESARROLLO</em></div></section>
-<section class="section-head"><div><div class="eyebrow">CENTRO DE OPERACIONES</div><h2>PREPÁRATE PARA LA BATALLA</h2></div><span class="online-dot">● SISTEMA LOCAL</span></section>
-<section class="tiles">
-<button class="tile tile-feature" data-panel="missions"><span>🎯</span><b>MISIONES</b><small>Retos y recompensas</small></button>
-<button class="tile" data-panel="store"><span>🛒</span><b>TIENDA</b><small>Equipo y aspectos</small></button>
-<button class="tile" data-panel="roulette"><span>🎡</span><b>GIRO ROYALE</b><small>Premio diario</small></button>
-<button class="tile" data-panel="characters"><span>🦸</span><b>GUERREROS</b><small>Elige tu estilo</small></button>
-<button class="tile" data-panel="friends"><span>👥</span><b>AMIGOS</b><small>Perfil e invitaciones</small></button>
-<button class="tile" data-panel="profile"><span>🏆</span><b>MI PERFIL</b><small>Tu progreso</small></button>
-</section><footer>VORTTEX WAR <span>·</span> ALPHA 0.2.0 <span>·</span> JUEGO EN DESARROLLO</footer>
+<main id="home" class="screen lobby-shell">
+<aside class="lobby-rail">
+  <div class="rail-label">MENÚ</div>
+  <button class="rail-item active" id="railHome" aria-label="Inicio"><span>⌂</span><small>INICIO</small></button>
+  <button class="rail-item" data-panel="characters"><span>⚔</span><small>HÉROES</small></button>
+  <button class="rail-item" data-panel="missions"><span>✦</span><small>MISIONES</small></button>
+  <button class="rail-item" data-panel="store"><span>▣</span><small>TIENDA</small></button>
+  <button class="rail-item" data-panel="roulette"><span>◉</span><small>GIRO</small></button>
+  <div class="rail-spacer"></div>
+  <button class="rail-item" data-panel="friends"><span>♧</span><small>AMIGOS</small></button>
+  <button class="rail-item" data-panel="profile"><span>◈</span><small>PERFIL</small></button>
+</aside>
+<div class="lobby-main">
+  <section class="lobby-welcome">
+    <div class="welcome-copy"><div class="eyebrow"><span class="live-pulse"></span> TEMPORADA 01 · CAMPO DE BATALLA</div>
+      <h1>DOMINA<br><em>LA ARENA</em></h1>
+      <p>Prepara tu escuadrón. La victoria empieza aquí.</p>
+      <div class="welcome-actions"><button class="primary" id="play">JUGAR AHORA <span>▶</span></button><button class="ghost" id="openCharacters">CAMBIAR GUERRERO</button></div>
+      <div class="player-stats"><span>RANGO <b>RECLUTA</b></span><span>NIVEL <b id="level">1</b></span><span>XP <b id="xp">0 / 100</b></span><span>VICTORIAS <b id="wins">0</b></span></div>
+    </div>
+    <div class="lobby-character-stage"><div class="stage-ring"></div><div class="stage-glow"></div><div class="fighter"><div class="fighter-head"></div><div class="fighter-body"></div><div class="fighter-arm"></div><div class="fighter-blade">╱</div></div><div class="character-nameplate"><span>GUERRERO EQUIPADO</span><b id="lobbyCharacter">VORTEX</b></div><div class="stage-level">★ <b>01</b><small>RECLUTA</small></div></div>
+  </section>
+  <section class="lobby-playbar">
+    <div class="playbar-title"><span class="eyebrow">SELECCIONA TU MODO</span><b>MODOS DE COMBATE</b></div>
+    <button class="mode-card mode-training" id="trainingMode"><span class="mode-icon">⚔</span><span class="mode-text"><b>ENTRENAMIENTO</b><small>Practica y mejora tus habilidades</small></span><em>JUGAR <i>›</i></em></button>
+    <div class="mode-card mode-coming"><span class="mode-icon">🏆</span><span class="mode-text"><b>BATALLA ROYALE</b><small>El último guerrero en pie gana</small></span><em>PRÓXIMAMENTE</em></div>
+  </section>
+  <section class="lobby-bottom">
+    <div class="bottom-heading"><div><span class="eyebrow">CENTRO DE OPERACIONES</span><b>PREPARA TU SIGUIENTE MOVIMIENTO</b></div><span class="online-dot">● SISTEMA LOCAL</span></div>
+    <div class="lobby-shortcuts">
+      <button class="shortcut shortcut-missions" data-panel="missions"><span>🎯</span><b>MISIONES</b><small>Retos y recompensas</small><i>›</i></button>
+      <button class="shortcut" data-panel="store"><span>🛒</span><b>TIENDA</b><small>Equipo y aspectos</small><i>›</i></button>
+      <button class="shortcut" data-panel="roulette"><span>🎡</span><b>GIRO ROYALE</b><small>Premio diario</small><i>›</i></button>
+      <button class="shortcut" data-panel="characters"><span>🦸</span><b>GUERREROS</b><small>Elige tu estilo</small><i>›</i></button>
+      <button class="shortcut" data-panel="friends"><span>👥</span><b>COMUNIDAD</b><small>Amigos y equipo</small><i>›</i></button>
+      <button class="shortcut" data-panel="profile"><span>🏆</span><b>MI PERFIL</b><small>Tu progreso</small><i>›</i></button>
+    </div>
+  </section>
+  <footer>VORTTEX WAR <span>·</span> ALPHA 0.4 <span>·</span> ARENA 2D</footer>
+</div>
 </main>
 <section id="game" class="screen hidden"><div class="gamebar"><button id="back">✕ SALIR</button><b>VORTTEX WAR <small>· ZONA DE ENTRENAMIENTO</small></b><span>🪙 <b id="gameCoins">0</b></span></div><div class="game-wrap"><canvas id="world" width="960" height="540" aria-label="Juego Vorttex War"></canvas><div class="game-hud"><span id="health">♥ 100</span><span id="objective">ELIMINA A LOS RIVALES</span><button id="pause">Ⅱ PAUSA</button></div></div><div class="mobile-controls"><div><button data-key="ArrowLeft">◀</button><button data-key="ArrowRight">▶</button></div><div><button data-key="Space">SALTO</button><button data-key="KeyZ">DISPARO</button></div></div><div class="hint">Mover: A / D o ← / → · Saltar: ESPACIO · Disparar: Z · Pausa: ESC</div></section>
 <section id="panel" class="screen hidden"><button class="backlink" id="panelBack">← VOLVER AL LOBBY</button><div class="panelcard"><div class="eyebrow">VORTTEX WAR · OPERACIONES</div><h2 id="panelTitle">MISIONES</h2><div id="panelContent"></div></div></section>
