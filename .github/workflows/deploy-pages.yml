@@ -49,11 +49,11 @@ jobs:
           print(f"HTML OK: {len(parser.ids)} unique IDs; required game controls found.")
           import re
           js = Path("game.js").read_text(encoding="utf-8")
-          refs = set(re.findall(r"\\$\\(['\\\"]([^'\\\"]+)['\\\"]\\)", js))
+          refs = set(re.findall(r"""\$\(\s*['"]([^'"]+)['"]\s*\)""", js))
           missing_refs = sorted(refs - set(parser.ids))
           if missing_refs:
               raise SystemExit("JavaScript references missing HTML IDs: " + ", ".join(missing_refs))
-          css = re.sub(r"/\\*.*?\\*/", "", Path("style.css").read_text(encoding="utf-8"), flags=re.S)
+          css = Path("style.css").read_text(encoding="utf-8")
           if css.count("{") != css.count("}"):
               raise SystemExit("Unbalanced CSS braces")
           if "linear-gradien(" in css:
