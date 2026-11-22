@@ -98,22 +98,39 @@ function update(){frame++;const left=keys.ArrowLeft||keys.KeyA,right=keys.ArrowR
 function finishGame(win){if(gameDone)return;gameDone=true;active=false;paused=false;keys={};touchAxis=0;fireHeld=false;dashFrames=0;cancelAnimationFrame(raf);if(win){save.wins++;save.xp+=100;save.coins+=100;alert('¡Victoria! +100 XP y +100 monedas.');}else{save.xp+=20;alert('Partida terminada. +20 XP por participar.')}persist();show(home);openPanel('missions')}
 function draw(){const g=ctx.createLinearGradient(0,0,0,540);g.addColorStop(0,'#1c315c');g.addColorStop(1,'#6b5472');ctx.fillStyle=g;ctx.fillRect(0,0,960,540);for(let i=0;i<9;i++){let x=(i*160-worldX*.25)%1200;ctx.fillStyle='#ffffff0b';ctx.beginPath();ctx.arc(x+80,120,50+i%3*18,0,Math.PI*2);ctx.fill()}ctx.fillStyle='#263b4c';ctx.fillRect(0,420,960,120);ctx.fillStyle='#55c6a0';ctx.fillRect(0,420,960,7);for(let i=0;i<20;i++){let x=(i*120-worldX*.7)%1100;ctx.fillStyle='#31566a';ctx.fillRect(x,385,50,35);ctx.fillStyle='#4b7a82';ctx.fillRect(x+8,375,34,10)}ctx.save();ctx.translate(-worldX,0);ctx.fillStyle='#f6ad48';ctx.fillRect(1740,340,9,80);ctx.fillStyle='#f6e27b';ctx.beginPath();ctx.moveTo(1749,340);ctx.lineTo(1795,355);ctx.lineTo(1749,370);ctx.fill();function fighter(x,y,face,main,accent,enemy=false){
 ctx.save();ctx.translate(x+19,y+29+Math.sin(frame*.12+(enemy?2:0))*1.8);ctx.scale(face,1);
-const outline='#17233a',skin=enemy?'#b87968':'#f2bd91',shirt=enemy?'#a93452':main,cap=enemy?'#6d263e':main,overalls=enemy?'#6f3150':'#2459a5',trim=enemy?'#ffc05b':accent;
-function path(points,fill,stroke=outline,w=2){ctx.beginPath();points.forEach((p,i)=>i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1]));ctx.closePath();ctx.fillStyle=fill;ctx.fill();ctx.strokeStyle=stroke;ctx.lineWidth=w;ctx.stroke()}
-function round(x,y,w,h,r,fill,stroke=outline,lw=2){ctx.beginPath();if(ctx.roundRect)ctx.roundRect(x,y,w,h,r);else ctx.rect(x,y,w,h);ctx.fillStyle=fill;ctx.fill();ctx.strokeStyle=stroke;ctx.lineWidth=lw;ctx.stroke()}
+const ink='#17233a',skin=enemy?'#b87968':'#f2bd91',shirt=enemy?'#a93452':main,cap=enemy?'#6d263e':main,overall=enemy?'#6f3150':'#2459a5',trim=enemy?'#ffc05b':accent;
 const step=Math.sin(frame*.22+(enemy?2:0))*3;
-round(-14,22+step,13,9,3,'#493126');round(3,22-step,14,9,3,'#493126');
-path([[-12,7],[-3,8],[-4,25],[-14,25]],overalls);path([[2,8],[11,7],[14,25],[5,25]],overalls);
-path([[-13,-7],[13,-7],[15,13],[9,23],[-10,23],[-15,13]],overalls);
-round(-10,-2,20,5,2,trim,outline,1);round(-7,7,14,7,2,shirt);
-path([[-14,-5],[-20,1],[-19,12],[-12,13],[-8,3]],shirt);path([[14,-5],[20,1],[19,12],[12,13],[8,3]],shirt);
-round(-22,10,9,7,3,'#fff4df');round(13,10,9,7,3,'#fff4df');
-round(-5,-15,10,8,2,skin);ctx.beginPath();ctx.arc(0,-21,10,0,Math.PI*2);ctx.fillStyle=skin;ctx.fill();ctx.strokeStyle=outline;ctx.lineWidth=2;ctx.stroke();
-path([[-12,-24],[-11,-32],[-5,-37],[6,-37],[12,-31],[12,-23],[5,-27],[-5,-27]],cap);
-round(-13,-28,26,6,3,cap);round(-3,-33,6,5,2,trim,outline,1);
-ctx.fillStyle='#fff';ctx.fillRect(-6,-23,4,4);ctx.fillRect(3,-23,4,4);ctx.fillStyle='#17233a';ctx.fillRect(-5,-22,2,3);ctx.fillRect(4,-22,2,3);
-path([[-7,-14],[-2,-12],[0,-14],[2,-12],[7,-14],[5,-9],[0,-8],[-5,-9]],enemy?'#4a2430':'#63372c');
-path([[-11,1],[-18,7],[-14,12],[-7,5]],skin);path([[11,1],[18,7],[14,12],[7,5]],skin);
+function rr(x,y,w,h,r,fill,lw=2){ctx.beginPath();if(ctx.roundRect)ctx.roundRect(x,y,w,h,r);else ctx.rect(x,y,w,h);ctx.fillStyle=fill;ctx.fill();ctx.strokeStyle=ink;ctx.lineWidth=lw;ctx.stroke()}
+function poly(points,fill,lw=2){ctx.beginPath();points.forEach((p,i)=>i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1]));ctx.closePath();ctx.fillStyle=fill;ctx.fill();ctx.strokeStyle=ink;ctx.lineWidth=lw;ctx.stroke()}
+// botas grandes y piernas cortas
+rr(-15,19+step,18,10,4,'#70432f');rr(0,19-step,19,10,4,'#70432f');
+rr(-17,24+step,21,6,3,'#3d2a28');rr(0,24-step,22,6,3,'#3d2a28');
+poly([[-12,4],[-3,5],[-4,23],[-15,23]],overall);poly([[3,5],[12,4],[15,23],[4,23]],overall);
+// cuerpo robusto, overol y tirantes
+poly([[-15,-13],[15,-13],[17,12],[11,22],[-11,22],[-17,12]],shirt);
+poly([[-12,-3],[12,-3],[14,17],[8,22],[-8,22],[-14,17]],overall);
+poly([[-10,-5],[-4,-5],[-3,9],[-10,9]],overall,1);poly([[4,-5],[10,-5],[10,9],[3,9]],overall,1);
+rr(-7,-2,5,5,2,trim,1);rr(3,-2,5,5,2,trim,1);
+rr(-3,3,6,7,2,overall,1);
+// brazos cortos y guantes blancos
+poly([[-14,-10],[-21,-4],[-20,8],[-14,10],[-9,-2]],shirt);
+poly([[14,-10],[21,-4],[20,8],[14,10],[9,-2]],shirt);
+rr(-23,6,10,9,4,'#fff4df');rr(13,6,10,9,4,'#fff4df');
+// cuello y cabeza sobredimensionada
+rr(-5,-20,10,9,3,skin);
+ctx.beginPath();ctx.ellipse(0,-25,13,14,0,0,Math.PI*2);ctx.fillStyle=skin;ctx.fill();ctx.strokeStyle=ink;ctx.lineWidth=2.5;ctx.stroke();
+// orejas
+ctx.beginPath();ctx.arc(-12,-24,4,0,Math.PI*2);ctx.arc(12,-24,4,0,Math.PI*2);ctx.fillStyle=skin;ctx.fill();ctx.stroke();
+// gorra con visera marcada
+poly([[-14,-27],[-13,-37],[-7,-42],[5,-42],[13,-36],[14,-27],[5,-32],[-5,-32]],cap);
+rr(-16,-31,32,6,3,cap);rr(-4,-39,8,5,2,trim,1);
+// ojos expresivos
+ctx.fillStyle='#fff';ctx.beginPath();ctx.ellipse(-5,-25,3.2,4.8,0,0,Math.PI*2);ctx.ellipse(5,-25,3.2,4.8,0,0,Math.PI*2);ctx.fill();
+ctx.fillStyle=ink;ctx.beginPath();ctx.arc(-4,-24,1.7,0,Math.PI*2);ctx.arc(6,-24,1.7,0,Math.PI*2);ctx.fill();
+ctx.strokeStyle='#422b2b';ctx.lineWidth=2.5;ctx.beginPath();ctx.moveTo(-9,-32);ctx.quadraticCurveTo(-5,-35,-1,-32);ctx.moveTo(2,-32);ctx.quadraticCurveTo(7,-35,10,-32);ctx.stroke();
+// nariz y bigote característico
+ctx.beginPath();ctx.ellipse(0,-18,4.5,3.5,0,0,Math.PI*2);ctx.fillStyle=skin;ctx.fill();ctx.strokeStyle=ink;ctx.lineWidth=1.5;ctx.stroke();
+poly([[-1,-16],[-7,-19],[-11,-16],[-10,-12],[-4,-12],[0,-15],[4,-12],[10,-12],[11,-16],[7,-19],[1,-16]],'#55352c',1.5);
 ctx.restore()}enemies.forEach(e=>{if(!e.alive)return;fighter(e.x,e.y,e.face||-1,'#d94d68','#ffb34e',true)});const palette={VORTEX:['#28cbd5','#ffe06a'],NOVA:['#8d72f5','#63e5ff'],BLAZE:['#ef6748','#ffc24b'],SHADOW:['#414b70','#d66cff']}[save.selected]||['#28cbd5','#ffe06a'];fighter(player.x,player.y,player.face,palette[0],palette[1]);ctx.fillStyle='#ffd15a';shots.forEach(s=>{ctx.shadowColor='#ffd15a';ctx.shadowBlur=12;ctx.fillRect(s.x,s.y,15,5)});ctx.shadowBlur=0;enemyShots.forEach(s=>{ctx.fillStyle='#ff526d';ctx.shadowColor='#ff244f';ctx.shadowBlur=15;ctx.beginPath();ctx.arc(s.x,s.y,5,0,Math.PI*2);ctx.fill();ctx.fillStyle='#ffd2dc';ctx.beginPath();ctx.arc(s.x,s.y,2,0,Math.PI*2);ctx.fill()});ctx.shadowBlur=0;ctx.restore();ctx.fillStyle='#10172cbb';ctx.fillRect(18,18,190,55);ctx.fillStyle='#fff';ctx.font='bold 16px Inter';ctx.fillText(save.selected+'  ·  HP '+player.hp,30,43);ctx.font='12px Inter';ctx.fillStyle='#ffe08a';ctx.fillText(enemies.some(e=>e.alive)?'OBJETIVO: ELIMINA A LOS RIVALES':'OBJETIVO: LLEGA A LA BANDERA',30,62);ctx.fillStyle='#fff';ctx.font='bold 14px Inter';ctx.fillText('PROGRESO',800,35);ctx.fillStyle='#ffffff30';ctx.fillRect(800,45,130,8);ctx.fillStyle='#4be2df';ctx.fillRect(800,45,130*Math.min(1,player.x/1800),8);if(paused){ctx.fillStyle='#090d1dcc';ctx.fillRect(0,0,960,540);ctx.fillStyle='#fff';ctx.font='bold 50px Inter';ctx.textAlign='center';ctx.fillText('PAUSA',480,270);ctx.font='18px Inter';ctx.fillText('Presiona ESC para continuar',480,310);ctx.textAlign='left'}}
 renderResources();$('sound').textContent=save.sound?'♫':'🔇';
 })();
