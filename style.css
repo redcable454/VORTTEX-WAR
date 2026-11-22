@@ -2531,3 +2531,16 @@ body #app > #home.lobby-shell > .lobby-rail{
 #home .lobby-rail .rail-item{transform:none!important}
 #home .welcome-copy{height:auto!important;min-height:0!important}
 #home .lobby-playbar{display:grid!important}
+
+
+/* Las pantallas ocultas no deben bloquear los controles que quedan debajo */
+body #app > #home.hidden,
+body #app > #game.hidden,
+body #app > #panel.hidden{
+  display:none!important;visibility:hidden!important;pointer-events:none!important;
+}
+body #app > #home:not(.hidden),
+body #app > #game:not(.hidden),
+body #app > #panel:not(.hidden){
+  pointer-events:auto!important;
+}
