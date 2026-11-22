@@ -2391,3 +2391,131 @@ body{overflow:hidden}
   #home .welcome-actions{bottom:7px}
   #home .welcome-copy{top:34px}
 }
+
+
+/* HOTFIX AUDITADO: reparar cascada heredada del lobby */
+body #app > header.top{
+  position:fixed!important;top:0!important;left:0!important;right:0!important;
+  z-index:90!important;height:56px!important;min-height:56px!important;
+  box-sizing:border-box!important;
+}
+body #app > #home.lobby-shell{
+  position:fixed!important;top:56px!important;left:0!important;right:0!important;bottom:0!important;
+  width:100vw!important;height:auto!important;max-width:none!important;max-height:none!important;
+  min-height:0!important;margin:0!important;padding:0!important;
+  display:flex!important;flex-direction:row!important;gap:0!important;
+  overflow:hidden!important;border:0!important;border-radius:0!important;
+  box-sizing:border-box!important;z-index:1!important;
+}
+body #app > #home.lobby-shell > .lobby-rail{
+  position:relative!important;inset:auto!important;z-index:20!important;
+  display:flex!important;flex:0 0 66px!important;width:66px!important;min-width:66px!important;
+  height:100%!important;box-sizing:border-box!important;
+}
+body #app > #home.lobby-shell > .lobby-main{
+  position:relative!important;inset:auto!important;z-index:1!important;
+  display:block!important;flex:1 1 auto!important;width:auto!important;min-width:0!important;
+  height:100%!important;min-height:0!important;margin:0!important;padding:0!important;
+  overflow:hidden!important;box-sizing:border-box!important;
+}
+#home .lobby-welcome{
+  position:absolute!important;inset:0 0 68px 0!important;
+  display:block!important;width:100%!important;height:auto!important;
+  min-height:0!important;max-height:none!important;flex:none!important;
+  margin:0!important;border:0!important;border-radius:0!important;overflow:hidden!important;
+}
+#home .lobby-scene{position:absolute!important;inset:0!important;width:100%!important;height:100%!important}
+#home .arena-topline{position:absolute!important;top:12px!important;left:18px!important;right:18px!important;z-index:8!important}
+#home .welcome-copy{
+  position:absolute!important;top:62px!important;left:18px!important;right:auto!important;bottom:auto!important;
+  display:flex!important;flex-direction:column!important;width:clamp(165px,22vw,260px)!important;
+  max-width:calc(100% - 36px)!important;height:auto!important;min-height:0!important;
+  padding:10px 13px!important;z-index:8!important;box-sizing:border-box!important;
+}
+#home .welcome-copy h1{font-size:clamp(29px,4.2vw,54px)!important}
+#home .welcome-copy p{display:block!important}
+#home .player-stats{display:flex!important;flex-wrap:wrap!important}
+#home .welcome-actions{
+  position:fixed!important;left:auto!important;right:18px!important;top:auto!important;bottom:76px!important;
+  display:flex!important;z-index:95!important;margin:0!important;
+}
+#home .welcome-actions .primary{
+  display:block!important;min-width:clamp(120px,16vw,205px)!important;
+  min-height:42px!important;padding:10px 16px!important;font-size:clamp(13px,1.7vw,20px)!important;
+}
+#home .welcome-actions .ghost{display:none!important}
+#home .lobby-character-stage{
+  position:absolute!important;inset:0!important;z-index:4!important;
+  display:block!important;width:100%!important;height:100%!important;min-height:0!important;
+  overflow:hidden!important;pointer-events:none!important;
+}
+#home .lobby-character-stage .fighter-svg{
+  position:absolute!important;left:49%!important;right:auto!important;top:auto!important;bottom:0!important;
+  display:block!important;width:auto!important;height:96%!important;max-height:100%!important;
+  max-width:48%!important;transform:translateX(-50%) scale(1.08)!important;
+  transform-origin:center bottom!important;z-index:4!important;
+}
+#home .lobby-character-stage .stage-ring{
+  position:absolute!important;left:49%!important;top:58%!important;
+  transform:translate(-50%,-50%)!important;
+}
+#home .lobby-character-stage .stage-glow{position:absolute!important;left:49%!important;top:82%!important}
+#home .character-nameplate{
+  position:absolute!important;left:49%!important;right:auto!important;bottom:8px!important;
+  transform:translateX(-50%)!important;z-index:7!important;
+}
+#home .stage-level{position:absolute!important;top:45px!important;right:18px!important;z-index:7!important}
+#home .lobby-playbar{
+  position:absolute!important;display:grid!important;visibility:visible!important;
+  left:auto!important;right:16px!important;top:auto!important;bottom:140px!important;
+  width:min(25vw,265px)!important;max-width:calc(100% - 24px)!important;
+  grid-template-columns:minmax(0,1fr)!important;gap:6px!important;
+  z-index:12!important;margin:0!important;padding:0!important;
+}
+#home .lobby-playbar .mode-card{display:flex!important;min-height:46px!important}
+#home .lobby-bottom{
+  position:absolute!important;display:flex!important;visibility:visible!important;
+  left:0!important;right:0!important;top:auto!important;bottom:0!important;
+  width:100%!important;height:68px!important;min-height:68px!important;
+  z-index:15!important;box-sizing:border-box!important;
+}
+#home .lobby-shortcuts{display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr))!important;width:100%!important}
+#home .lobby-shortcuts .shortcut{display:flex!important;min-width:0!important}
+#home .lobby-main>footer{display:none!important}
+@media(max-width:720px){
+  body #app > header.top{height:52px!important;min-height:52px!important;padding:0 8px!important}
+  body #app > #home.lobby-shell{top:52px!important}
+  body #app > #home.lobby-shell > .lobby-rail{flex-basis:48px!important;width:48px!important;min-width:48px!important}
+  #home .welcome-copy{left:8px!important;top:42px!important;width:clamp(115px,24vw,175px)!important;padding:6px 7px!important}
+  #home .welcome-copy h1{font-size:clamp(21px,4.2vw,32px)!important}
+  #home .welcome-copy p{font-size:6px!important}
+  #home .player-stats{gap:5px!important}
+  #home .lobby-character-stage .fighter-svg{left:48%!important;height:88%!important;max-width:54%!important}
+  #home .lobby-character-stage .stage-ring,#home .character-nameplate{left:48%!important}
+  #home .lobby-playbar{right:6px!important;bottom:122px!important;width:clamp(112px,24vw,175px)!important}
+  #home .lobby-playbar .mode-card{min-height:36px!important;padding:4px 5px!important}
+  #home .welcome-actions{right:7px!important;bottom:66px!important}
+  #home .welcome-actions .primary{min-width:105px!important;min-height:34px!important;padding:7px 9px!important;font-size:12px!important}
+  #home .lobby-bottom{height:58px!important;min-height:58px!important;padding:3px!important}
+  #home .lobby-welcome{inset:0 0 58px 0!important}
+  #home .lobby-shortcuts{gap:0!important}
+  #home .lobby-shortcuts .shortcut{min-height:50px!important;padding:2px!important}
+  #home .lobby-shortcuts .shortcut>span{font-size:14px!important}
+  #home .lobby-shortcuts .shortcut>b{font-size:7px!important}
+  #home .lobby-shortcuts .shortcut>small{font-size:5px!important}
+}
+@media(orientation:landscape) and (max-height:430px){
+  body #app > header.top{height:44px!important;min-height:44px!important;padding:0 8px!important}
+  body #app > #home.lobby-shell{top:44px!important}
+  body #app > #home.lobby-shell > .lobby-rail{flex-basis:48px!important;width:48px!important;min-width:48px!important;padding:4px 2px!important}
+  #home .lobby-welcome{inset:0 0 49px 0!important}
+  #home .lobby-bottom{height:49px!important;min-height:49px!important;padding:2px 5px!important}
+  #home .lobby-shortcuts .shortcut{min-height:44px!important}
+  #home .lobby-shortcuts .shortcut>small{display:none!important}
+  #home .lobby-character-stage .fighter-svg{height:94%!important;max-width:43%!important}
+  #home .lobby-playbar{bottom:106px!important;width:clamp(120px,23vw,190px)!important}
+  #home .lobby-playbar .mode-card{min-height:32px!important;padding:3px 5px!important}
+  #home .welcome-actions{bottom:56px!important}
+  #home .welcome-copy{top:34px!important}
+  #home .welcome-copy p,#home .player-stats{display:none!important}
+}
