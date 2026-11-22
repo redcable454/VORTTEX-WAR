@@ -1577,3 +1577,23 @@ body{position:fixed!important;inset:0!important}
  #game .dash-action{width:34px!important;height:34px!important}
  #game .fire-action{width:53px!important;height:53px!important;margin-bottom:4px!important}
 }
+
+
+/* Compatibilidad con navegadores móviles antiguos y pantallas de juego */
+html,body,#app{height:100vh!important}
+.screen,#home,#game,#panel,.start-screen{height:100vh}
+#game:not(.hidden){height:100vh!important}
+#game .game-wrap{height:100vh!important}
+@supports (height:100dvh){
+ html,body,#app{height:100dvh!important}
+ .screen,#home,#game,#panel,.start-screen{height:100dvh}
+ #game:not(.hidden),#game .game-wrap{height:100dvh!important}
+}
+@media(max-width:700px) and (orientation:landscape){
+ #game .game-hud{height:36px!important;padding:3px 8px!important}
+ #game .touch-controls{height:28vh!important;max-height:112px!important;padding:0 13px 6px!important}
+ #game .joystick{width:78px!important;height:78px!important}
+ #game .game-action{width:42px!important;height:42px!important;font-size:17px!important}
+ #game .dash-action{width:34px!important;height:34px!important}
+ #game .fire-action{width:53px!important;height:53px!important}
+}
