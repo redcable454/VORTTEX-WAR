@@ -834,3 +834,114 @@ body:has(#home:not(.hidden)):before{opacity:.08}
  .profile-hero-2d{grid-template-columns:90px 1fr;gap:8px;padding:8px}
  .profile-hero-art{height:120px}.profile-hero-info h3{font-size:25px}
 }
+
+
+/* LOGIN 2D — composición corregida: fondo completo + acceso centrado abajo */
+#loginScreen.login-screen{
+ display:block;position:fixed;inset:0;width:100vw;height:100dvh;min-height:0;
+ padding:0;overflow:hidden;isolation:isolate;
+ background:
+  radial-gradient(ellipse at 52% 43%,#f4a45b66 0,transparent 23%),
+  radial-gradient(ellipse at 82% 28%,#477c9b55 0,transparent 32%),
+  linear-gradient(180deg,#6c9bb5 0%,#b6a18c 38%,#5b5360 66%,#101c30 100%);
+}
+#loginScreen.login-screen:before{
+ content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+ background:
+  linear-gradient(180deg,#14253a22 0%,transparent 35%,#10192c55 65%,#07111de8 100%),
+  radial-gradient(ellipse at 52% 60%,#f7b56b66,transparent 32%),
+  repeating-linear-gradient(115deg,transparent 0 110px,#ffffff0b 111px 113px);
+}
+#loginScreen.login-screen:after{
+ content:"";position:absolute;z-index:0;left:0;right:0;bottom:0;height:52%;pointer-events:none;
+ background:
+  linear-gradient(180deg,#15253a00 0%,#172338aa 35%,#091425 100%),
+  repeating-linear-gradient(90deg,transparent 0 6%,#14243a 6.2% 8.7%,transparent 8.9% 12%);
+ clip-path:polygon(0 28%,4% 28%,4% 13%,8% 13%,8% 34%,13% 34%,13% 7%,18% 7%,18% 32%,24% 32%,24% 18%,29% 18%,29% 38%,35% 38%,35% 4%,40% 4%,40% 30%,46% 30%,46% 15%,52% 15%,52% 37%,58% 37%,58% 5%,63% 5%,63% 31%,69% 31%,69% 12%,74% 12%,74% 38%,80% 38%,80% 8%,85% 8%,85% 32%,91% 32%,91% 15%,96% 15%,96% 34%,100% 34%,100% 100%,0 100%);
+}
+#loginScreen .login-bg-grid{position:absolute;inset:0;z-index:0;opacity:.12}
+#loginScreen .login-brand{
+ position:absolute;z-index:5;top:clamp(12px,3vh,28px);right:clamp(16px,4vw,54px);left:auto;
+ display:flex;align-items:center;gap:10px;text-align:right;
+ filter:drop-shadow(0 3px 6px #07111dcc)
+}
+#loginScreen .login-brand .start-mark{width:40px;height:40px}
+#loginScreen .login-art{
+ position:absolute;z-index:1;inset:0;display:block;height:100%;width:100%;
+ overflow:hidden;pointer-events:none;
+}
+#loginScreen .login-art:before{
+ content:"";position:absolute;inset:0;
+ background:
+  radial-gradient(ellipse at 50% 56%,#ffd18a35 0,transparent 31%),
+  linear-gradient(90deg,#08152540,transparent 30%,transparent 70%,#08152530);
+}
+#loginScreen .login-art:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#06101df2 0%,transparent 38%,#06101d22 100%)}
+#loginScreen .login-art .start-aura{
+ position:absolute;left:50%;top:45%;transform:translate(-50%,-50%);
+ width:min(64vw,760px);height:min(64vw,760px);aspect-ratio:1;
+ background:radial-gradient(circle,#ffc47a66 0,#f28b4b33 38%,#58b5ce16 62%,transparent 73%);
+}
+#loginScreen .login-art .start-fighter{
+ position:absolute;left:50%;top:48%;transform:translate(-50%,-50%)!important;
+ width:auto;height:min(86vh,790px);max-width:52vw;display:flex;align-items:center;justify-content:center;
+ filter:drop-shadow(0 24px 22px #030914dd)
+}
+#loginScreen .login-art .cinematic-fighter{width:auto;height:100%;max-width:100%;filter:drop-shadow(0 0 22px #ffc16a33)}
+#loginScreen .login-panel{
+ position:absolute;z-index:6;left:50%;right:auto;top:auto;bottom:clamp(14px,4vh,38px);
+ transform:translateX(-50%);width:min( min(92vw,520px),calc(100vw - 24px));
+ margin:0;padding:14px 20px 12px;text-align:center;
+ border:1px solid #ffffff55;border-radius:5px;
+ background:linear-gradient(180deg,#0b192bd9,#071321ed);
+ box-shadow:0 14px 44px #020713aa,inset 0 1px #ffffff26;
+ backdrop-filter:blur(8px)
+}
+#loginScreen .login-panel:before{display:none}
+#loginScreen .login-panel .eyebrow{font-size:9px;letter-spacing:2px;color:#ffd17a}
+#loginScreen .login-panel h1{font-size:clamp(22px,3vw,34px);line-height:.95;margin:4px 0 5px;letter-spacing:1px}
+#loginScreen .login-panel p{font-size:10px;margin:4px 0 8px;color:#d6dfeb}
+#loginScreen .login-panel label{display:none}
+#loginScreen .login-panel input{
+ display:inline-block;width:calc(50% - 7px);height:35px;margin:0 2px 7px;
+ border-radius:3px;background:#06101de8;border:1px solid #ffffff4d;
+ font-size:11px;padding:7px 9px
+}
+#loginScreen .login-panel .start-button{
+ display:block;width:min(100%,310px);margin:5px auto 0;padding:11px 16px;
+ border-radius:3px;background:linear-gradient(90deg,#ffd777,#ed914d);
+ color:#241923;font:900 13px 'Barlow Condensed';letter-spacing:1px;
+ box-shadow:0 3px 0 #994c36
+}
+#loginScreen .guest-button{
+ display:inline-block;width:min(48%,150px);margin:7px 3px 0;padding:8px 10px;
+ border-radius:3px;background:#e8edf2;color:#172337;border:1px solid #fff;
+ font:900 10px 'Barlow Condensed';letter-spacing:.5px
+}
+#loginScreen .login-panel>small{display:block;font-size:7px;color:#9eafc2;margin-top:7px}
+#loginScreen .fullscreen-btn{position:absolute;z-index:7;top:16px;left:16px;border-radius:3px;background:#071321aa}
+@media(max-width:760px) and (orientation:landscape){
+ #loginScreen .login-art .start-fighter{height:83vh;max-width:48vw;top:44%}
+ #loginScreen .login-art .start-aura{top:43%;width:62vh;height:62vh}
+ #loginScreen .login-panel{bottom:8px;width:min(92vw,420px);padding:7px 12px 6px}
+ #loginScreen .login-panel h1{font-size:22px;margin:2px 0}
+ #loginScreen .login-panel p{font-size:8px;margin:2px 0 4px}
+ #loginScreen .login-panel input{height:28px;margin-bottom:3px;font-size:10px}
+ #loginScreen .login-panel .start-button{padding:7px;margin-top:2px;font-size:11px}
+ #loginScreen .guest-button{margin-top:4px;padding:5px}
+ #loginScreen .login-panel>small{margin-top:3px;font-size:6px}
+ #loginScreen .login-brand{top:8px;right:14px}
+ #loginScreen .login-brand .start-mark{width:29px;height:29px}
+ #loginScreen .fullscreen-btn{top:8px;left:8px;font-size:8px;padding:5px 7px}
+}
+@media(max-width:560px) and (orientation:landscape){
+ #loginScreen .login-art .start-fighter{height:77vh;max-width:45vw}
+ #loginScreen .login-panel{width:min(96vw,370px);padding:5px 9px}
+ #loginScreen .login-panel h1{font-size:18px}
+ #loginScreen .login-panel input{height:25px}
+}
+@media(orientation:portrait){
+ #loginScreen .login-art .start-fighter{height:58vh;max-width:82vw;top:39%}
+ #loginScreen .login-panel{bottom:18px;width:calc(100vw - 24px);padding:12px}
+ #loginScreen .login-brand{top:14px;right:14px}
+}
