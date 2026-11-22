@@ -411,3 +411,10 @@ html,body{background:#0a1023}
     font-size:clamp(6px,1.3vh,8px);
   }
 }
+
+/* Guerreros 2D tácticos originales */
+.lobby-character-stage .fighter-svg{position:relative;z-index:2;width:min(28vw,290px);height:92%;max-height:350px;overflow:visible;filter:drop-shadow(0 12px 18px #0009);transform:scale(1.02);transform-origin:center bottom}
+.character-portrait{height:150px;display:grid;place-items:center;overflow:hidden;border-radius:12px;background:radial-gradient(ellipse at 50% 70%,#3e658a66,transparent 65%),linear-gradient(145deg,#101b31,#26385a)}
+.portrait-soldier{height:145px;width:auto;max-width:100%;filter:drop-shadow(0 5px 6px #0008)}
+@media (orientation:landscape) and (max-height:600px){.lobby-character-stage .fighter-svg{width:min(23vh,155px);height:94%;max-height:230px}}
+@media (max-width:700px) and (orientation:landscape){.lobby-character-stage .fighter-svg{width:min(23vh,145px)}}
