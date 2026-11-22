@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#101326"><meta name="description" content="VORTTEX WAR - aventura de acción cartoon 2D">
+<title>VORTTEX WAR</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+<header class="top"><div class="brand"><span class="mark">V</span><div><b>VORTTEX <i>WAR</i></b><small>ARENA DE COMBATE</small></div></div><div class="resources"><span>🪙 <b id="coins">1200</b></span><span>💎 35</span><button id="sound" aria-label="Sonido">♫</button></div></header>
+<main id="home" class="screen">
+<section class="hero"><div class="eyebrow">TEMPORADA 01 · EL DESPERTAR</div><h1>ENTRA A LA<br><em>BATALLA</em></h1><p>Explora mundos, supera enemigos y conviértete en leyenda.</p><div class="hero-actions"><button class="primary" id="play">JUGAR AHORA <span>▶</span></button><button class="ghost" id="openCharacters">PERSONAJES</button></div><div class="stats"><span>⚡ NIVEL <b>1</b></span><span>✦ XP <b>0 / 100</b></span><span>🏆 VICTORIAS <b>0</b></span></div></section>
+<section class="tiles"><button class="tile" data-panel="missions"><span>🎯</span><b>MISIONES</b><small>Retos diarios</small></button><button class="tile" data-panel="store"><span>🛒</span><b>TIENDA</b><small>Equipo y estilos</small></button><button class="tile" data-panel="roulette"><span>🎡</span><b>GIRO ROYALE</b><small>Premios sorpresa</small></button><button class="tile" data-panel="friends"><span>👥</span><b>AMIGOS</b><small>Próximamente</small></button></section>
+<footer>VORTTEX WAR <span>·</span> PROTOTIPO 0.1.0</footer>
+</main>
+<section id="game" class="screen hidden"><div class="gamebar"><button id="back">✕ SALIR</button><b>VORTTEX WAR <small>· ZONA DE ENTRENAMIENTO</small></b><span>🪙 <b id="gameCoins">0</b></span></div><canvas id="world" width="960" height="540" aria-label="Juego Vorttex War"></canvas><div class="mobile-controls"><div><button data-key="ArrowLeft">◀</button><button data-key="ArrowRight">▶</button></div><div><button data-key="Space">SALTO</button><button data-key="KeyZ">DISPARO</button></div></div><div class="hint">Mover: A / D o ← / → · Saltar: ESPACIO · Disparar: Z · Pausa: ESC</div></section>
+<section id="panel" class="screen hidden"><button class="backlink" id="panelBack">← VOLVER</button><div class="panelcard"><div class="eyebrow">VORTTEX WAR</div><h2 id="panelTitle">MISIONES</h2><div id="panelContent"></div></div></section>
+</div><script src="game.js"></script>
+</body></html>
