@@ -87,3 +87,63 @@ footer{text-align:center;color:#9690bd;font-size:10px;letter-spacing:2px;margin:
 .mini-fighter .mini-leg.a{left:20px}.mini-fighter .mini-leg.b{left:43px}
 @media(max-width:700px){.start-screen{grid-template-columns:1fr;padding:95px 24px 60px;align-content:start}.start-brand{top:20px;left:22px;font-size:21px}.start-copy{margin-top:18px}.start-copy h1{font-size:clamp(75px,20vw,116px);margin:18px 0}.start-copy p{margin:16px 0}.start-hero{position:absolute;right:-16%;bottom:4%;width:75%;height:48%;opacity:.78}.start-aura{width:65vw}.start-fighter{transform:scale(.72) rotate(-8deg)}.start-bottom{left:22px;bottom:16px;font-size:7px;gap:6px}.start-foot{margin-top:18px}.start-button{padding:15px 18px;font-size:11px}}
 @media(max-width:380px){.start-screen{padding-top:88px}.start-copy h1{font-size:70px}.start-hero{right:-24%;bottom:7%}.start-bottom{font-size:6px}}
+
+
+/* LOGIN + FULLSCREEN LANDSCAPE LAYOUT */
+html,body,#app{width:100%;height:100%;min-height:100%;margin:0}
+body{overflow:hidden}
+#app{position:relative;overflow:hidden}
+.screen{width:100%;max-width:none;height:100dvh;min-height:0;margin:0;padding:clamp(12px,2.4vh,24px) clamp(14px,3vw,46px);overflow:auto;overscroll-behavior:contain}
+.top{height:clamp(58px,8vh,76px);padding-inline:clamp(14px,3vw,42px)}
+#home{height:calc(100dvh - clamp(58px,8vh,76px));}
+.hero{min-height:clamp(250px,48vh,420px);height:48vh;max-height:420px}
+.lobby-modebar{margin:clamp(8px,1.6vh,16px) 0 clamp(10px,2vh,22px)}
+.section-head{margin-top:clamp(8px,1.6vh,18px)}
+.tiles .tile{min-height:clamp(72px,12vh,105px)}
+footer{margin:12px}
+#game{height:100dvh;display:flex;flex-direction:column;justify-content:center;gap:8px}
+.gamebar{margin:0}
+.game-wrap{width:min(100%,calc((100dvh - 145px)*1.7778));margin:0 auto;max-height:calc(100dvh - 140px)}
+canvas{width:100%;height:auto;max-height:calc(100dvh - 140px);object-fit:contain}
+#panel{height:100dvh}
+.start-screen{height:100dvh}
+.login-screen{position:fixed;inset:0;z-index:30;display:grid;grid-template-columns:minmax(300px,46%) 1fr;align-items:center;gap:2vw;padding:clamp(20px,4vw,65px);overflow:hidden;background:radial-gradient(ellipse at 78% 46%,#285d83 0,#222c62 29%,transparent 60%),linear-gradient(125deg,#0b1329,#171638 56%,#29183f)}
+.login-bg-grid{position:absolute;inset:45% -10% -40%;transform:perspective(420px) rotateX(62deg);transform-origin:top;background-image:linear-gradient(#55e9e044 1px,transparent 1px),linear-gradient(90deg,#55e9e044 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(transparent,#000)}
+.login-brand{position:absolute;top:22px;left:clamp(20px,4vw,65px);z-index:2;display:flex;align-items:center;gap:12px;font:900 25px 'Barlow Condensed';letter-spacing:2px}.login-brand i{font-style:normal;color:#ffca58}.login-brand small{display:block;font:800 8px 'Baloo 2';letter-spacing:2.4px;color:#a9c9e4}
+.login-panel{position:relative;z-index:2;width:min(100%,470px);margin:35px auto 10px;padding:clamp(18px,3vh,30px);border:1px solid #8deee455;border-radius:18px;background:linear-gradient(145deg,#172746ed,#171638ed);box-shadow:0 24px 65px #020818aa,inset 0 1px #ffffff22}
+.login-panel h1{font:900 clamp(48px,6vw,76px)/.8 'Barlow Condensed';letter-spacing:2px;margin:16px 0;text-shadow:0 5px #0a1025}.login-panel h1 em{font-style:normal;color:#ffca58}
+.login-panel p{font-size:13px;color:#c7d7ee;margin:14px 0}
+.login-panel label{display:block;font-size:9px;letter-spacing:1.6px;color:#77f0e2;font-weight:900;margin:13px 0 5px}
+.login-panel input{display:block;width:100%;height:43px;padding:0 13px;border-radius:9px;border:1px solid #ffffff38;background:#0c1830;color:#fff;font:600 14px 'Baloo 2';outline:none}
+.login-panel input:focus{border-color:#62f2e4;box-shadow:0 0 0 3px #62f2e422}
+.login-panel .start-button{width:100%;margin-top:18px;padding:14px}
+.guest-button{width:100%;padding:11px;margin-top:9px;border:1px solid #ffffff35;border-radius:9px;background:#ffffff0c;font-size:10px;font-weight:900;letter-spacing:1px}
+.login-panel>small{display:block;text-align:center;color:#91a8c8;font-size:9px;line-height:1.4;margin-top:12px}
+.login-art{position:relative;height:min(76vh,650px);display:grid;place-items:center}
+.login-art .start-aura{width:min(39vw,470px)}
+.login-art .start-fighter{transform:scale(1.06) rotate(-8deg)}
+.fullscreen-btn{position:absolute;right:24px;bottom:18px;z-index:4;background:#ffffff12;border:1px solid #ffffff38;border-radius:8px;padding:9px 13px;font-size:9px;letter-spacing:1px;font-weight:900}
+.orientation-guard{display:none;position:fixed;inset:0;z-index:100;background:radial-gradient(circle at 50% 45%,#273f77,#0b1027 75%);align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:28px}
+.orientation-guard b{font:900 27px 'Barlow Condensed';letter-spacing:2px;color:#ffcf66;margin-top:18px}
+.orientation-guard p{max-width:270px;color:#d4dcef;font-size:13px}
+.rotate-phone{width:72px;height:48px;border:5px solid #66f2e1;border-radius:9px;transform:rotate(0);position:relative;box-shadow:0 0 24px #66f2e155;animation:rotateHint 2s ease-in-out infinite}
+.rotate-phone:after{content:"";position:absolute;right:-13px;top:5px;width:5px;height:27px;border-radius:5px;background:#66f2e1}
+@keyframes rotateHint{0%,35%{transform:rotate(0)}65%,100%{transform:rotate(90deg)}}
+@media(orientation:portrait){.orientation-guard{display:flex}.login-screen,.top,.screen{visibility:hidden!important}}
+@media(max-width:700px) and (orientation:landscape){
+.login-screen{grid-template-columns:minmax(270px,48%) 1fr;padding:15px 22px}
+.login-brand{top:10px;left:18px;font-size:19px}.login-brand .start-mark{width:34px;height:34px;font-size:25px}
+.login-panel{width:min(100%,390px);padding:13px 18px;margin:27px auto 0}
+.login-panel h1{font-size:48px;margin:10px 0}.login-panel p{font-size:10px;margin:8px 0}
+.login-panel label{margin:8px 0 4px;font-size:8px}.login-panel input{height:34px;font-size:12px}
+.login-panel .start-button{padding:10px;margin-top:10px;font-size:10px}.guest-button{padding:8px;margin-top:6px;font-size:9px}.login-panel>small{font-size:8px;margin-top:7px}
+.login-art{height:90vh}.login-art .start-aura{width:min(37vw,280px)}.login-art .start-fighter{transform:scale(.68) rotate(-8deg)}
+.fullscreen-btn{right:12px;bottom:8px;padding:7px;font-size:8px}
+#home{padding:10px 18px;height:calc(100dvh - 58px)}
+.hero{height:43vh;min-height:205px;padding:18px 4%}
+.hero h1{font-size:clamp(44px,8vh,70px);margin:10px 0}.hero p{font-size:10px;max-width:260px;margin:8px 0}
+.hero-actions{margin-top:10px}.primary,.ghost{padding:9px 13px;font-size:9px}.stats{margin-top:10px;font-size:8px;gap:10px}
+.hero-art{right:2%;width:43%}.orb{width:min(28vw,190px)}.fighter{transform:scale(.7) rotate(-7deg)}
+.lobby-modebar{grid-template-columns:.8fr 1fr 1fr;padding:7px;margin:8px 0}.mode-intro b{font-size:14px}.mode-card{min-height:46px;padding:5px}.mode-card>span{font-size:17px}.mode-card b{font-size:10px}.mode-card small{font-size:7px}.mode-card em{font-size:6px}
+.section-head{margin:6px 0}.section-head h2{font-size:17px}.tiles{grid-template-columns:repeat(3,1fr);gap:7px}.tile{min-height:55px;padding:7px 10px;display:flex;align-items:center;gap:8px}.tile span{font-size:18px}.tile b{font-size:12px}.tile small{display:none}footer{margin:7px;font-size:8px}
+}
