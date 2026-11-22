@@ -1659,3 +1659,82 @@ html,body,#app{height:100vh!important}
  #game .dash-action{width:27px!important;height:27px!important}
  #game .fire-action{width:41px!important;height:41px!important;font-size:17px!important}
 }
+
+
+/* PERFIL DE JUGADOR — pantalla independiente, sin modificar el lobby */
+#panel.profile-mode{
+ position:fixed!important;inset:0!important;z-index:60!important;
+ width:100vw!important;height:100vh!important;max-width:none!important;
+ margin:0!important;padding:clamp(10px,2.5vh,24px) clamp(12px,4vw,54px)!important;
+ overflow:auto!important;background:
+ radial-gradient(ellipse at 72% 36%,#b36a3540,transparent 34%),
+ radial-gradient(ellipse at 18% 85%,#276b7a38,transparent 38%),
+ linear-gradient(115deg,#081522,#15283b 52%,#0a1726)!important
+}
+@supports(height:100dvh){#panel.profile-mode{height:100dvh!important}}
+#panel.profile-mode:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;background:repeating-linear-gradient(135deg,transparent 0 46px,#d5b77b18 47px 48px)}
+#panel.profile-mode>.backlink{position:relative;z-index:5;background:#071321d9!important;border:1px solid #d7b47766!important;border-radius:3px!important;padding:8px 13px!important;font-size:10px!important}
+#panel.profile-mode .panelcard{position:relative;z-index:1;max-width:1050px!important;margin:8px auto 0!important;padding:clamp(12px,2.4vw,25px)!important;background:transparent!important;border:0!important;box-shadow:none!important}
+#panel.profile-mode .panelcard>.eyebrow,#panel.profile-mode .panelcard>h2{display:none!important}
+.profile-dashboard{width:100%;max-width:100%;color:#f5f1e8}
+.profile-game-head{position:relative;margin:0 0 12px;padding:0 0 9px;border-bottom:1px solid #d9b77a55}
+.profile-overline{font:800 9px 'Barlow Condensed';letter-spacing:2.2px;color:#b6c2ce}
+.profile-overline span{color:#e8b86a;padding:0 5px}
+.profile-heading{font:900 clamp(27px,5vw,43px)/.98 'Barlow Condensed';letter-spacing:1.5px;color:#fff}
+.profile-heading em{font-style:normal;color:#f1bf70}
+.profile-season{position:absolute;right:0;top:4px;padding:5px 8px;border:1px solid #e6bd7855;color:#f4c77e;font:900 9px 'Barlow Condensed';letter-spacing:1px}
+.profile-hero-2d{display:grid!important;grid-template-columns:minmax(145px,25%) 1fr!important;align-items:center;gap:clamp(12px,3vw,28px)!important;min-height:190px!important;margin:0 0 12px!important;padding:8px 18px!important;overflow:hidden!important;position:relative!important;border:1px solid #d9b77a66!important;border-left:3px solid #f0bd6d!important;background:linear-gradient(105deg,#263c51 0%,#14283b 55%,#0b1929 100%)!important;box-shadow:inset 0 1px #fff2,0 12px 32px #0005!important}
+.profile-hero-2d:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 30%,#0a1724a8 100%),repeating-linear-gradient(135deg,transparent 0 42px,#ffffff08 43px 44px);pointer-events:none}
+.profile-hero-art{position:relative!important;height:185px!important;display:grid!important;place-items:end center!important;z-index:1!important}
+.profile-character-aura{position:absolute;width:145px;height:145px;bottom:0;border-radius:50%;background:radial-gradient(circle,#e9ae6040,transparent 68%);box-shadow:0 0 32px #e7a95b24}
+.profile-fighter{position:relative;height:100%!important;width:auto!important;max-width:100%!important;filter:drop-shadow(0 8px 9px #000d)!important}
+.profile-hero-info{position:relative;z-index:2!important}
+.profile-tag{font:900 9px 'Barlow Condensed'!important;letter-spacing:2px!important;color:#f1c374!important}
+.profile-hero-info h3{font:900 clamp(28px,5vw,42px) 'Barlow Condensed'!important;letter-spacing:1px!important;margin:4px 0!important;color:#fff!important;text-transform:uppercase}
+.profile-player-id{font:700 9px 'Barlow Condensed';letter-spacing:1.3px;color:#aebdca}
+.profile-rank-line{display:flex;align-items:center;gap:9px;margin-top:12px}
+.profile-rank-emblem{width:37px;height:37px;display:grid;place-items:center;border:1px solid #f0c477;background:linear-gradient(145deg,#735b36,#1d2b3c);color:#ffdb91;font-size:20px;clip-path:polygon(50% 0,92% 20%,84% 78%,50% 100%,16% 78%,8% 20%)}
+.profile-rank-line b{display:block;color:#ffd17c;font:900 16px 'Barlow Condensed';letter-spacing:1px}
+.profile-rank-line small{display:block;margin-top:2px;color:#c4d0dc;font:800 8px 'Barlow Condensed';letter-spacing:1.2px}
+.profile-main-character{margin:10px 0 0!important;color:#b9c8d8!important;font:800 9px 'Barlow Condensed'!important;letter-spacing:1.2px}
+.profile-xp-block{padding:10px 13px;margin-bottom:12px;background:#091725d9;border:1px solid #ffffff20}
+.profile-xp-top,.profile-xp-bottom{display:flex;justify-content:space-between;gap:8px;font:900 9px 'Barlow Condensed';letter-spacing:1px;color:#dbe3e9}
+.profile-xp-top span,.profile-xp-bottom{color:#e9bd75}
+.profile-xp-track{height:7px;margin:7px 0 5px;background:#ffffff18;border:1px solid #ffffff18;overflow:hidden}
+.profile-xp-track i{display:block;height:100%;background:linear-gradient(90deg,#55d9ce,#eac078);box-shadow:0 0 12px #55d9ce88}
+.profile-stats-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+#panel.profile-mode .profile-stat{min-height:80px;display:grid;grid-template-columns:auto 1fr;grid-template-rows:1fr auto;align-items:center;column-gap:8px;padding:10px 12px!important;border:1px solid #ffffff22!important;border-bottom:2px solid #d4a95e!important;border-radius:2px!important;background:linear-gradient(145deg,#1a3045,#0b1928)!important}
+#panel.profile-mode .profile-stat>span{grid-row:1/3;font-size:20px;filter:drop-shadow(0 2px 5px #000)}
+#panel.profile-mode .profile-stat b{font:900 clamp(18px,3vw,26px) 'Barlow Condensed'!important;color:#f4cb83!important;line-height:1}
+#panel.profile-mode .profile-stat small{font:900 8px 'Barlow Condensed';letter-spacing:1px;color:#aebdca}
+.profile-footer-line{display:flex;justify-content:space-between;gap:10px;margin-top:13px;color:#8799aa;font:800 8px 'Barlow Condensed';letter-spacing:1px}
+.profile-footer-line span:first-child{color:#e8b86a}
+.profile-reset{display:block;margin:12px 0 0 auto;padding:6px 9px;background:#101e2d;border:1px solid #ffffff20;color:#aebdca;font:800 8px 'Barlow Condensed';letter-spacing:1px}
+@media(max-width:620px){
+ #panel.profile-mode{padding:8px 9px!important}
+ #panel.profile-mode .panelcard{padding:8px 2px!important}
+ .profile-hero-2d{grid-template-columns:112px 1fr!important;min-height:145px!important;padding:6px 9px!important;gap:8px!important}
+ .profile-hero-art{height:140px!important}
+ .profile-heading{font-size:27px}
+ .profile-season{font-size:7px;padding:4px 5px}
+ .profile-stats-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ #panel.profile-mode .profile-stat{min-height:63px;padding:7px 9px!important}
+ #panel.profile-mode .profile-stat b{font-size:21px!important}
+ .profile-footer-line{font-size:7px}
+}
+@media(max-height:430px) and (orientation:landscape){
+ #panel.profile-mode{padding:5px 18px!important}
+ #panel.profile-mode .backlink{padding:4px 8px!important}
+ #panel.profile-mode .panelcard{margin:3px auto!important;padding:3px 8px!important}
+ .profile-game-head{margin-bottom:5px;padding-bottom:4px}
+ .profile-overline{font-size:7px}.profile-heading{font-size:25px}
+ .profile-hero-2d{grid-template-columns:125px 1fr!important;min-height:112px!important;margin-bottom:6px!important;padding:4px 10px!important}
+ .profile-hero-art{height:108px!important}
+ .profile-rank-line{margin-top:5px}.profile-rank-emblem{width:26px;height:26px;font-size:14px}
+ .profile-main-character{margin-top:5px!important}
+ .profile-xp-block{padding:5px 9px;margin-bottom:6px}
+ .profile-stats-grid{gap:5px}
+ #panel.profile-mode .profile-stat{min-height:49px;padding:5px 8px!important}
+ .profile-footer-line{margin-top:5px}
+ .profile-reset{margin-top:4px;padding:3px 7px}
+}
