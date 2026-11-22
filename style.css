@@ -1824,10 +1824,10 @@ html,body,#app{height:100vh!important}
 
 /* ANIMACION IDLE DE COMBATE · lobby y perfil */
 @keyframes warriorIdle {
-  0%,100% { transform:translate3d(0,0,0) rotate(0deg) scale(1); }
-  22% { transform:translate3d(-2px,-4px,0) rotate(-1deg) scale(1.005); }
-  50% { transform:translate3d(0,-9px,0) rotate(0deg) scale(1.012); }
-  76% { transform:translate3d(2px,-4px,0) rotate(1deg) scale(1.005); }
+  0%,100% { translate:0 0; }
+  22% { translate:-2px -4px; }
+  50% { translate:0 -9px; }
+  76% { translate:2px -4px; }
 }
 @keyframes warriorAura {
   0%,100% { opacity:.55; transform:scale(.94); }
@@ -1840,8 +1840,8 @@ html,body,#app{height:100vh!important}
 .lobby-character-stage #lobbyFighter,
 #panel.profile-mode .ff-profile-fighter {
   transform-origin:50% 94%;
-  animation:warriorIdle 3.2s ease-in-out infinite;
-  will-change:transform;
+  animation:warriorIdle 3.2s ease-in-out infinite!important;
+  will-change:translate;
 }
 .lobby-character-stage .stage-glow,
 #panel.profile-mode .ff-profile-art {
