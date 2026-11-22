@@ -1821,3 +1821,46 @@ html,body,#app{height:100vh!important}
  .ff-profile-stat b{font-size:11px}.ff-profile-stat small{font-size:5px}
  .ff-profile-footer{font-size:5px}
 }
+
+/* ANIMACION IDLE DE COMBATE · lobby y perfil */
+@keyframes warriorIdle {
+  0%,100% { transform:translate3d(0,0,0) rotate(0deg) scale(1); }
+  22% { transform:translate3d(-2px,-4px,0) rotate(-1deg) scale(1.005); }
+  50% { transform:translate3d(0,-9px,0) rotate(0deg) scale(1.012); }
+  76% { transform:translate3d(2px,-4px,0) rotate(1deg) scale(1.005); }
+}
+@keyframes warriorAura {
+  0%,100% { opacity:.55; transform:scale(.94); }
+  50% { opacity:1; transform:scale(1.08); }
+}
+@keyframes warriorShadow {
+  0%,100% { transform:scaleX(1); opacity:.62; }
+  50% { transform:scaleX(.86); opacity:.38; }
+}
+.lobby-character-stage #lobbyFighter,
+#panel.profile-mode .ff-profile-fighter {
+  transform-origin:50% 94%;
+  animation:warriorIdle 3.2s ease-in-out infinite;
+  will-change:transform;
+}
+.lobby-character-stage .stage-glow,
+#panel.profile-mode .ff-profile-art {
+  animation:warriorAura 3.2s ease-in-out infinite;
+}
+.lobby-character-stage .stage-ring {
+  animation:warriorAura 4.4s ease-in-out infinite;
+}
+.lobby-character-stage:after {
+  animation:warriorShadow 3.2s ease-in-out infinite;
+  transform-origin:center;
+}
+@media(prefers-reduced-motion:reduce) {
+  .lobby-character-stage #lobbyFighter,
+  #panel.profile-mode .ff-profile-fighter,
+  .lobby-character-stage .stage-glow,
+  #panel.profile-mode .ff-profile-art,
+  .lobby-character-stage .stage-ring,
+  .lobby-character-stage:after {
+    animation:none!important;
+  }
+}
