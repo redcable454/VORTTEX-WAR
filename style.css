@@ -2567,3 +2567,116 @@ body #app > #panel:not(.hidden){
 /* Evolución máxima de armas: los siete niveles quedan iluminados. */
 .weapon-levels .level-track.max-level{height:7px;background:#17283b;border:1px solid #ffd84a;box-shadow:0 0 9px #ffd84a55}.weapon-levels .level-track.max-level i{width:100%;background:linear-gradient(90deg,#22e8ff,#6b8cff,#ffd84a);box-shadow:0 0 8px #49eaff;}
 .weapon-levels b{color:#ffe36c;text-shadow:0 0 8px #ffc83d}
+
+
+/* ===== IDENTIDAD VISUAL UNIFICADA · VORTTEX WAR ===== */
+:root{
+ --bg:#100b0e;--panel:#211419;--cyan:#ffc83a;--orange:#e3202b;--pink:#ff5b50;
+ --muted:#d7c8c2;--line:#ffc83a42;--gold:#ffc83a;--red:#e3202b;
+}
+html,body{background:#0b090b;color:#fff}
+body{
+ font-family:Impact,"Arial Black",system-ui,sans-serif;
+ background:radial-gradient(ellipse at 50% 0%,#4b171d 0,transparent 44%),linear-gradient(145deg,#100b0e,#211014 58%,#09090c);
+}
+body:before{opacity:.12;background-image:radial-gradient(#ffc83a 1px,transparent 1px);background-size:24px 24px}
+button{border-radius:8px;font-family:Impact,"Arial Black",system-ui,sans-serif;font-style:italic;letter-spacing:.4px}
+.top,.lobby-rail,.panelcard,.login-panel,.start-copy{
+ background:linear-gradient(145deg,#24171aef,#100d11f5);
+ border:2px solid #ffc83a88;
+ box-shadow:0 8px 0 #510f16,0 16px 36px #0009,inset 0 1px #fff2;
+}
+.top{border-width:0 0 2px;border-color:#ffc83a;backdrop-filter:blur(14px)}
+.mark,.start-mark{background:linear-gradient(145deg,#ffe27a,#ffc12e 55%,#e3202b);color:#241015;clip-path:polygon(12% 0,100% 0,88% 100%,0 100%);text-shadow:0 2px #fff8}
+.brand b,.start-brand,.login-brand{font-family:Impact,"Arial Black",sans-serif;letter-spacing:1px}
+.brand i,.start-brand i,.login-brand i{color:#ffc83a}
+.resources span{background:linear-gradient(#382127,#171014);border:1px solid #ffc83a88;border-radius:7px}
+.resources button{background:linear-gradient(#e52a35,#94121e);border:2px solid #ffc83a;border-radius:8px}
+.resources .avatar{background:linear-gradient(#ffe27a,#eaa72a);color:#2b1114}
+.login-screen,.start-screen{
+ background:radial-gradient(ellipse at 76% 48%,#79252b 0,transparent 36%),radial-gradient(ellipse at 20% 80%,#3b151c 0,transparent 42%),linear-gradient(145deg,#0b090c,#241014 62%,#100b0e);
+ color:#fff;
+}
+.login-bg-grid,.start-grid{opacity:.18;background-image:linear-gradient(#ffc83a22 1px,transparent 1px),linear-gradient(90deg,#ffc83a22 1px,transparent 1px);background-size:42px 42px}
+.login-brand,.start-brand{color:#fff;text-shadow:0 3px #000}
+.login-panel{border-radius:12px;padding:clamp(22px,3vw,42px);position:relative}
+.login-panel:before,.start-copy:before,.panelcard:before{content:"";position:absolute;left:12px;right:12px;top:8px;height:3px;background:linear-gradient(90deg,transparent,#ffc83a,transparent);pointer-events:none}
+.login-panel .eyebrow,.start-kicker,.eyebrow{color:#ffc83a;letter-spacing:2px}
+.login-panel h1,.start-copy h1,.panelcard h2{
+ font-family:Impact,"Arial Black",sans-serif;font-style:italic;text-transform:uppercase;
+ color:#ffc83a;text-shadow:0 4px #8f141d,0 8px 18px #000;
+ letter-spacing:1px;
+}
+.login-panel h1 em,.start-copy h1 em{color:#fff;font-style:italic}
+.login-panel p,.start-copy p{color:#e5d7d1}
+.login-panel label{color:#ffc83a;font-family:Impact,"Arial Black",sans-serif;letter-spacing:1px}
+.login-panel input,.name-input{
+ background:#100c10;border:2px solid #8e5d38;border-radius:7px;color:#fff;
+ box-shadow:inset 0 3px 10px #0009;
+}
+.login-panel input:focus,.name-input:focus{outline:2px solid #ffc83a;border-color:#ffc83a}
+.start-button,.primary,.action,.weapon-action,.guest-button,.social-login-btn{
+ background:linear-gradient(180deg,#f23a42,#a5121b)!important;color:#fff!important;
+ border:2px solid #ffc83a!important;border-radius:8px!important;
+ box-shadow:0 5px 0 #610e17,0 9px 18px #0008!important;
+ text-shadow:0 2px #630e15;
+}
+.ghost,.backlink,.rail-item,.guest-button{border:1px solid #ffc83a88}
+.ghost{background:linear-gradient(#352126,#171014);color:#fff}
+.guest-button{background:linear-gradient(#302027,#171014);color:#ffc83a}
+.social-login-btn{display:flex;align-items:center;justify-content:center;gap:9px}
+.login-message,.login-panel small{color:#c9b7ad}
+.start-copy{border-radius:12px;padding:clamp(20px,3vw,38px)}
+.start-bottom{color:#e8d8c9}
+.lobby-shell{max-width:1500px;gap:18px}
+.lobby-rail{border-radius:12px;border-color:#ffc83a88}
+.rail-label,.rail-item small{color:#d7bca8}
+.rail-item{background:linear-gradient(145deg,#342026,#171014);color:#fff;border-radius:8px}
+.rail-item.active,.rail-item:hover{background:linear-gradient(#e52a35,#94121e);border-color:#ffc83a;color:#fff;box-shadow:0 4px 0 #610e17}
+.lobby-welcome{
+ border:2px solid #ffc83a;border-radius:12px;
+ box-shadow:0 8px 0 #510f16,0 18px 38px #0009,inset 0 1px #fff3;
+}
+.lobby-welcome:after{content:"";position:absolute;inset:0;border:7px solid #ffffff08;pointer-events:none;border-radius:10px}
+.arena-topline{color:#fff;text-shadow:0 2px 5px #000}
+.arena-season b{background:#ffc83a;color:#251014}
+.arena-status{background:#170e12dd;border:1px solid #ffc83a88;color:#ffe4b2}
+.welcome-copy h1{font-family:Impact,"Arial Black",sans-serif;font-style:italic;color:#ffc83a;text-shadow:0 4px #8f141d,0 8px 18px #000}
+.welcome-copy h1 em{color:#fff}
+.welcome-copy .eyebrow{color:#ffc83a}
+.welcome-copy p{color:#fff0e8}
+.welcome-actions .primary{background:linear-gradient(#f23a42,#a5121b)!important}
+.welcome-actions .ghost{background:linear-gradient(#352126,#171014)!important;border:2px solid #ffc83a!important}
+.player-stats span{background:#170e12c9;border:1px solid #ffc83a55;border-radius:6px;padding:6px 9px;color:#e8d4c7}
+.player-stats b{color:#ffc83a}
+.lobby-character-stage .stage-ring{border-color:#ffc83a66;box-shadow:0 0 45px #e3202b44}
+.panelcard{border-radius:12px;position:relative}
+.panelcard h2{color:#ffc83a}
+.backlink{background:linear-gradient(#3a2227,#171014);border:2px solid #ffc83a;color:#ffc83a;border-radius:8px}
+.reward,.unit,.weapon-unit,.profile-stat,.tile{
+ background:linear-gradient(145deg,#382127,#1b1217)!important;
+ border:1px solid #ffc83a66!important;border-radius:9px!important;
+ box-shadow:0 4px 0 #4e141b,0 8px 18px #0006!important;
+}
+.unit.selected,.weapon-equipped{border:2px solid #ffc83a!important;box-shadow:0 0 0 2px #e3202b55,0 0 24px #ffc83a22!important}
+.unit h3,.weapon-unit h3,.reward b,.tile b{font-family:Impact,"Arial Black",sans-serif;letter-spacing:.5px}
+.tag,.weapon-type,.weapon-shop-heading span{color:#ffc83a}
+.notice{background:#35171d;border:1px solid #ffc83a88;color:#ffe8d5;border-radius:8px}
+.action:disabled,.weapon-action:disabled{filter:grayscale(.75);opacity:.65}
+.roulette-wheel{border:8px solid #ffc83a;box-shadow:0 0 0 5px #e3202b55,0 0 35px #e3202b66}
+.game-wrap{border:3px solid #ffc83a;border-radius:10px;box-shadow:0 8px 0 #510f16,0 18px 40px #000b}
+.game-hud{background:linear-gradient(90deg,#160e12ed,#3b151bed,#160e12ed);border-bottom:2px solid #ffc83a;color:#fff}
+.game-brand{font-family:Impact,"Arial Black",sans-serif;color:#fff}
+.game-brand b{color:#ffc83a}
+.game-hud button,.game-action{background:linear-gradient(#f23a42,#a5121b)!important;border:2px solid #ffc83a!important;color:#fff!important;border-radius:8px!important;box-shadow:0 4px 0 #610e17}
+.game-hud #health{color:#ff7777}
+.touch-controls .joystick{border:2px solid #ffc83a;background:#180f13aa}
+.touch-controls .stick-knob{background:linear-gradient(#ffe27a,#e3202b);border:2px solid #fff}
+@media(max-width:700px){
+ .login-screen{padding:16px}
+ .login-panel{padding:20px 17px}
+ .lobby-shell{gap:9px}
+ .lobby-rail{border-radius:8px}
+ .panelcard{padding:18px 14px}
+ .lobby-welcome{border-radius:9px}
+}
