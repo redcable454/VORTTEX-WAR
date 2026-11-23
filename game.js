@@ -25,7 +25,7 @@ function renderWeaponStore(root){
   const type=document.createElement('small');type.className='weapon-type';type.textContent=w.type;
   const name=document.createElement('h3');name.textContent=w.name;
   const desc=document.createElement('p');desc.textContent=w.desc;
-  const levels=document.createElement('div');levels.className='weapon-levels';levels.innerHTML='<span>NIVEL 1</span><span class="level-track"><i></i></span><b>7</b>';
+  const levels=document.createElement('div');levels.className='weapon-levels';levels.innerHTML='<span>NIVEL 7</span><span class="level-track max-level"><i></i></span><b>MAX</b>';
   const price=document.createElement('div');price.className='weapon-price';price.textContent=owned?'DESBLOQUEADA':(w.currency==='gems'?'💎 ':'🪙 ')+w.price;
   const btn=document.createElement('button');btn.className='action weapon-action';btn.textContent=equipped?'EQUIPADA':owned?'EQUIPAR':'COMPRAR';
   btn.disabled=equipped||(!owned&&save[w.currency]<w.price);
@@ -38,64 +38,41 @@ const missions=[{id:'first',name:'Primera victoria',desc:'Completa una partida d
 let stats={coins:0,kills:0,played:0};
 const player={x:100,y:360,vx:0,vy:0,w:38,h:58,onGround:false,face:1,hp:100};
 
+function weaponSvgGroup(id){
+ const themes={
+  'ak-dragon':{a:'#20e7ff',b:'#0756a5',c:'#b9fbff',kind:'dragon'},
+  'mp40-cobra':{a:'#ff4a5d',b:'#7d1028',c:'#ffd36a',kind:'cobra'},
+  'scar-megalodon':{a:'#52d9ff',b:'#124d85',c:'#e4fbff',kind:'shark'},
+  'm1014-green':{a:'#83f34e',b:'#176b32',c:'#e8ff9c',kind:'green'}
+ };
+ const w=themes[id]||themes['ak-dragon'],a=w.a,b=w.b,c=w.c;
+ let body='';
+ if(w.kind==='dragon') body='<path d="M-5 5L7-2 48-2 63 4 87 4 91 10 84 17 59 16 48 22 8 18-5 13Z" fill="url(#gunMetal)"/><path d="M8 3L48 2 58 9 47 17 9 15Z" fill="'+b+'"/><path d="M17 1L26-9 34 1 42-7 48 4" fill="none" stroke="'+a+'" stroke-width="5"/><path d="M20 5Q34-3 48 7Q35 20 20 11Z" fill="'+c+'"/><path d="M24 8l7-5 7 5-7 5Z" fill="'+a+'"/>';
+ if(w.kind==='cobra') body='<path d="M-5 6L10 0 49 0 65 6 88 5 93 12 85 18 59 17 48 22 9 18-5 14Z" fill="url(#gunMetal)"/><path d="M12 3L50 3 59 10 47 17 10 15Z" fill="'+b+'"/><path d="M17 5Q25-9 35 1Q46-10 55 5Q44 1 39 12Q29 3 17 12Z" fill="'+a+'"/><path d="M31 4l5 4-5 4-5-4Z" fill="'+c+'"/><path d="M52 5L65 2 70 7 63 14 52 13Z" fill="'+a+'"/>';
+ if(w.kind==='shark') body='<path d="M-5 6L8 0 50 0 65 6 88 5 93 12 85 18 60 17 48 22 8 18-5 14Z" fill="url(#gunMetal)"/><path d="M10 3L48 2 61 10 48 17 10 15Z" fill="'+b+'"/><path d="M23 2L31-11 40 3 51-5 57 6" fill="'+a+'" stroke="'+c+'" stroke-width="2"/><path d="M19 6Q35-1 51 7L43 14 24 13Z" fill="'+c+'"/><path d="M25 7l5 2-5 2M35 7l5 2-5 2" fill="none" stroke="'+b+'" stroke-width="2"/>';
+ if(w.kind==='green') body='<path d="M-5 6L9 0 49 0 64 6 88 5 93 12 85 18 59 17 48 22 9 18-5 14Z" fill="url(#gunMetal)"/><path d="M10 3L48 2 60 10 48 17 10 15Z" fill="'+b+'"/><path d="M17 5Q21-8 32-4L38 3 47-8 52 5 44 15 29 15Z" fill="'+a+'"/><path d="M26 3L35 8 27 13 21 8Z" fill="'+c+'"/><path d="M51 4L65 2 70 8 60 15 50 13Z" fill="'+a+'"/>';
+ return '<g transform="translate(154 176) rotate(-8 40 10)" stroke="#101b32" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round"><defs><linearGradient id="gunMetal" x2="0" y2="1"><stop stop-color="#aebed2"/><stop offset=".5" stop-color="#3b506b"/><stop offset="1" stop-color="#17263d"/></linearGradient><filter id="gunGlow"><feGaussianBlur stdDeviation="4"/></filter></defs><ellipse cx="42" cy="11" rx="48" ry="15" fill="'+a+'" opacity=".28" filter="url(#gunGlow)" stroke="none"/>'+body+'<path d="M8 15L5 34 18 31 25 18Z" fill="#18263b"/><path d="M-3 7L-13 1 -8 15 4 17Z" fill="'+c+'"/><path d="M82 7L103 8 106 13 83 15Z" fill="'+c+'"/><path d="M-1 9L-10 12 -5 19 6 17Z" fill="#fff4df"/><path d="M15 21L25 20 21 32 12 32Z" fill="#26384e"/><path d="M8 0L19-7 23 2" fill="none" stroke="'+a+'" stroke-width="4"/><path d="M28 5L40 8M28 12L40 15M51 7L61 9" stroke="'+c+'" stroke-width="2.5"/><g fill="'+a+'" stroke="#fff" stroke-width="1.2">'+Array.from({length:7},(_,i)=>'<path d="M'+(15+i*10)+' -5l3-5 3 5Z"/>').join('')+'</g><path d="M18 18L25 13 32 18 25 23Z" fill="'+c+'" stroke="'+a+'"/></g>';
+}
 function fighterMarkup(id='VORTEX',cls='fighter-svg'){
  const p={VORTEX:{shirt:'#e83e35',cap:'#d92e32',overall:'#2363bd',accent:'#ffd447',skin:'#f2bd91'},NOVA:{shirt:'#963fda',cap:'#7834bd',overall:'#3158b5',accent:'#63eaff',skin:'#f1b99d'},BLAZE:{shirt:'#ed7428',cap:'#cf4821',overall:'#a93430',accent:'#ffe15b',skin:'#e9a27c'},SHADOW:{shirt:'#35415e',cap:'#202b49',overall:'#354b76',accent:'#d96cff',skin:'#c98e7c'}}[id]||{shirt:'#e83e35',cap:'#d92e32',overall:'#2363bd',accent:'#ffd447',skin:'#f2bd91'};
- return `<svg class="${cls}" viewBox="0 0 240 300" role="img" aria-label="${id} héroe de plataformas cartoon original">
+ const equipped=save.selectedWeapon||'ak-dragon';
+ return `<svg class="${cls}" viewBox="0 0 240 300" role="img" aria-label="${id} con arma evolutiva nivel 7">
  <ellipse cx="120" cy="282" rx="65" ry="11" fill="#071225" opacity=".4"/>
  <g stroke="#18233b" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
- <!-- botas grandes -->
- <path d="M76 244L111 244L115 266Q113 278 99 280H62Q53 276 62 265Z" fill="#70432f"/>
- <path d="M130 244H164L178 264Q185 277 170 280H134Q123 276 126 264Z" fill="#70432f"/>
+ <path d="M76 244L111 244L115 266Q113 278 99 280H62Q53 276 62 265Z" fill="#70432f"/><path d="M130 244H164L178 264Q185 277 170 280H134Q123 276 126 264Z" fill="#70432f"/>
  <path d="M62 269Q85 273 111 267L112 280H66Q54 279 62 269ZM130 267Q151 273 176 269L181 280H137Q124 279 130 267Z" fill="#3d2a28" stroke-width="5"/>
- <!-- piernas y overol -->
- <path d="M83 190H157L163 252H128L120 226L111 252H76Z" fill="${p.overall}"/>
- <path d="M88 199H152L148 222H92Z" fill="${p.shirt}"/>
- <path d="M109 212H131L128 252H112Z" fill="${p.overall}"/>
- <!-- torso -->
- <path d="M76 121Q120 105 164 121L174 199Q120 218 66 199Z" fill="${p.shirt}"/>
- <path d="M82 144Q120 157 158 144L153 204H87Z" fill="${p.overall}"/>
- <path d="M91 145L107 151L105 198H89ZM149 145L133 151L135 198H151Z" fill="${p.overall}"/>
- <path d="M105 150H135L140 188H100Z" fill="${p.overall}"/>
+ <path d="M83 190H157L163 252H128L120 226L111 252H76Z" fill="${p.overall}"/><path d="M88 199H152L148 222H92Z" fill="${p.shirt}"/><path d="M109 212H131L128 252H112Z" fill="${p.overall}"/>
+ <path d="M76 121Q120 105 164 121L174 199Q120 218 66 199Z" fill="${p.shirt}"/><path d="M82 144Q120 157 158 144L153 204H87Z" fill="${p.overall}"/><path d="M91 145L107 151L105 198H89ZM149 145L133 151L135 198H151Z" fill="${p.overall}"/><path d="M105 150H135L140 188H100Z" fill="${p.overall}"/>
  <circle cx="104" cy="158" r="6" fill="${p.accent}" stroke-width="4"/><circle cx="136" cy="158" r="6" fill="${p.accent}" stroke-width="4"/>
- <!-- brazos cortos -->
- <path d="M75 132L54 151L43 188L58 198L83 168Z" fill="${p.shirt}"/>
- <path d="M165 132L186 151L197 188L182 198L157 168Z" fill="${p.shirt}"/>
- <path d="M43 183Q28 181 26 198Q27 216 47 216L62 202L57 187Z" fill="#fff4df"/>
- <path d="M197 183Q212 181 214 198Q213 216 193 216L178 202L183 187Z" fill="#fff4df"/>
- <!-- cuello y cabeza grande -->
- <path d="M102 112H138V137Q120 149 102 137Z" fill="${p.skin}"/>
- <path d="M72 66Q75 29 120 28Q165 29 168 66L160 121Q120 145 80 121Z" fill="${p.skin}"/>
- <!-- orejas -->
+ <path d="M75 132L54 151L43 188L58 198L83 168Z" fill="${p.shirt}"/><path d="M165 132L186 151L197 188L182 198L157 168Z" fill="${p.shirt}"/><path d="M43 183Q28 181 26 198Q27 216 47 216L62 202L57 187Z M197 183Q212 181 214 198Q213 216 193 216L178 202L183 187Z" fill="#fff4df"/>
+ <path d="M102 112H138V137Q120 149 102 137Z" fill="${p.skin}"/><path d="M72 66Q75 29 120 28Q165 29 168 66L160 121Q120 145 80 121Z" fill="${p.skin}"/>
  <circle cx="74" cy="91" r="13" fill="${p.skin}"/><circle cx="166" cy="91" r="13" fill="${p.skin}"/>
- <!-- gorra y visera -->
- <path d="M67 70Q62 29 101 19Q145 7 173 42L175 76Q148 57 119 60Q91 59 67 80Z" fill="${p.cap}"/>
- <path d="M66 69Q119 54 180 72Q189 77 181 86Q123 77 65 89Z" fill="${p.cap}"/>
- <path d="M93 34Q120 20 147 35L143 54Q119 48 96 57Z" fill="${p.accent}" stroke-width="4"/>
- <!-- ojos -->
- <ellipse cx="105" cy="89" rx="8" ry="12" fill="#fff"/><ellipse cx="137" cy="89" rx="8" ry="12" fill="#fff"/>
- <circle cx="108" cy="91" r="4" fill="#17233a" stroke="none"/><circle cx="134" cy="91" r="4" fill="#17233a" stroke="none"/>
- <path d="M95 76Q105 70 114 77M126 77Q137 70 146 76" fill="none" stroke="#422b2b" stroke-width="5"/>
- <!-- nariz y bigote -->
- <ellipse cx="120" cy="104" rx="12" ry="10" fill="${p.skin}"/>
- <path d="M119 109Q103 101 94 112Q88 125 107 125Q117 124 120 117Q123 124 136 125Q153 125 146 112Q138 101 121 109Z" fill="#55352c"/>
- <path d="M107 133Q120 139 133 133" fill="none" stroke="#9b5148" stroke-width="3"/>
- <!-- RIFLE EVOLUTIVO ORIGINAL: metal, núcleo de energía y aletas -->
- <g transform="translate(160 176) rotate(-8 30 10)" stroke="#15243a" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
-  <path d="M5 5L19 -1L48 1L65 7L64 18L43 20L19 17L6 14Z" fill="#26384e"/>
-  <path d="M19 1L43 2L43 17L18 16Z" fill="${p.weapon}"/>
-  <path d="M43 5L72 7L78 11L72 16L43 16Z" fill="#b8d9e8"/>
-  <path d="M72 8L91 9L94 12L91 15L72 15Z" fill="${p.glow}" stroke-width="3"/>
-  <path d="M9 4L0 -7L15 -3L22 2Z" fill="${p.accent}" stroke-width="3"/>
-  <path d="M12 16L3 27L22 20L26 17Z" fill="${p.accent}" stroke-width="3"/>
-  <path d="M27 17L30 30L40 19Z" fill="${p.weapon}" stroke-width="3"/>
-  <path d="M25 4L37 7L37 13L25 15Z" fill="${p.glow}" stroke="none"/>
-  <path d="M24 19L20 34L31 31L34 20Z" fill="#18263b"/>
-  <path d="M33 6L40 9L40 13L33 15Z" fill="#fff" stroke="none"/>
-  <path d="M-2 8L-9 11L-4 18L7 17L8 8Z" fill="#fff4df"/>
- </g>
- </g></svg>`;
+ <path d="M67 70Q62 29 101 19Q145 7 173 42L175 76Q148 57 119 60Q91 59 67 80Z" fill="${p.cap}"/><path d="M66 69Q119 54 180 72Q189 77 181 86Q123 77 65 89Z" fill="${p.cap}"/><path d="M93 34Q120 20 147 35L143 54Q119 48 96 57Z" fill="${p.accent}" stroke-width="4"/>
+ <ellipse cx="105" cy="89" rx="8" ry="12" fill="#fff"/><ellipse cx="137" cy="89" rx="8" ry="12" fill="#fff"/><circle cx="108" cy="91" r="4" fill="#17233a" stroke="none"/><circle cx="134" cy="91" r="4" fill="#17233a" stroke="none"/>
+ <path d="M95 76Q105 70 114 77M126 77Q137 70 146 76" fill="none" stroke="#422b2b" stroke-width="5"/><ellipse cx="120" cy="104" rx="12" ry="10" fill="${p.skin}"/><path d="M119 109Q103 101 94 112Q88 125 107 125Q117 124 120 117Q123 124 136 125Q153 125 146 112Q138 101 121 109Z" fill="#55352c"/><path d="M107 133Q120 139 133 133" fill="none" stroke="#9b5148" stroke-width="3"/>
+ ${weaponSvgGroup(equipped)}
+ </g><g font-family="Arial,sans-serif" font-weight="900" text-anchor="middle"><rect x="163" y="139" width="65" height="17" rx="7" fill="#081426" stroke="#ffd84a" stroke-width="2"/><text x="195" y="151" font-size="9" fill="#ffd84a">LVL 7 MAX</text></g></svg>`;
 }
-
 function persist(){try{localStorage.setItem('vorttex_save',JSON.stringify(save))}catch(err){console.warn('No se pudo guardar el progreso local:',err)}renderResources()}
 function renderResources(){$('coins').textContent=save.coins;$('gems').textContent=save.gems;$('level').textContent=1+Math.floor(save.xp/500);$('xp').textContent=(save.xp%500)+' / 500';$('wins').textContent=save.wins;$('gameCoins').textContent='🪙 '+save.coins;const colors={VORTEX:['#31e0d2','#ffe06a'],NOVA:['#a78bfa','#63e5ff'],BLAZE:['#ff8b48','#ffc24b'],SHADOW:['#7582a8','#d66cff']};const p=colors[save.selected]||colors.VORTEX;const art=document.getElementById('lobbyFighter');if(art){art.outerHTML=fighterMarkup(save.selected,'fighter-svg').replace('<svg ','<svg id="lobbyFighter" ')}document.querySelectorAll('.start-fighter').forEach(el=>{el.innerHTML=fighterMarkup(save.selected,'cinematic-fighter')});const label=$('lobbyCharacter');if(label)label.innerHTML=save.selected+' <small>GUERRERO EQUIPADO</small>'}
 function show(which){[home,game,panel].forEach(x=>x.classList.add('hidden'));which.classList.remove('hidden');document.body.classList.toggle('game-active',which===game);document.body.classList.toggle('panel-active',which===panel)}
