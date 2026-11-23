@@ -151,19 +151,18 @@ ctx.strokeStyle='#422b2b';ctx.lineWidth=2.5;ctx.beginPath();ctx.moveTo(-9,-32);c
 // nariz y bigote característico
 ctx.beginPath();ctx.ellipse(0,-18,4.5,3.5,0,0,Math.PI*2);ctx.fillStyle=skin;ctx.fill();ctx.strokeStyle=ink;ctx.lineWidth=1.5;ctx.stroke();
 poly([[-1,-16],[-7,-19],[-11,-16],[-10,-12],[-4,-12],[0,-15],[4,-12],[10,-12],[11,-16],[7,-19],[1,-16]],'#55352c',1.5);
-// Rifle evolutivo original, visible en el lobby de combate y durante la partida.
-const weaponColor=enemy?'#ff526d':({VORTEX:'#21e6ed',NOVA:'#b66cff',BLAZE:'#ff493d',SHADOW:'#7a62ff'}[save.selected]||'#21e6ed');
-const weaponGlow=enemy?'#ffc05b':({VORTEX:'#8fffff',NOVA:'#f3a8ff',BLAZE:'#ffcb55',SHADOW:'#c8a7ff'}[save.selected]||'#8fffff');
-ctx.save();ctx.translate(15,8);ctx.rotate(-.08);
-ctx.shadowColor=weaponGlow;ctx.shadowBlur=10;
-rr(0,0,30,10,3,'#26384e',2);rr(8,1,16,7,2,weaponColor,1);
-poly([[27,2],[43,3],[47,5],[43,8],[27,8]],'#b8d9e8',2);
-rr(43,3,10,4,2,weaponGlow,1);
-poly([[3,1],[-4,-7],[8,-3],[12,1]],trim,2);
-poly([[5,8],[-2,18],[12,11]],trim,2);
-poly([[14,8],[18,20],[24,9]],weaponColor,2);
-ctx.fillStyle='#fff';ctx.fillRect(12,3,9,2);
-ctx.shadowBlur=0;ctx.restore();
+// Arma equipada, con silueta y acabado máximo de nivel 7.
+const wid=save.selectedWeapon||'ak-dragon';
+const wp={'ak-dragon':{a:'#20e7ff',b:'#0756a5',c:'#b9fbff',k:'dragon'},'mp40-cobra':{a:'#ff4a5d',b:'#7d1028',c:'#ffd36a',k:'cobra'},'scar-megalodon':{a:'#52d9ff',b:'#124d85',c:'#e4fbff',k:'shark'},'m1014-green':{a:'#83f34e',b:'#176b32',c:'#e8ff9c',k:'green'}}[wid]||{a:weaponColor,b:'#0756a5',c:weaponGlow,k:'dragon'};
+ctx.save();ctx.translate(15,8);ctx.rotate(-.08);ctx.shadowColor=wp.a;ctx.shadowBlur=12;
+rr(0,0,32,10,3,'#26384e',2);rr(8,1,17,7,2,wp.b,1);
+if(wp.k==='dragon'){poly([[5,1],[15,-7],[22,1],[31,-5],[35,5],[27,9],[12,8]],wp.a,2);poly([[17,3],[24,6],[17,10],[11,6]],wp.c,1);poly([[26,2],[43,2],[48,5],[43,8],[26,8]],'#b8d9e8',2)}
+else if(wp.k==='cobra'){poly([[4,2],[12,-8],[20,-3],[28,-9],[35,4],[27,9],[12,8]],wp.a,2);poly([[10,4],[17,0],[24,4],[17,8]],wp.c,1);poly([[26,2],[43,2],[48,5],[43,8],[26,8]],'#d9b5a0',2)}
+else if(wp.k==='shark'){poly([[5,3],[14,-9],[21,2],[29,-6],[36,5],[28,9],[12,8]],wp.a,2);poly([[11,4],[17,1],[23,4],[17,7]],wp.c,1);poly([[26,2],[43,2],[48,5],[43,8],[26,8]],'#d6efff',2)}
+else{poly([[4,2],[13,-8],[21,-2],[28,-10],[35,4],[27,9],[12,8]],wp.a,2);poly([[12,3],[19,0],[25,4],[18,8]],wp.c,1);poly([[26,2],[43,2],[48,5],[43,8],[26,8]],'#c8e5b4',2)}
+poly([[3,8],[-3,18],[10,12]],'#18263b',2);poly([[-2,7],[-10,2],[-7,15],[5,17]],wp.c,2);
+for(let i=0;i<7;i++){ctx.fillStyle=wp.a;ctx.beginPath();ctx.moveTo(8+i*5,-3);ctx.lineTo(10+i*5,-8);ctx.lineTo(12+i*5,-3);ctx.closePath();ctx.fill();ctx.strokeStyle='#fff';ctx.lineWidth=.8;ctx.stroke()}
+ctx.fillStyle='#fff';ctx.fillRect(13,3,9,2);ctx.shadowBlur=0;ctx.restore();
 ctx.restore()}enemies.forEach(e=>{if(!e.alive)return;fighter(e.x,e.y,e.face||-1,'#d94d68','#ffb34e',true)});const palette={VORTEX:['#28cbd5','#ffe06a'],NOVA:['#8d72f5','#63e5ff'],BLAZE:['#ef6748','#ffc24b'],SHADOW:['#414b70','#d66cff']}[save.selected]||['#28cbd5','#ffe06a'];fighter(player.x,player.y,player.face,palette[0],palette[1]);ctx.fillStyle='#ffd15a';shots.forEach(s=>{ctx.shadowColor='#ffd15a';ctx.shadowBlur=12;ctx.fillRect(s.x,s.y,15,5)});ctx.shadowBlur=0;enemyShots.forEach(s=>{ctx.fillStyle='#ff526d';ctx.shadowColor='#ff244f';ctx.shadowBlur=15;ctx.beginPath();ctx.arc(s.x,s.y,5,0,Math.PI*2);ctx.fill();ctx.fillStyle='#ffd2dc';ctx.beginPath();ctx.arc(s.x,s.y,2,0,Math.PI*2);ctx.fill()});ctx.shadowBlur=0;ctx.restore();ctx.fillStyle='#10172cbb';ctx.fillRect(18,18,190,55);ctx.fillStyle='#fff';ctx.font='bold 16px Inter';ctx.fillText(save.selected+'  ·  HP '+player.hp,30,43);ctx.font='12px Inter';ctx.fillStyle='#ffe08a';ctx.fillText(enemies.some(e=>e.alive)?'OBJETIVO: ELIMINA A LOS RIVALES':'OBJETIVO: LLEGA A LA BANDERA',30,62);ctx.fillStyle='#fff';ctx.font='bold 14px Inter';ctx.fillText('PROGRESO',800,35);ctx.fillStyle='#ffffff30';ctx.fillRect(800,45,130,8);ctx.fillStyle='#4be2df';ctx.fillRect(800,45,130*Math.min(1,player.x/1800),8);if(paused){ctx.fillStyle='#090d1dcc';ctx.fillRect(0,0,960,540);ctx.fillStyle='#fff';ctx.font='bold 50px Inter';ctx.textAlign='center';ctx.fillText('PAUSA',480,270);ctx.font='18px Inter';ctx.fillText('Presiona ESC para continuar',480,310);ctx.textAlign='left'}}
 renderResources();$('sound').textContent=save.sound?'♫':'🔇';
 })();
