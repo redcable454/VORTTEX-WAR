@@ -2680,3 +2680,87 @@ button{border-radius:8px;font-family:Impact,"Arial Black",system-ui,sans-serif;f
  .panelcard{padding:18px 14px}
  .lobby-welcome{border-radius:9px}
 }
+
+
+/* ===== UNIFICACIÓN REAL DE TODAS LAS SECCIONES ===== */
+#panel{background:radial-gradient(ellipse at 50% 0%,#4b171d 0,transparent 48%),linear-gradient(145deg,#100b0e,#211014 60%,#09090c)!important;color:#fff!important}
+#panel .panelcard{background:linear-gradient(145deg,#24171a,#100d11)!important;border:2px solid #ffc83a!important;border-radius:12px!important;color:#fff!important;box-shadow:0 7px 0 #510f16,0 16px 36px #0009!important}
+#panel .panelcard h2,#panel .panelcard h3{font-family:Impact,"Arial Black",sans-serif!important;font-style:italic!important;color:#ffc83a!important;text-shadow:0 3px #76131b!important;letter-spacing:.8px!important}
+#panel #panelContent{color:#fff!important}
+#panel #panelContent p{color:#e4d2c9!important}
+#panel #panelContent .notice{display:block!important;background:linear-gradient(110deg,#35171d,#1b1116)!important;border:1px solid #ffc83a88!important;border-left:4px solid #ffc83a!important;border-radius:7px!important;color:#ffe9d6!important;padding:12px 14px!important}
+#panel #panelContent .reward,
+#panel #panelContent .unit,
+#panel #panelContent .weapon-unit,
+#panel #panelContent .ff-profile-stat{
+ background:linear-gradient(145deg,#382127 0%,#211419 58%,#130e12 100%)!important;
+ border:1px solid #ffc83a77!important;border-radius:9px!important;
+ color:#fff!important;box-shadow:0 4px 0 #51131a,0 9px 20px #0008!important;
+}
+#panel #panelContent .reward{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:14px!important;padding:14px!important;margin:10px 0!important}
+#panel #panelContent .reward b{color:#ffc83a!important;font-family:Impact,"Arial Black",sans-serif!important;font-size:17px!important}
+#panel #panelContent .reward p{color:#ddc9bf!important}
+#panel #panelContent .reward button,
+#panel #panelContent .unit button,
+#panel #panelContent button.primary,
+#panel #panelContent button.action,
+#panel #panelContent .weapon-action{
+ background:linear-gradient(180deg,#f23a42,#a5121b)!important;color:#fff!important;
+ border:2px solid #ffc83a!important;border-radius:7px!important;
+ box-shadow:0 4px 0 #610e17!important;text-shadow:0 2px #630e15!important;
+}
+#panel #panelContent button:disabled{opacity:.48!important;filter:grayscale(.65)!important}
+#panel #panelContent .shop-grid,
+#panel #panelContent .character-grid,
+#panel #panelContent .weapon-shop-grid{gap:13px!important}
+#panel #panelContent .unit{padding:12px!important;overflow:hidden!important}
+#panel #panelContent .unit.selected{border:2px solid #ffc83a!important;box-shadow:0 0 0 2px #e3202b66,0 0 20px #ffc83a33!important}
+#panel #panelContent .unit h3{color:#ffc83a!important}
+#panel #panelContent .unit .tag,
+#panel #panelContent .weapon-type,
+#panel #panelContent .weapon-price{color:#ffe078!important}
+#panel #panelContent .portrait,
+#panel #panelContent .character-portrait{background:radial-gradient(circle at 50% 38%,#79313a,#26151c 68%,#110d12)!important;border:1px solid #ffc83a66!important;border-radius:8px!important}
+#panel #panelContent .roulette-wheel{background:radial-gradient(circle,#5a2028,#211219 68%)!important;border:8px solid #ffc83a!important;box-shadow:0 0 0 5px #e3202b55,0 0 35px #e3202b66!important}
+#panel #panelContent .name-input{width:100%!important;box-sizing:border-box!important;background:#100c10!important;border:2px solid #a4774a!important;color:#fff!important;border-radius:7px!important;padding:12px!important}
+#panel.profile-mode .panelcard{max-width:1000px!important}
+#panel .profile-dashboard{width:100%!important;color:#fff!important}
+#panel .ff-profile-stage{
+ position:relative!important;overflow:hidden!important;padding:clamp(16px,3vw,30px)!important;
+ border:2px solid #ffc83a!important;border-radius:12px!important;
+ background:radial-gradient(ellipse at 78% 28%,#7a252c 0,transparent 35%),linear-gradient(145deg,#2c171d,#120e13 68%,#09090c)!important;
+ box-shadow:0 7px 0 #510f16,0 16px 36px #0009!important;color:#fff!important;
+}
+#panel .ff-profile-stage:before{content:"";position:absolute;left:16px;right:16px;top:9px;height:3px;background:linear-gradient(90deg,transparent,#ffc83a,transparent)}
+#panel .ff-profile-top{display:flex!important;justify-content:space-between!important;gap:10px!important;align-items:center!important;color:#ffc83a!important}
+#panel .ff-profile-kicker,#panel .ff-profile-season,#panel .ff-profile-label{font-family:Impact,"Arial Black",sans-serif!important;color:#ffc83a!important;letter-spacing:1.4px!important}
+#panel .ff-profile-title{font-family:Impact,"Arial Black",sans-serif!important;font-style:italic!important;font-size:clamp(28px,5vw,48px)!important;color:#ffc83a!important;text-shadow:0 4px #81151d!important}
+#panel .ff-profile-hero{display:grid!important;grid-template-columns:minmax(150px,.8fr) minmax(0,1.2fr)!important;align-items:center!important;gap:clamp(12px,3vw,30px)!important}
+#panel .ff-profile-art{min-height:230px!important;display:flex!important;align-items:center!important;justify-content:center!important;background:radial-gradient(circle at 50% 60%,#a53a3d66,transparent 65%)!important}
+#panel .ff-profile-fighter{width:100%!important;max-width:260px!important;max-height:320px!important;filter:drop-shadow(0 10px 14px #000b)!important}
+#panel .ff-profile-details{background:#100c10b8!important;border:1px solid #ffc83a66!important;border-radius:9px!important;padding:16px!important}
+#panel .ff-profile-name{font-family:Impact,"Arial Black",sans-serif!important;font-size:clamp(22px,4vw,34px)!important;color:#fff!important;text-shadow:0 3px #81151d!important}
+#panel .ff-profile-id,#panel .ff-profile-level span{color:#d6bdb0!important}
+#panel .ff-profile-rank{display:flex!important;align-items:center!important;gap:10px!important;color:#ffc83a!important}
+#panel .ff-rank-medal{display:grid!important;place-items:center!important;width:44px!important;height:44px!important;border:2px solid #ffc83a!important;border-radius:50%!important;background:linear-gradient(#e9ad38,#8d2428)!important;color:#fff!important}
+#panel .ff-profile-level{display:flex!important;justify-content:space-between!important;gap:8px!important;margin-top:14px!important;color:#ffc83a!important}
+#panel .ff-profile-xp{height:9px!important;background:#08090d!important;border:1px solid #ffc83a88!important;border-radius:10px!important;overflow:hidden!important}
+#panel .ff-profile-xp i{display:block!important;height:100%!important;background:linear-gradient(90deg,#e3202b,#ffc83a)!important;box-shadow:0 0 10px #ffc83a88!important}
+#panel .ff-profile-stats{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:10px!important;margin-top:18px!important}
+#panel .ff-profile-stat{display:flex!important;flex-direction:column!important;align-items:center!important;gap:5px!important;padding:12px 5px!important;text-align:center!important}
+#panel .ff-profile-stat span{font-size:22px!important}
+#panel .ff-profile-stat b{font-family:Impact,"Arial Black",sans-serif!important;color:#ffc83a!important;font-size:clamp(17px,3vw,25px)!important}
+#panel .ff-profile-stat small{font-size:9px!important;color:#d9c4b8!important;letter-spacing:1px!important}
+#panel .ff-profile-footer{margin-top:15px!important;padding-top:12px!important;border-top:1px solid #ffc83a55!important;color:#ffc83a!important;font-size:10px!important;letter-spacing:1px!important}
+#game{background:#09090c!important}
+#game .game-wrap{background:#100c10!important;border:3px solid #ffc83a!important}
+#game .game-hud{font-family:Impact,"Arial Black",sans-serif!important}
+#game .game-hud button,#game .game-action{font-family:Impact,"Arial Black",sans-serif!important}
+@media(max-width:620px){
+ #panel .ff-profile-hero{grid-template-columns:minmax(0,1fr)!important}
+ #panel .ff-profile-art{min-height:180px!important}
+ #panel .ff-profile-fighter{max-height:220px!important}
+ #panel .ff-profile-stats{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ #panel #panelContent .reward{align-items:flex-start!important;flex-direction:column!important}
+ #panel #panelContent .reward button{width:100%!important}
+}
